@@ -1,1 +1,955 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="老侯｜AI × Growth｜增长负责人｜Builder。8年广告投放、用户增长与团队管理经验，正在把增长经验做成系统、工作流和产品。"
+  />
+  <title>老侯｜AI × Growth</title>
 
+  <style>
+    :root {
+      --bg: #f7f8fb;
+      --card: #ffffff;
+      --text: #101828;
+      --muted: #667085;
+      --line: #e8ecf3;
+
+      --blue: #2563eb;
+      --purple: #7c3aed;
+      --green: #16a34a;
+
+      --shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+      --radius: 22px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "PingFang SC",
+        "Microsoft YaHei",
+        sans-serif;
+      background: linear-gradient(180deg, #f9fafc 0, #f5f7fb 100%);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .wrap {
+      width: min(var(--max), calc(100% - 40px));
+      margin: auto;
+    }
+
+    /* =========================
+       NAV
+    ========================== */
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(247, 248, 251, 0.82);
+      border-bottom: 1px solid rgba(232, 236, 243, 0.8);
+    }
+
+    .nav-inner {
+      height: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    /* =========================
+       HERO
+    ========================== */
+
+    .hero {
+      padding: 44px 0 28px;
+    }
+
+    .hero-banner {
+      position: relative;
+      overflow: hidden;
+      border-radius: 30px;
+      padding: 64px 56px;
+
+      background:
+        radial-gradient(
+          circle at 78% 38%,
+          rgba(63, 131, 248, 0.35),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 68% 65%,
+          rgba(124, 58, 237, 0.22),
+          transparent 30%
+        ),
+        linear-gradient(135deg, #07111f, #101f35 58%, #122a55);
+
+      color: white;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-banner::after {
+      content: "";
+      position: absolute;
+      right: -10%;
+      bottom: -54%;
+      width: 700px;
+      height: 350px;
+
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      box-shadow: 0 0 70px rgba(76, 137, 255, 0.25) inset;
+
+      transform: rotate(-8deg);
+    }
+
+    .eyebrow {
+      font:
+        600 13px ui-monospace,
+        SFMono-Regular,
+        Menlo,
+        monospace;
+
+      color: #9fb6d9;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-size: 64px;
+      line-height: 1.05;
+      margin: 12px 0 8px;
+      letter-spacing: -0.05em;
+    }
+
+    .hero h2 {
+      margin: 0;
+      font-size: 26px;
+      font-weight: 650;
+    }
+
+    .hero p {
+      max-width: 680px;
+      color: #c9d5e8;
+      margin: 18px 0 0;
+      font-size: 17px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .chip {
+      padding: 9px 13px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      font-size: 13px;
+      color: #e8eef9;
+    }
+
+    /* =========================
+       SECTION
+    ========================== */
+
+    section {
+      padding: 34px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      margin-bottom: 18px;
+    }
+
+    .section-head h3 {
+      font-size: 28px;
+      margin: 0;
+      letter-spacing: -0.03em;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.035);
+    }
+
+    /* =========================
+       ABOUT
+    ========================== */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 0.7fr;
+      gap: 22px;
+    }
+
+    .about {
+      padding: 28px;
+    }
+
+    .about h4 {
+      font-size: 26px;
+      margin: 0 0 10px;
+    }
+
+    .about p {
+      color: #344054;
+      margin: 9px 0;
+    }
+
+    .quote {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: #f4f7ff;
+      border: 1px solid #dfe7ff;
+      font-weight: 700;
+    }
+
+    .side {
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      border: 4px solid #eef2f7;
+      margin-bottom: 16px;
+    }
+
+    .side strong {
+      font-size: 18px;
+    }
+
+    .side small {
+      display: block;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .contact {
+      margin-top: 18px;
+      display: grid;
+      gap: 10px;
+      font-size: 14px;
+      color: #344054;
+    }
+
+    .contact span {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* =========================
+       METRICS
+    ========================== */
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+    }
+
+    .metric {
+      padding: 22px 18px;
+    }
+
+    .metric b {
+      display: block;
+      font-size: 30px;
+      line-height: 1.15;
+      letter-spacing: -0.04em;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* =========================
+       PROJECTS
+    ========================== */
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .project {
+      padding: 24px;
+      transition:
+        0.2s transform,
+        0.2s box-shadow;
+    }
+
+    .project:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .project h4 {
+      font-size: 21px;
+      margin: 0;
+    }
+
+    .project p {
+      color: #475467;
+      margin: 12px 0 16px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      font-size: 12px;
+      padding: 6px 9px;
+      background: #f3f5f8;
+      border-radius: 999px;
+      color: #475467;
+    }
+
+    .status {
+      margin-top: 18px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .status.green {
+      color: var(--green);
+    }
+
+    .status.blue {
+      color: var(--blue);
+    }
+
+    .status.purple {
+      color: var(--purple);
+    }
+
+    /* =========================
+       METHOD + TOOLS
+    ========================== */
+
+    .two {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .method,
+    .tools {
+      padding: 26px;
+    }
+
+    .flow {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .flow span {
+      padding: 8px 12px;
+      border: 1px solid #dbe3f1;
+      border-radius: 10px;
+      background: #f8faff;
+      font-size: 13px;
+    }
+
+    .arrow {
+      color: #98a2b3;
+    }
+
+    .tool-groups {
+      display: grid;
+      gap: 18px;
+      margin-top: 16px;
+    }
+
+    .tool-group b {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .tool-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tool-list span {
+      padding: 7px 10px;
+      border-radius: 10px;
+      background: #f5f7fa;
+      border: 1px solid #e5eaf1;
+      font-size: 13px;
+    }
+
+    /* =========================
+       BOTTOM
+    ========================== */
+
+    .bottom-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .list-card {
+      padding: 26px;
+    }
+
+    .list-card ul {
+      margin: 12px 0 0;
+      padding-left: 20px;
+      color: #475467;
+    }
+
+    .list-card li {
+      margin: 7px 0;
+    }
+
+    .accent {
+      background: linear-gradient(90deg, #2563eb, #7c3aed);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    .footer {
+      padding: 34px 0 56px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================== */
+
+    @media (max-width: 900px) {
+      .metrics {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-grid,
+      .two,
+      .bottom-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+      }
+
+      .hero-banner {
+        padding: 48px 30px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .wrap {
+        width: min(var(--max), calc(100% - 24px));
+      }
+
+      .hero {
+        padding-top: 22px;
+      }
+
+      .hero-banner {
+        padding: 36px 22px;
+        border-radius: 24px;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      .hero h2 {
+        font-size: 21px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .metrics {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .metric b {
+        font-size: 26px;
+      }
+
+      .section-head {
+        align-items: start;
+        gap: 8px;
+        flex-direction: column;
+      }
+
+      .about,
+      .side,
+      .project,
+      .method,
+      .tools,
+      .list-card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top">老侯 / AI × Growth</a>
+
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#results">Results</a>
+        <a href="#projects">Projects</a>
+        <a href="#method">Method</a>
+        <a href="#connect">Connect</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <div class="wrap hero">
+      <div class="hero-banner">
+        <div class="eyebrow">
+          Turn Growth Experience into AI Products.
+        </div>
+
+        <h1>老侯</h1>
+
+        <h2>AI × Growth · Growth Lead · Builder</h2>
+
+        <p>
+          8 年广告投放、用户增长和团队管理经验。
+          现在，我正在把过去依赖个人经验完成的增长工作，
+          逐步变成系统、Workflow、Agent 和产品。
+        </p>
+
+        <div class="chips">
+          <span class="chip">8+ Years Growth</span>
+          <span class="chip">17M+ Monthly Acquisition</span>
+          <span class="chip">AI × Growth</span>
+          <span class="chip">Builder</span>
+          <span class="chip">Hangzhou</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="wrap about-grid">
+        <article class="card about">
+          <h4>你好，我是老侯。</h4>
+
+          <p>
+            从一线投手一路做到增长负责人，
+            做过公众号、家装、房地产、教育、医美、小游戏、
+            本地生活、电商等业务，也带过 10–15 人团队。
+          </p>
+
+          <p>
+            过去我更擅长发现问题、制定策略、推动团队执行。
+            现在我更想把这些经验做成真正可以使用的东西。
+          </p>
+
+          <div class="quote">
+            方法 → SOP → Workflow → Agent → Tool → Product
+          </div>
+        </article>
+
+        <aside class="card side">
+          <div>
+            <img
+              class="avatar"
+              src="https://avatars.githubusercontent.com/u/267829894?v=4"
+              alt="老侯 GitHub avatar"
+            />
+
+            <strong>老侯｜AI × Growth</strong>
+            <small>Growth Lead → AI Builder</small>
+          </div>
+
+          <div class="contact">
+            <span>✉️ 2224878257@qq.com</span>
+            <span>💻 @2224878257-pixel</span>
+            <span>📍 Hangzhou, China</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- RESULTS -->
+    <section id="results">
+      <div class="wrap">
+        <div class="section-head">
+          <h3>关键结果</h3>
+          <p>用结果说明我做过什么</p>
+        </div>
+
+        <div class="metrics">
+          <div class="card metric">
+            <b>1700万+</b>
+            <span>公众号单月新增粉丝</span>
+          </div>
+
+          <div class="card metric">
+            <b>141.7%</b>
+            <span>项目目标完成率</span>
+          </div>
+
+          <div class="card metric">
+            <b>30%+</b>
+            <span>部分项目转化成本下降</span>
+          </div>
+
+          <div class="card metric">
+            <b>50%+</b>
+            <span>SOP + AI 人效提升</span>
+          </div>
+
+          <div class="card metric">
+            <b>10–15人</b>
+            <span>团队管理规模</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="wrap">
+        <div class="section-head">
+          <h3>重点项目</h3>
+          <p>把经验变成可复用的系统和工具</p>
+        </div>
+
+        <div class="projects">
+          <article class="card project">
+            <div class="project-top">
+              <h4>AI Growth Workspace</h4>
+              <span>↗</span>
+            </div>
+
+            <p>
+              把企业增长中的高频工作系统化：
+              企业研究、客户诊断、投放分析、
+              内容生产、数据分析和客户交付。
+            </p>
+
+            <div class="tags">
+              <span class="tag">AI</span>
+              <span class="tag">Growth</span>
+              <span class="tag">Workflow</span>
+            </div>
+
+            <div class="status green">
+              ● Building
+            </div>
+          </article>
+
+          <article class="card project">
+            <div class="project-top">
+              <h4>Ad Diagnosis Agent</h4>
+              <span>↗</span>
+            </div>
+
+            <p>
+              用 AI 做广告账户诊断：
+              数据 → 异常 → 归因 → 优先级 →
+              优化建议 → 复盘。
+            </p>
+
+            <div class="tags">
+              <span class="tag">Ads</span>
+              <span class="tag">AI Agent</span>
+              <span class="tag">Data</span>
+            </div>
+
+            <div class="status blue">
+              ● Planning
+            </div>
+          </article>
+
+          <article class="card project">
+            <div class="project-top">
+              <h4>E-commerce Support AI</h4>
+              <span>↗</span>
+            </div>
+
+            <p>
+              为电商售后搭建知识库、案例库、
+              复盘库、新品库与话术库，
+              让 AI 优先调用历史经验再辅助回复。
+            </p>
+
+            <div class="tags">
+              <span class="tag">AI</span>
+              <span class="tag">Customer Support</span>
+              <span class="tag">SOP</span>
+            </div>
+
+            <div class="status green">
+              ● Building
+            </div>
+          </article>
+
+          <article class="card project">
+            <div class="project-top">
+              <h4>Growth Case Library</h4>
+              <span>↗</span>
+            </div>
+
+            <p>
+              持续沉淀真实增长案例：
+              公众号、装修、房地产、小游戏、
+              本地生活、电商与团队管理。
+            </p>
+
+            <div class="tags">
+              <span class="tag">Case Study</span>
+              <span class="tag">Growth</span>
+              <span class="tag">Notes</span>
+            </div>
+
+            <div class="status purple">
+              ● Updating
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- METHOD + TOOLS -->
+    <section id="method">
+      <div class="wrap two">
+        <article class="card method">
+          <div class="section-head">
+            <h3>我的增长方法</h3>
+          </div>
+
+          <p>
+            我不相信“只要调好广告后台，增长问题就解决了”。
+            真正的增长，是一整条链路。
+          </p>
+
+          <div class="flow">
+            <span>市场</span>
+            <b class="arrow">→</b>
+            <span>用户</span>
+            <b class="arrow">→</b>
+            <span>产品</span>
+            <b class="arrow">→</b>
+            <span>内容</span>
+            <b class="arrow">→</b>
+            <span>流量</span>
+            <b class="arrow">→</b>
+            <span>承接</span>
+            <b class="arrow">→</b>
+            <span>销售</span>
+            <b class="arrow">→</b>
+            <span>复购</span>
+            <b class="arrow">→</b>
+            <span>数据</span>
+          </div>
+
+          <p>
+            先找到真正限制增长的变量，
+            再决定该投广告、改内容、优化销售，
+            还是交给 AI 自动化。
+          </p>
+        </article>
+
+        <article class="card tools">
+          <div class="section-head">
+            <h3>我在使用的工具</h3>
+          </div>
+
+          <div class="tool-groups">
+            <div class="tool-group">
+              <b>Growth</b>
+
+              <div class="tool-list">
+                <span>腾讯广告</span>
+                <span>巨量引擎</span>
+                <span>快手磁力</span>
+                <span>小红书聚光</span>
+                <span>百度营销</span>
+              </div>
+            </div>
+
+            <div class="tool-group">
+              <b>AI & Build</b>
+
+              <div class="tool-list">
+                <span>ChatGPT</span>
+                <span>Codex</span>
+                <span>Gemini</span>
+                <span>NotebookLM</span>
+                <span>Notion</span>
+                <span>GitHub</span>
+                <span>Automation</span>
+                <span>AI Agent</span>
+              </div>
+            </div>
+          </div>
+
+          <p>
+            <em>Stack changes. Problems come first.</em>
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- NEXT / CONNECT -->
+    <section id="connect">
+      <div class="wrap bottom-grid">
+        <article class="card list-card">
+          <div class="section-head">
+            <h3>接下来我在做什么</h3>
+          </div>
+
+          <ul>
+            <li>持续搭建 AI 增长工作台</li>
+            <li>把广告诊断逐步做成可复用系统</li>
+            <li>沉淀更多真实增长案例和方法论</li>
+            <li>发布个人网站与完整作品集</li>
+          </ul>
+        </article>
+
+        <article class="card list-card">
+          <div class="section-head">
+            <h3>可以找我聊什么</h3>
+          </div>
+
+          <ul>
+            <li>企业增长 / 用户增长</li>
+            <li>广告投放 / 账户诊断</li>
+            <li>AI 工作流 / AI 提效</li>
+            <li>AI 产品 / Builder 相关机会</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- SLOGAN -->
+    <section>
+      <div class="wrap">
+        <div
+          class="card"
+          style="padding: 30px; text-align: center;"
+        >
+          <div
+            class="eyebrow"
+            style="color: #667085;"
+          >
+            Growth is a system.
+          </div>
+
+          <h3
+            style="
+              font-size: 30px;
+              margin: 8px 0 0;
+            "
+          >
+            AI is leverage.
+            <span class="accent">
+              Building is execution.
+            </span>
+          </h3>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    © 2026 老侯 · AI × Growth · Built on GitHub Pages
+  </footer>
+</body>
+</html>

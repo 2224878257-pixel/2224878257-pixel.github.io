@@ -35,8 +35,8 @@ background:radial-gradient(circle at 92% 10%,rgba(37,99,235,.10),transparent 28%
 .signal-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px}.signal{padding:16px 14px;border:1px solid #e6ebf2;border-radius:15px;background:white}
 .signal b{display:block;font-size:27px;line-height:1.1}.signal span{display:block;margin-top:6px;color:var(--muted);font-size:12px}
 .hero-mini{display:grid;gap:9px;margin-top:18px;padding-top:16px;border-top:1px solid #e5eaf2;color:#475467;font-size:13px}
-.hero-mini-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}.hero-social{width:38px;height:38px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;border:1px solid #dce3ed;background:#fff;font-size:12px;font-weight:800}
-.hero-social.wechat{color:#16a34a}.hero-social.xhs{color:#ef4444}.hero-social.douyin{color:#111827}.hero-social.x{color:#000}
+.hero-mini-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}.hero-social{width:38px;height:38px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;border:1px solid #dce3ed;background:#fff;transition:.2s}
+.hero-social:hover{transform:translateY(-2px);box-shadow:0 6px 14px rgba(15,23,42,.10)}.hero-social img{display:block;width:20px;height:20px}
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .item-card{padding:22px;transition:.2s}.item-card:hover{transform:translateY(-4px);box-shadow:var(--hover)}
 .item-kicker{font-size:12px;color:var(--blue);font-weight:800;letter-spacing:.08em}.item-card h3{margin:8px 0 8px;font-size:20px}
@@ -44,7 +44,7 @@ background:radial-gradient(circle at 92% 10%,rgba(37,99,235,.10),transparent 28%
 .tag{padding:6px 9px;border-radius:999px;background:#f2f4f7;color:#475467;font-size:12px}.arrow-link{display:inline-block;margin-top:16px;color:var(--blue);font-weight:750;font-size:13px}
 .social-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.social-card{padding:22px}.social-top{display:flex;justify-content:space-between;align-items:center}
 .social-name{font-size:19px;font-weight:850}.social-card p{color:var(--muted);font-size:13px}.qr-card{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center}
-.qr-box{width:118px;height:118px;padding:6px;border:1px solid #e2e7ef;border-radius:14px;background:#fff}.qr-box img{width:100%;height:100%;object-fit:cover;border-radius:9px}
+.qr-box{width:118px;height:118px;padding:6px;border:1px solid #e2e7ef;border-radius:14px;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden}.qr-box img{display:block;width:100%;height:100%;object-fit:contain;object-position:center;border-radius:9px}
 .footer{padding:34px 0 56px;text-align:center;color:var(--muted);font-size:13px}
 .page-hero{padding:54px 0 18px}.page-hero h1{font-size:48px;margin:0 0 10px;letter-spacing:-.05em}.page-hero p{color:var(--muted);max-width:720px}
 .detail{max-width:860px;margin:0 auto}.detail .card{padding:32px}.detail h2{margin-top:28px}.detail p,.detail li{color:#475467}
@@ -74,7 +74,7 @@ background:radial-gradient(circle at 92% 10%,rgba(37,99,235,.10),transparent 28%
 <div class="hero-profile-top"><img class="hero-avatar" src="https://avatars.githubusercontent.com/u/267829894?v=4" alt="老侯头像"><div><div class="hero-profile-name">老侯｜AI × Growth</div><div class="hero-profile-role">Growth Lead → AI Builder</div></div></div>
 <div class="signal-title">Key Results</div>
 <div class="signal-grid"><div class="signal"><b>1700万+</b><span>公众号单月新增粉丝</span></div><div class="signal"><b>141.7%</b><span>项目目标完成率</span></div><div class="signal"><b>30%+</b><span>部分项目转化成本下降</span></div><div class="signal"><b>50%+</b><span>SOP + AI 人效提升</span></div></div>
-<div class="hero-mini"><div>📍 Hangzhou, China</div><div>✉️ 0@4.com</div><div><span>也可以在这些平台找到我：</span><div class="hero-mini-links"><a class="hero-social wechat" href="#follow">微信</a><a class="hero-social xhs" href="https://xhslink.cn/o/6GBc3jNCZAJ" target="_blank">小红书</a><a class="hero-social douyin" href="https://v.douyin.com/vRrS_vDoSOk/" target="_blank">抖音</a><a class="hero-social x" href="https://x.com/LaohouGrowth" target="_blank">X</a></div></div></div>
+<div class="hero-mini"><div>📍 Hangzhou, China</div><div>✉️ 2224878257@qq.com</div><div><span>也可以在这些平台找到我：</span><div class="hero-mini-links"><a class="hero-social" href="#follow" aria-label="微信"><img src="/assets/logo-wechat.svg" alt=""></a><a class="hero-social" href="https://xhslink.cn/o/6GBc3jNCZAJ" target="_blank" rel="noopener noreferrer" aria-label="小红书"><img src="/assets/logo-xiaohongshu.svg" alt=""></a><a class="hero-social" href="https://v.douyin.com/vRrS_vDoSOk/" target="_blank" rel="noopener noreferrer" aria-label="抖音"><img src="/assets/logo-douyin.svg" alt=""></a><a class="hero-social" href="https://x.com/LaohouGrowth" target="_blank" rel="noopener noreferrer" aria-label="X"><img src="/assets/logo-x.svg" alt=""></a></div></div></div>
 </aside>
 </div></section></div>
 
@@ -112,7 +112,7 @@ background:radial-gradient(circle at 92% 10%,rgba(37,99,235,.10),transparent 28%
 <article class="card social-card qr-card"><div><div class="social-top"><div class="social-name">小红书</div></div><p>老侯聊增长<br>AI × Growth / Builder</p><a class="arrow-link" href="https://xhslink.cn/o/6GBc3jNCZAJ" target="_blank">访问主页 →</a></div><div class="qr-box"><img src="/assets/xiaohongshu-qr.jpg" alt="小红书二维码"></div></article>
 <article class="card social-card qr-card"><div><div class="social-top"><div class="social-name">抖音</div></div><p>@老侯聊增长<br>口播 / 投放 / 增长</p><a class="arrow-link" href="https://v.douyin.com/vRrS_vDoSOk/" target="_blank">访问主页 →</a></div><div class="qr-box"><img src="/assets/douyin-qr.jpg" alt="抖音二维码"></div></article>
 <article class="card social-card"><div class="social-name">X</div><p>@LaohouGrowth<br>AI × Growth / Builder / Thinking</p><a class="arrow-link" href="https://x.com/LaohouGrowth" target="_blank">Visit Profile →</a></article>
-<article class="card social-card"><div class="social-name">Email</div><p>商务合作 / 工作机会 / 项目交流<br>0@4.com</p><a class="arrow-link" href="mailto:0@4.com">发送邮件 →</a></article>
+<article class="card social-card"><div class="social-name">Email</div><p>商务合作 / 工作机会 / 项目交流<br>2224878257@qq.com</p><a class="arrow-link" href="mailto:2224878257@qq.com">发送邮件 →</a></article>
 <article class="card social-card"><div class="social-name">GitHub</div><p>@2224878257-pixel<br>Projects / Experiments / Building</p><a class="arrow-link" href="https://github.com/2224878257-pixel" target="_blank">Visit GitHub →</a></article>
 </div></div></section>
 </main>

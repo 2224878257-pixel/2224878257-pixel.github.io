@@ -11,18 +11,29 @@
 
   <style>
     :root {
-      --bg: #f7f8fb;
+      --bg: #f6f8fb;
       --card: #ffffff;
       --text: #101828;
       --muted: #667085;
-      --line: #e8ecf3;
+      --muted-2: #98a2b3;
+      --line: #e7ebf2;
 
       --blue: #2563eb;
+      --blue-2: #3b82f6;
       --purple: #7c3aed;
       --green: #16a34a;
 
-      --shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
-      --radius: 22px;
+      --dark: #07111f;
+      --dark-2: #0c1830;
+      --dark-3: #142b59;
+
+      --shadow: 0 12px 34px rgba(15, 23, 42, 0.07);
+      --shadow-soft: 0 6px 18px rgba(15, 23, 42, 0.04);
+
+      --radius-xl: 30px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+
       --max: 1180px;
     }
 
@@ -36,6 +47,9 @@
 
     body {
       margin: 0;
+      color: var(--text);
+      background:
+        linear-gradient(180deg, #fbfcfe 0%, #f7f9fc 40%, #f4f7fb 100%);
       font-family:
         Inter,
         -apple-system,
@@ -44,9 +58,7 @@
         "PingFang SC",
         "Microsoft YaHei",
         sans-serif;
-      background: linear-gradient(180deg, #f9fafc 0, #f5f7fb 100%);
-      color: var(--text);
-      line-height: 1.7;
+      line-height: 1.72;
     }
 
     a {
@@ -56,20 +68,52 @@
 
     .wrap {
       width: min(var(--max), calc(100% - 40px));
-      margin: auto;
+      margin: 0 auto;
     }
 
-    /* =========================
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .section {
+      padding: 34px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 20px;
+      margin-bottom: 18px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: 28px;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* ========================
        NAV
-    ========================== */
+    ======================== */
 
     .nav {
       position: sticky;
       top: 0;
-      z-index: 20;
-      backdrop-filter: blur(14px);
-      background: rgba(247, 248, 251, 0.82);
-      border-bottom: 1px solid rgba(232, 236, 243, 0.8);
+      z-index: 30;
+      border-bottom: 1px solid rgba(231, 235, 242, 0.85);
+      background: rgba(248, 250, 252, 0.84);
+      backdrop-filter: blur(16px);
     }
 
     .nav-inner {
@@ -82,222 +126,366 @@
     .brand {
       font-weight: 800;
       letter-spacing: -0.02em;
+      font-size: 15px;
     }
 
     .nav-links {
       display: flex;
-      gap: 22px;
-      color: var(--muted);
+      align-items: center;
+      gap: 24px;
       font-size: 14px;
+      color: var(--muted);
+    }
+
+    .nav-links a {
+      transition: 0.2s ease;
     }
 
     .nav-links a:hover {
       color: var(--text);
     }
 
-    /* =========================
+    /* ========================
        HERO
-    ========================== */
+    ======================== */
 
     .hero {
-      padding: 44px 0 28px;
+      padding: 42px 0 22px;
     }
 
     .hero-banner {
       position: relative;
       overflow: hidden;
-      border-radius: 30px;
-      padding: 64px 56px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 32px;
+      align-items: center;
 
+      min-height: 460px;
+      padding: 54px 52px;
+      border-radius: var(--radius-xl);
+
+      color: #fff;
       background:
         radial-gradient(
-          circle at 78% 38%,
-          rgba(63, 131, 248, 0.35),
-          transparent 28%
+          circle at 80% 22%,
+          rgba(59, 130, 246, 0.3),
+          transparent 24%
         ),
         radial-gradient(
-          circle at 68% 65%,
-          rgba(124, 58, 237, 0.22),
+          circle at 78% 72%,
+          rgba(124, 58, 237, 0.24),
           transparent 30%
         ),
-        linear-gradient(135deg, #07111f, #101f35 58%, #122a55);
+        linear-gradient(
+          135deg,
+          var(--dark) 0%,
+          var(--dark-2) 48%,
+          var(--dark-3) 100%
+        );
 
-      color: white;
-      box-shadow: var(--shadow);
+      box-shadow: 0 22px 54px rgba(15, 23, 42, 0.14);
+    }
+
+    .hero-banner::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+
+      background:
+        linear-gradient(
+          rgba(255, 255, 255, 0.04) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.04) 1px,
+          transparent 1px
+        );
+
+      background-size: 30px 30px;
+      mask-image:
+        linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.36),
+          transparent 85%
+        );
     }
 
     .hero-banner::after {
       content: "";
       position: absolute;
-      right: -10%;
-      bottom: -54%;
-      width: 700px;
-      height: 350px;
-
+      right: -12%;
+      bottom: -40%;
+      width: 620px;
+      height: 320px;
       border-radius: 50%;
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      box-shadow: 0 0 70px rgba(76, 137, 255, 0.25) inset;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow:
+        0 0 90px rgba(76, 137, 255, 0.16) inset;
+      transform: rotate(-10deg);
+      pointer-events: none;
+    }
 
-      transform: rotate(-8deg);
+    .hero-copy,
+    .hero-panel {
+      position: relative;
+      z-index: 2;
     }
 
     .eyebrow {
+      display: inline-block;
+      color: #aebfda;
       font:
-        600 13px ui-monospace,
+        700 12px ui-monospace,
         SFMono-Regular,
         Menlo,
         monospace;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
 
-      color: #9fb6d9;
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: 64px;
+      line-height: 1;
+      letter-spacing: -0.06em;
+    }
+
+    .hero h3 {
+      margin: 0;
+      font-size: 27px;
+      line-height: 1.35;
+      font-weight: 700;
+    }
+
+    .hero-desc {
+      margin: 18px 0 0;
+      max-width: 680px;
+      color: #d3deed;
+      font-size: 17px;
+    }
+
+    .hero-line {
+      margin-top: 14px;
+      color: #9fb4d3;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .hero-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 24px;
+    }
+
+    .hero-chip {
+      padding: 9px 13px;
+      border-radius: 999px;
+
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.13);
+
+      color: #eff4ff;
+      font-size: 12px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 16px;
+
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 700;
+
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .btn-primary {
+      background: #fff;
+      color: #101828;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      color: #edf3ff;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .hero-panel {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .signal-card {
+      width: 100%;
+      max-width: 360px;
+
+      padding: 22px;
+      border-radius: 22px;
+
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(12px);
+    }
+
+    .signal-title {
+      margin-bottom: 14px;
+      color: #b9c7db;
+      font-size: 12px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
     }
 
-    .hero h1 {
-      font-size: 64px;
-      line-height: 1.05;
-      margin: 12px 0 8px;
-      letter-spacing: -0.05em;
+    .signal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
     }
 
-    .hero h2 {
-      margin: 0;
+    .signal-item {
+      padding: 15px 14px;
+      border-radius: 15px;
+
+      background: rgba(255, 255, 255, 0.055);
+      border: 1px solid rgba(255, 255, 255, 0.075);
+    }
+
+    .signal-item b {
+      display: block;
       font-size: 26px;
-      font-weight: 650;
+      line-height: 1.1;
+      letter-spacing: -0.04em;
     }
 
-    .hero p {
-      max-width: 680px;
-      color: #c9d5e8;
-      margin: 18px 0 0;
-      font-size: 17px;
+    .signal-item span {
+      display: block;
+      margin-top: 6px;
+      color: #d7e1ef;
+      font-size: 12px;
+      line-height: 1.5;
     }
 
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 28px;
-    }
+    .signal-footer {
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px solid rgba(255, 255, 255, 0.11);
 
-    .chip {
-      padding: 9px 13px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.13);
+      color: #c5d2e5;
       font-size: 13px;
-      color: #e8eef9;
+      line-height: 1.7;
     }
 
-    /* =========================
-       SECTION
-    ========================== */
-
-    section {
-      padding: 34px 0;
-    }
-
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      margin-bottom: 18px;
-    }
-
-    .section-head h3 {
-      font-size: 28px;
-      margin: 0;
-      letter-spacing: -0.03em;
-    }
-
-    .section-head p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.035);
-    }
-
-    /* =========================
+    /* ========================
        ABOUT
-    ========================== */
+    ======================== */
 
     .about-grid {
       display: grid;
-      grid-template-columns: 1.5fr 0.7fr;
-      gap: 22px;
+      grid-template-columns: 1.45fr 0.7fr;
+      gap: 18px;
     }
 
-    .about {
+    .about-main {
       padding: 28px;
     }
 
-    .about h4 {
-      font-size: 26px;
-      margin: 0 0 10px;
+    .about-main h2 {
+      margin: 0;
+      font-size: 28px;
+      letter-spacing: -0.03em;
     }
 
-    .about p {
+    .about-main p {
+      margin: 10px 0 0;
       color: #344054;
-      margin: 9px 0;
     }
 
-    .quote {
-      margin-top: 18px;
-      padding: 16px 18px;
-      border-radius: 16px;
-      background: #f4f7ff;
-      border: 1px solid #dfe7ff;
-      font-weight: 700;
+    .about-path {
+      margin-top: 20px;
+      padding: 17px 18px;
+
+      border: 1px solid #dfe7fb;
+      border-radius: 15px;
+
+      background:
+        linear-gradient(
+          90deg,
+          #f7f9ff 0%,
+          #f3f6ff 100%
+        );
+
+      font-weight: 750;
+      letter-spacing: -0.01em;
     }
 
-    .side {
-      padding: 26px;
+    .profile-card {
+      padding: 24px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
 
-    .avatar {
-      width: 96px;
-      height: 96px;
-      border-radius: 50%;
-      border: 4px solid #eef2f7;
-      margin-bottom: 16px;
-    }
-
-    .side strong {
-      font-size: 18px;
-    }
-
-    .side small {
-      display: block;
-      color: var(--muted);
-      margin-top: 4px;
-    }
-
-    .contact {
-      margin-top: 18px;
-      display: grid;
-      gap: 10px;
-      font-size: 14px;
-      color: #344054;
-    }
-
-    .contact span {
+    .profile-top {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 14px;
     }
 
-    /* =========================
+    .avatar {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      border: 4px solid #eef1f6;
+      object-fit: cover;
+    }
+
+    .profile-name {
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .profile-role {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .profile-info {
+      display: grid;
+      gap: 9px;
+      margin-top: 20px;
+      color: #344054;
+      font-size: 13px;
+    }
+
+    /* ========================
        METRICS
-    ========================== */
+    ======================== */
 
     .metrics {
       display: grid;
@@ -305,27 +493,28 @@
       gap: 14px;
     }
 
-    .metric {
+    .metric-card {
       padding: 22px 18px;
+      min-height: 130px;
     }
 
-    .metric b {
+    .metric-card b {
       display: block;
       font-size: 30px;
-      line-height: 1.15;
+      line-height: 1.12;
       letter-spacing: -0.04em;
     }
 
-    .metric span {
+    .metric-card span {
       display: block;
-      margin-top: 8px;
+      margin-top: 9px;
       color: var(--muted);
       font-size: 13px;
     }
 
-    /* =========================
+    /* ========================
        PROJECTS
-    ========================== */
+    ======================== */
 
     .projects {
       display: grid;
@@ -333,32 +522,39 @@
       gap: 16px;
     }
 
-    .project {
+    .project-card {
       padding: 24px;
       transition:
-        0.2s transform,
-        0.2s box-shadow;
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
     }
 
-    .project:hover {
-      transform: translateY(-3px);
+    .project-card:hover {
+      transform: translateY(-4px);
       box-shadow: var(--shadow);
     }
 
-    .project-top {
+    .project-head {
       display: flex;
       justify-content: space-between;
-      gap: 14px;
+      align-items: start;
+      gap: 12px;
     }
 
-    .project h4 {
+    .project-title {
       font-size: 21px;
-      margin: 0;
+      line-height: 1.35;
+      font-weight: 800;
     }
 
-    .project p {
-      color: #475467;
+    .project-arrow {
+      color: var(--muted-2);
+      font-size: 18px;
+    }
+
+    .project-card p {
       margin: 12px 0 16px;
+      color: #475467;
     }
 
     .tags {
@@ -368,44 +564,49 @@
     }
 
     .tag {
-      font-size: 12px;
       padding: 6px 9px;
-      background: #f3f5f8;
       border-radius: 999px;
+      background: #f2f4f7;
       color: #475467;
+      font-size: 12px;
     }
 
     .status {
       margin-top: 18px;
       font-size: 13px;
-      font-weight: 700;
+      font-weight: 750;
     }
 
-    .status.green {
+    .green {
       color: var(--green);
     }
 
-    .status.blue {
+    .blue {
       color: var(--blue);
     }
 
-    .status.purple {
+    .purple {
       color: var(--purple);
     }
 
-    /* =========================
-       METHOD + TOOLS
-    ========================== */
+    /* ========================
+       METHOD / TOOLS
+    ======================== */
 
-    .two {
+    .split {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 18px;
     }
 
-    .method,
-    .tools {
+    .method-card,
+    .tools-card {
       padding: 26px;
+    }
+
+    .method-card p,
+    .tools-card p {
+      color: #475467;
     }
 
     .flow {
@@ -413,30 +614,37 @@
       flex-wrap: wrap;
       align-items: center;
       gap: 8px;
-      margin-top: 16px;
+      margin: 18px 0;
     }
 
     .flow span {
       padding: 8px 12px;
+
       border: 1px solid #dbe3f1;
       border-radius: 10px;
+
       background: #f8faff;
+      color: #344054;
       font-size: 13px;
     }
 
     .arrow {
-      color: #98a2b3;
+      color: #a6afbd;
+      font-weight: 700;
     }
 
-    .tool-groups {
-      display: grid;
-      gap: 18px;
-      margin-top: 16px;
+    .tool-section {
+      margin-top: 18px;
     }
 
-    .tool-group b {
-      display: block;
-      margin-bottom: 8px;
+    .tool-section:first-child {
+      margin-top: 0;
+    }
+
+    .tool-title {
+      margin-bottom: 10px;
+      font-size: 14px;
+      font-weight: 800;
     }
 
     .tool-list {
@@ -445,17 +653,60 @@
       gap: 8px;
     }
 
-    .tool-list span {
+    .tool {
       padding: 7px 10px;
-      border-radius: 10px;
-      background: #f5f7fa;
-      border: 1px solid #e5eaf1;
+
+      border: 1px solid #e5e9f0;
+      border-radius: 9px;
+
+      background: #f7f8fa;
+      color: #344054;
+      font-size: 12px;
+    }
+
+    .stack-note {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 13px;
+      font-style: italic;
+    }
+
+    /* ========================
+       CASES
+    ======================== */
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .case-card {
+      padding: 20px;
+    }
+
+    .case-no {
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .case-card h3 {
+      margin: 7px 0 6px;
+      font-size: 18px;
+      line-height: 1.4;
+    }
+
+    .case-card p {
+      margin: 0;
+      color: var(--muted);
       font-size: 13px;
     }
 
-    /* =========================
+    /* ========================
        BOTTOM
-    ========================== */
+    ======================== */
 
     .bottom-grid {
       display: grid;
@@ -463,49 +714,89 @@
       gap: 18px;
     }
 
-    .list-card {
-      padding: 26px;
+    .bottom-card {
+      padding: 25px;
     }
 
-    .list-card ul {
+    .bottom-card ul {
       margin: 12px 0 0;
       padding-left: 20px;
       color: #475467;
     }
 
-    .list-card li {
+    .bottom-card li {
       margin: 7px 0;
     }
 
+    .quote-card {
+      padding: 32px;
+      text-align: center;
+    }
+
+    .quote-small {
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .quote-card h2 {
+      margin: 8px 0 0;
+      font-size: 32px;
+      letter-spacing: -0.04em;
+    }
+
     .accent {
-      background: linear-gradient(90deg, #2563eb, #7c3aed);
+      background:
+        linear-gradient(
+          90deg,
+          var(--blue),
+          var(--purple)
+        );
+
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
 
-    /* =========================
+    /* ========================
        FOOTER
-    ========================== */
+    ======================== */
 
     .footer {
-      padding: 34px 0 56px;
+      padding: 32px 0 56px;
+      text-align: center;
       color: var(--muted);
       font-size: 13px;
-      text-align: center;
     }
 
-    /* =========================
+    /* ========================
        RESPONSIVE
-    ========================== */
+    ======================== */
 
-    @media (max-width: 900px) {
+    @media (max-width: 980px) {
+      .hero-banner {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-panel {
+        justify-content: flex-start;
+      }
+
+      .signal-card {
+        max-width: 100%;
+      }
+
       .metrics {
         grid-template-columns: repeat(2, 1fr);
       }
 
+      .case-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
       .about-grid,
-      .two,
+      .split,
       .bottom-grid {
         grid-template-columns: 1fr;
       }
@@ -513,17 +804,24 @@
       .projects {
         grid-template-columns: 1fr;
       }
+    }
+
+    @media (max-width: 720px) {
+      .nav-links {
+        display: none;
+      }
 
       .hero h1 {
         font-size: 48px;
       }
 
-      .hero-banner {
-        padding: 48px 30px;
+      .hero h3 {
+        font-size: 23px;
       }
 
-      .nav-links {
-        display: none;
+      .hero-banner {
+        min-height: auto;
+        padding: 42px 28px;
       }
     }
 
@@ -532,12 +830,16 @@
         width: min(var(--max), calc(100% - 24px));
       }
 
+      .section {
+        padding: 25px 0;
+      }
+
       .hero {
-        padding-top: 22px;
+        padding-top: 20px;
       }
 
       .hero-banner {
-        padding: 36px 22px;
+        padding: 32px 20px;
         border-radius: 24px;
       }
 
@@ -545,50 +847,63 @@
         font-size: 42px;
       }
 
-      .hero h2 {
+      .hero h3 {
         font-size: 21px;
       }
 
-      .hero p {
+      .hero-desc {
         font-size: 15px;
       }
 
-      .metrics {
+      .signal-grid {
         grid-template-columns: 1fr 1fr;
       }
 
-      .metric b {
+      .metrics,
+      .case-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .metric-card b {
         font-size: 26px;
       }
 
       .section-head {
-        align-items: start;
-        gap: 8px;
+        align-items: flex-start;
         flex-direction: column;
+        gap: 6px;
       }
 
-      .about,
-      .side,
-      .project,
-      .method,
-      .tools,
-      .list-card {
+      .about-main,
+      .profile-card,
+      .project-card,
+      .method-card,
+      .tools-card,
+      .bottom-card {
         padding: 20px;
+      }
+
+      .quote-card h2 {
+        font-size: 26px;
       }
     }
   </style>
 </head>
 
 <body>
+  <!-- NAV -->
   <header class="nav">
     <div class="wrap nav-inner">
-      <a class="brand" href="#top">老侯 / AI × Growth</a>
+      <a href="#top" class="brand">
+        老侯 / AI × Growth
+      </a>
 
       <nav class="nav-links">
         <a href="#about">About</a>
         <a href="#results">Results</a>
         <a href="#projects">Projects</a>
         <a href="#method">Method</a>
+        <a href="#cases">Cases</a>
         <a href="#connect">Connect</a>
       </nav>
     </div>
@@ -597,124 +912,254 @@
   <main id="top">
     <!-- HERO -->
     <div class="wrap hero">
-      <div class="hero-banner">
-        <div class="eyebrow">
-          Turn Growth Experience into AI Products.
+      <section class="hero-banner">
+        <div class="hero-copy">
+          <div class="eyebrow">
+            Turn Growth Experience into AI Products.
+          </div>
+
+          <h1>老侯</h1>
+
+          <h3>
+            AI × Growth · Growth Lead · Builder
+          </h3>
+
+          <p class="hero-desc">
+            8 年广告投放、用户增长和团队管理经验。
+            现在，我正在把过去依赖个人经验完成的增长工作，
+            逐步变成系统、Workflow、Agent 和产品。
+          </p>
+
+          <div class="hero-line">
+            增长不是一个投放问题，而是一个系统问题。
+          </div>
+
+          <div class="hero-chips">
+            <span class="hero-chip">
+              8+ Years Growth
+            </span>
+
+            <span class="hero-chip">
+              17M+ Monthly Acquisition
+            </span>
+
+            <span class="hero-chip">
+              AI × Growth
+            </span>
+
+            <span class="hero-chip">
+              Builder
+            </span>
+
+            <span class="hero-chip">
+              Hangzhou
+            </span>
+          </div>
+
+          <div class="hero-actions">
+            <a
+              class="btn btn-primary"
+              href="#projects"
+            >
+              查看项目
+            </a>
+
+            <a
+              class="btn btn-secondary"
+              href="#connect"
+            >
+              联系我
+            </a>
+          </div>
         </div>
 
-        <h1>老侯</h1>
+        <div class="hero-panel">
+          <div class="signal-card">
+            <div class="signal-title">
+              Growth Signals
+            </div>
 
-        <h2>AI × Growth · Growth Lead · Builder</h2>
+            <div class="signal-grid">
+              <div class="signal-item">
+                <b>1700万+</b>
+                <span>
+                  公众号单月新增粉丝
+                </span>
+              </div>
 
-        <p>
-          8 年广告投放、用户增长和团队管理经验。
-          现在，我正在把过去依赖个人经验完成的增长工作，
-          逐步变成系统、Workflow、Agent 和产品。
-        </p>
+              <div class="signal-item">
+                <b>141.7%</b>
+                <span>
+                  项目目标完成率
+                </span>
+              </div>
 
-        <div class="chips">
-          <span class="chip">8+ Years Growth</span>
-          <span class="chip">17M+ Monthly Acquisition</span>
-          <span class="chip">AI × Growth</span>
-          <span class="chip">Builder</span>
-          <span class="chip">Hangzhou</span>
+              <div class="signal-item">
+                <b>30%+</b>
+                <span>
+                  部分项目转化成本下降
+                </span>
+              </div>
+
+              <div class="signal-item">
+                <b>50%+</b>
+                <span>
+                  SOP + AI 人效提升
+                </span>
+              </div>
+            </div>
+
+            <div class="signal-footer">
+              Growth Lead → AI Builder
+              <br />
+              把经验沉淀成方法，
+              再把方法做成系统。
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
     </div>
 
     <!-- ABOUT -->
-    <section id="about">
+    <section
+      id="about"
+      class="section"
+    >
       <div class="wrap about-grid">
-        <article class="card about">
-          <h4>你好，我是老侯。</h4>
+        <article class="card about-main">
+          <h2>
+            你好，我是老侯。
+          </h2>
 
           <p>
             从一线投手一路做到增长负责人，
-            做过公众号、家装、房地产、教育、医美、小游戏、
-            本地生活、电商等业务，也带过 10–15 人团队。
+            做过公众号、家装、房地产、教育、医美、
+            小游戏、本地生活、电商等业务，
+            也带过 10–15 人团队。
           </p>
 
           <p>
-            过去我更擅长发现问题、制定策略、推动团队执行。
-            现在我更想把这些经验做成真正可以使用的东西。
+            过去我更擅长发现问题、制定策略、
+            推动团队执行。
+            现在，我更想把这些经验做成真正可以使用的东西。
           </p>
 
-          <div class="quote">
+          <div class="about-path">
             方法 → SOP → Workflow → Agent → Tool → Product
           </div>
         </article>
 
-        <aside class="card side">
+        <aside class="card profile-card">
           <div>
-            <img
-              class="avatar"
-              src="https://avatars.githubusercontent.com/u/267829894?v=4"
-              alt="老侯 GitHub avatar"
-            />
+            <div class="profile-top">
+              <img
+                class="avatar"
+                src="https://avatars.githubusercontent.com/u/267829894?v=4"
+                alt="老侯头像"
+              />
 
-            <strong>老侯｜AI × Growth</strong>
-            <small>Growth Lead → AI Builder</small>
-          </div>
+              <div>
+                <div class="profile-name">
+                  老侯｜AI × Growth
+                </div>
 
-          <div class="contact">
-            <span>✉️ 2224878257@qq.com</span>
-            <span>💻 @2224878257-pixel</span>
-            <span>📍 Hangzhou, China</span>
+                <span class="profile-role">
+                  Growth Lead → AI Builder
+                </span>
+              </div>
+            </div>
+
+            <div class="profile-info">
+              <div>✉️ 2224878257@qq.com</div>
+              <div>💻 @2224878257-pixel</div>
+              <div>📍 Hangzhou, China</div>
+            </div>
           </div>
         </aside>
       </div>
     </section>
 
     <!-- RESULTS -->
-    <section id="results">
+    <section
+      id="results"
+      class="section"
+    >
       <div class="wrap">
         <div class="section-head">
-          <h3>关键结果</h3>
-          <p>用结果说明我做过什么</p>
+          <h2>
+            关键结果
+          </h2>
+
+          <p>
+            用结果说明我做过什么
+          </p>
         </div>
 
         <div class="metrics">
-          <div class="card metric">
+          <div class="card metric-card">
             <b>1700万+</b>
-            <span>公众号单月新增粉丝</span>
+            <span>
+              公众号单月新增粉丝
+            </span>
           </div>
 
-          <div class="card metric">
+          <div class="card metric-card">
             <b>141.7%</b>
-            <span>项目目标完成率</span>
+            <span>
+              项目目标完成率
+            </span>
           </div>
 
-          <div class="card metric">
+          <div class="card metric-card">
             <b>30%+</b>
-            <span>部分项目转化成本下降</span>
+            <span>
+              部分项目转化成本下降
+            </span>
           </div>
 
-          <div class="card metric">
+          <div class="card metric-card">
             <b>50%+</b>
-            <span>SOP + AI 人效提升</span>
+            <span>
+              SOP + AI 人效提升
+            </span>
           </div>
 
-          <div class="card metric">
+          <div class="card metric-card">
             <b>10–15人</b>
-            <span>团队管理规模</span>
+            <span>
+              团队管理规模
+            </span>
           </div>
         </div>
       </div>
     </section>
 
     <!-- PROJECTS -->
-    <section id="projects">
+    <section
+      id="projects"
+      class="section"
+    >
       <div class="wrap">
         <div class="section-head">
-          <h3>重点项目</h3>
-          <p>把经验变成可复用的系统和工具</p>
+          <h2>
+            重点项目
+          </h2>
+
+          <p>
+            把经验变成可复用的系统和工具
+          </p>
         </div>
 
         <div class="projects">
-          <article class="card project">
-            <div class="project-top">
-              <h4>AI Growth Workspace</h4>
-              <span>↗</span>
+          <article class="card project-card">
+            <div class="project-head">
+              <div class="project-title">
+                AI Growth Workspace
+              </div>
+
+              <div class="project-arrow">
+                ↗
+              </div>
             </div>
 
             <p>
@@ -734,10 +1179,15 @@
             </div>
           </article>
 
-          <article class="card project">
-            <div class="project-top">
-              <h4>Ad Diagnosis Agent</h4>
-              <span>↗</span>
+          <article class="card project-card">
+            <div class="project-head">
+              <div class="project-title">
+                Ad Diagnosis Agent
+              </div>
+
+              <div class="project-arrow">
+                ↗
+              </div>
             </div>
 
             <p>
@@ -757,10 +1207,15 @@
             </div>
           </article>
 
-          <article class="card project">
-            <div class="project-top">
-              <h4>E-commerce Support AI</h4>
-              <span>↗</span>
+          <article class="card project-card">
+            <div class="project-head">
+              <div class="project-title">
+                E-commerce Support AI
+              </div>
+
+              <div class="project-arrow">
+                ↗
+              </div>
             </div>
 
             <p>
@@ -771,7 +1226,7 @@
 
             <div class="tags">
               <span class="tag">AI</span>
-              <span class="tag">Customer Support</span>
+              <span class="tag">Support</span>
               <span class="tag">SOP</span>
             </div>
 
@@ -780,10 +1235,15 @@
             </div>
           </article>
 
-          <article class="card project">
-            <div class="project-top">
-              <h4>Growth Case Library</h4>
-              <span>↗</span>
+          <article class="card project-card">
+            <div class="project-head">
+              <div class="project-title">
+                Growth Case Library
+              </div>
+
+              <div class="project-arrow">
+                ↗
+              </div>
             </div>
 
             <p>
@@ -807,15 +1267,21 @@
     </section>
 
     <!-- METHOD + TOOLS -->
-    <section id="method">
-      <div class="wrap two">
-        <article class="card method">
+    <section
+      id="method"
+      class="section"
+    >
+      <div class="wrap split">
+        <article class="card method-card">
           <div class="section-head">
-            <h3>我的增长方法</h3>
+            <h2>
+              我的增长方法
+            </h2>
           </div>
 
           <p>
-            我不相信“只要调好广告后台，增长问题就解决了”。
+            我不相信“只要调好广告后台，
+            增长问题就解决了”。
             真正的增长，是一整条链路。
           </p>
 
@@ -846,103 +1312,209 @@
           </p>
         </article>
 
-        <article class="card tools">
+        <article class="card tools-card">
           <div class="section-head">
-            <h3>我在使用的工具</h3>
+            <h2>
+              我在使用的工具
+            </h2>
           </div>
 
-          <div class="tool-groups">
-            <div class="tool-group">
-              <b>Growth</b>
-
-              <div class="tool-list">
-                <span>腾讯广告</span>
-                <span>巨量引擎</span>
-                <span>快手磁力</span>
-                <span>小红书聚光</span>
-                <span>百度营销</span>
-              </div>
+          <div class="tool-section">
+            <div class="tool-title">
+              Growth
             </div>
 
-            <div class="tool-group">
-              <b>AI & Build</b>
-
-              <div class="tool-list">
-                <span>ChatGPT</span>
-                <span>Codex</span>
-                <span>Gemini</span>
-                <span>NotebookLM</span>
-                <span>Notion</span>
-                <span>GitHub</span>
-                <span>Automation</span>
-                <span>AI Agent</span>
-              </div>
+            <div class="tool-list">
+              <span class="tool">腾讯广告</span>
+              <span class="tool">巨量引擎</span>
+              <span class="tool">快手磁力</span>
+              <span class="tool">小红书聚光</span>
+              <span class="tool">百度营销</span>
             </div>
           </div>
+
+          <div class="tool-section">
+            <div class="tool-title">
+              AI & Build
+            </div>
+
+            <div class="tool-list">
+              <span class="tool">ChatGPT</span>
+              <span class="tool">Codex</span>
+              <span class="tool">Gemini</span>
+              <span class="tool">NotebookLM</span>
+              <span class="tool">Notion</span>
+              <span class="tool">GitHub</span>
+              <span class="tool">Automation</span>
+              <span class="tool">AI Agent</span>
+            </div>
+          </div>
+
+          <div class="stack-note">
+            Stack changes. Problems come first.
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CASES -->
+    <section
+      id="cases"
+      class="section"
+    >
+      <div class="wrap">
+        <div class="section-head">
+          <h2>
+            Case Notes
+          </h2>
 
           <p>
-            <em>Stack changes. Problems come first.</em>
+            真实业务案例，不只讲工具
           </p>
-        </article>
+        </div>
+
+        <div class="case-grid">
+          <article class="card case-card">
+            <div class="case-no">
+              CASE 01
+            </div>
+
+            <h3>
+              公众号增长
+            </h3>
+
+            <p>
+              腾讯广告 × 内容 × 变现
+              <br />
+              单月新增粉丝 1700 万+
+            </p>
+          </article>
+
+          <article class="card case-card">
+            <div class="case-no">
+              CASE 02
+            </div>
+
+            <h3>
+              团队重建
+            </h3>
+
+            <p>
+              招聘 × 培训 × SOP × 管理
+              <br />
+              集中人员变动后 KPI 保持达成
+            </p>
+          </article>
+
+          <article class="card case-card">
+            <div class="case-no">
+              CASE 03
+            </div>
+
+            <h3>
+              AI 客服工作流
+            </h3>
+
+            <p>
+              知识库 × Workflow × AI
+              <br />
+              减少重复查询与历史资料整理
+            </p>
+          </article>
+
+          <article class="card case-card">
+            <div class="case-no">
+              CASE 04
+            </div>
+
+            <h3>
+              本地企业增长
+            </h3>
+
+            <p>
+              内容 × 搜索 × 私域 × 广告 × 销售
+              <br />
+              全链路获客思路
+            </p>
+          </article>
+        </div>
       </div>
     </section>
 
-    <!-- NEXT / CONNECT -->
-    <section id="connect">
+    <!-- BOTTOM -->
+    <section
+      id="connect"
+      class="section"
+    >
       <div class="wrap bottom-grid">
-        <article class="card list-card">
+        <article class="card bottom-card">
           <div class="section-head">
-            <h3>接下来我在做什么</h3>
+            <h2>
+              接下来我在做什么
+            </h2>
           </div>
 
           <ul>
-            <li>持续搭建 AI 增长工作台</li>
-            <li>把广告诊断逐步做成可复用系统</li>
-            <li>沉淀更多真实增长案例和方法论</li>
-            <li>发布个人网站与完整作品集</li>
+            <li>
+              持续搭建 AI 增长工作台
+            </li>
+
+            <li>
+              把广告诊断逐步做成可复用系统
+            </li>
+
+            <li>
+              沉淀更多真实增长案例和方法论
+            </li>
+
+            <li>
+              发布个人网站与完整作品集
+            </li>
           </ul>
         </article>
 
-        <article class="card list-card">
+        <article class="card bottom-card">
           <div class="section-head">
-            <h3>可以找我聊什么</h3>
+            <h2>
+              可以找我聊什么
+            </h2>
           </div>
 
           <ul>
-            <li>企业增长 / 用户增长</li>
-            <li>广告投放 / 账户诊断</li>
-            <li>AI 工作流 / AI 提效</li>
-            <li>AI 产品 / Builder 相关机会</li>
+            <li>
+              企业增长 / 用户增长
+            </li>
+
+            <li>
+              广告投放 / 账户诊断
+            </li>
+
+            <li>
+              AI 工作流 / AI 提效
+            </li>
+
+            <li>
+              AI 产品 / Builder 相关机会
+            </li>
           </ul>
         </article>
       </div>
     </section>
 
-    <!-- SLOGAN -->
-    <section>
+    <!-- QUOTE -->
+    <section class="section">
       <div class="wrap">
-        <div
-          class="card"
-          style="padding: 30px; text-align: center;"
-        >
-          <div
-            class="eyebrow"
-            style="color: #667085;"
-          >
+        <div class="card quote-card">
+          <div class="quote-small">
             Growth is a system.
           </div>
 
-          <h3
-            style="
-              font-size: 30px;
-              margin: 8px 0 0;
-            "
-          >
+          <h2>
             AI is leverage.
             <span class="accent">
               Building is execution.
             </span>
-          </h3>
+          </h2>
         </div>
       </div>
     </section>

@@ -228,14 +228,13 @@ def page_html(article: Article) -> str:
 
 
 def card_html(article: Article) -> str:
-    image_tag = f'<span class="tag">{article.image_count} 张配图</span>' if article.image_count else ''
+    tags = f'<div class="tags"><span class="tag">{article.image_count} 张配图</span></div>' if article.image_count else ''
     return (
         '<article class="card item-card">'
         f'<div class="item-kicker">{html_lib.escape(article.label)}</div>'
         f'<h3>{html_lib.escape(article.title)}</h3>'
         f'<p>{html_lib.escape(article.excerpt)}</p>'
-        '<div class="tags"><span class="tag">公众号原文</span>'
-        f'{image_tag}</div>'
+        f'{tags}'
         f'<a class="arrow-link" href="/{article.category}/{article.slug}.html">阅读全文 →</a>'
         '</article>'
     )
@@ -248,8 +247,6 @@ def update_index(category: str, articles: list[Article]) -> None:
     cards = "\n".join(card_html(a) for a in articles)
     section = (
         f'{IMPORT_START}<section class="section weixin-library"><div class="wrap">'
-        f'<div class="section-head"><h2>{CATEGORY_META[category][1]}</h2>'
-        f'<p>共 {len(articles)} 篇，保留公众号完整正文并统一为本站阅读版式。</p></div>'
         f'<div class="grid-3">{cards}</div></div></section>{IMPORT_END}'
     )
     if pattern.search(source):

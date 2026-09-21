@@ -1,0 +1,8 @@
+{
+  "name": "老侯场景英语",
+  "short_name": "场景英语",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f6f7fb",
+  "theme_color": "#ffffff"
+}

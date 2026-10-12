@@ -1,73 +1,159 @@
 <!doctype html><html lang="zh-CN"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-<meta name="description" content="老侯｜AI × Growth"><title>Growth Cases｜老侯</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>案例｜老侯</title><meta name="description" content="老侯｜企业获客、广告投放、AI 与长期思考">
 <style>
 :root{
-  --bg:#f7f8fb;--card:#fff;--soft:#fbfcfe;--text:#101828;--text2:#344054;
-  --muted:#667085;--line:#e7ebf2;--blue:#2563eb;--purple:#7c3aed;--green:#16a34a;
-  --shadow:0 16px 38px rgba(15,23,42,.06);--hover:0 20px 44px rgba(15,23,42,.10);
-  --r-xl:32px;--r-lg:22px;--r-md:16px;--max:1180px
+  --bg:#fff;--text:#161616;--muted:#6f6f6f;--soft:#9a9a9a;
+  --line:#ececec;--blue:#2563eb;--max:780px;
 }
-*{box-sizing:border-box} html{scroll-behavior:smooth}
-body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
-color:var(--text);line-height:1.72;background:linear-gradient(180deg,#fbfcfe 0%,#f7f9fc 48%,#f4f7fb 100%)}
-a{color:inherit;text-decoration:none}.wrap{width:min(var(--max),calc(100% - 40px));margin:0 auto}
-.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:0 6px 18px rgba(15,23,42,.035)}
-.nav{position:sticky;top:0;z-index:50;border-bottom:1px solid rgba(231,235,242,.88);background:rgba(248,250,252,.88);backdrop-filter:blur(16px)}
-.nav-inner{height:66px;display:flex;align-items:center;justify-content:space-between}.brand{font-weight:850;font-size:15px}
-.nav-links{display:flex;gap:24px;color:var(--muted);font-size:14px}.nav-links a:hover{color:var(--text)}
-.section{padding:38px 0}.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:20px}
-.section-head h2{margin:0;font-size:29px;line-height:1.2;letter-spacing:-.035em}.section-head p{margin:0;color:var(--muted);font-size:14px}
-.hero{padding:36px 0 20px}.hero-shell{position:relative;overflow:hidden;border:1px solid #e4e9f1;border-radius:var(--r-xl);padding:58px 50px;
-background:radial-gradient(circle at 92% 10%,rgba(37,99,235,.10),transparent 28%),radial-gradient(circle at 82% 85%,rgba(124,58,237,.065),transparent 30%),linear-gradient(180deg,#fff 0%,#fbfcff 100%);box-shadow:var(--shadow)}
-.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:34px}.hero-copy{display:flex;flex-direction:column;justify-content:center}
-.hero-label{width:fit-content;padding:7px 12px;margin-bottom:18px;border-radius:999px;background:#eef4ff;color:var(--blue);font-size:12px;font-weight:750}
-.hero-title{margin:0;font-size:64px;line-height:1;letter-spacing:-.06em}.hero-role{margin-top:14px;font-size:28px;font-weight:800}.accent-blue{color:var(--blue)}
-.hero-desc{max-width:680px;margin:20px 0 0;color:var(--text2);font-size:17px;line-height:1.9}
-.hero-note{margin-top:17px;padding-left:14px;border-left:3px solid var(--blue);color:#475467;font-size:15px;font-weight:650}
-.hero-tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:23px}.hero-tag{padding:8px 12px;border:1px solid #e6ebf2;border-radius:999px;background:#f8fafc;color:#344054;font-size:12px}
-.hero-actions{display:flex;flex-wrap:wrap;gap:11px;margin-top:25px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;border-radius:12px;font-size:14px;font-weight:800}
-.btn-dark{background:#101828;color:white}.btn-light{border:1px solid #d9e1ec;background:white}
-.hero-profile{padding:24px;border:1px solid #e5eaf2;border-radius:24px;background:linear-gradient(180deg,#f8fbff,#f4f7fc)}
-.hero-profile-top{display:flex;align-items:center;gap:14px;margin-bottom:20px}.hero-avatar{width:78px;height:78px;border-radius:50%;object-fit:cover;border:4px solid white}
-.hero-profile-name{font-size:19px;font-weight:850}.hero-profile-role{margin-top:4px;color:var(--muted);font-size:13px}
-.signal-title{margin-bottom:12px;color:var(--muted);font-size:12px;font-weight:750;letter-spacing:.08em;text-transform:uppercase}
-.signal-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px}.signal{padding:16px 14px;border:1px solid #e6ebf2;border-radius:15px;background:white}
-.signal b{display:block;font-size:27px;line-height:1.1}.signal span{display:block;margin-top:6px;color:var(--muted);font-size:12px}
-.hero-mini{display:grid;gap:9px;margin-top:18px;padding-top:16px;border-top:1px solid #e5eaf2;color:#475467;font-size:13px}
-.hero-mini-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}.hero-social{width:38px;height:38px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;border:1px solid #dce3ed;background:#fff;font-size:12px;font-weight:800}
-.hero-social.wechat{color:#16a34a}.hero-social.xhs{color:#ef4444}.hero-social.douyin{color:#111827}.hero-social.x{color:#000}
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.item-card{display:flex;min-height:280px;padding:22px;flex-direction:column;transition:.2s}.item-card:hover{transform:translateY(-4px);box-shadow:var(--hover)}
-.item-kicker{font-size:12px;color:var(--blue);font-weight:800;letter-spacing:.08em}.item-card h3{margin:8px 0 8px;font-size:20px}
-.item-card p{margin:0;color:var(--muted);font-size:13px}.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
-.tag{padding:6px 9px;border-radius:999px;background:#f2f4f7;color:#475467;font-size:12px}.tag.status{background:#eef4ff;color:var(--blue)}.arrow-link{display:inline-block;margin-top:auto;padding-top:18px;color:var(--blue);font-weight:750;font-size:13px}
-.social-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.social-card{padding:22px}.social-top{display:flex;justify-content:space-between;align-items:center}
-.social-name{font-size:19px;font-weight:850}.social-card p{color:var(--muted);font-size:13px}.qr-card{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center}
-.qr-box{width:118px;height:118px;padding:6px;border:1px solid #e2e7ef;border-radius:14px;background:#fff}.qr-box img{width:100%;height:100%;object-fit:cover;border-radius:9px}
-.footer{padding:34px 0 56px;text-align:center;color:var(--muted);font-size:13px}
-.page-hero{padding:54px 0 18px}.page-hero h1{font-size:48px;margin:0 0 10px;letter-spacing:-.05em}.page-hero p{color:var(--muted);max-width:720px}
-.detail{max-width:860px;margin:0 auto}.detail .card{padding:32px}.detail h2{margin-top:28px}.detail p,.detail li{color:#475467}
-@media(max-width:980px){.hero-grid{grid-template-columns:1fr}.grid-3,.social-grid{grid-template-columns:repeat(2,1fr)}.grid-4{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:720px){.nav-inner{height:auto;min-height:66px;flex-wrap:wrap;padding:12px 0 0}.nav-links{display:flex;width:100%;gap:18px;padding:2px 0 10px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}.nav-links::-webkit-scrollbar{display:none}.hero-shell{padding:42px 28px}.hero-title{font-size:48px}.hero-role{font-size:23px}}
-@media(max-width:560px){.wrap{width:min(var(--max),calc(100% - 24px))}.hero-shell{padding:30px 20px;border-radius:24px}.hero-title{font-size:40px}.hero-role{font-size:21px}.page-hero{padding-top:38px}.page-hero h1{font-size:36px;line-height:1.25}.detail .card{padding:24px}
-.signal-grid,.grid-3,.grid-4,.social-grid{grid-template-columns:1fr}.qr-card{grid-template-columns:1fr}.qr-box{width:140px;height:140px}.section-head{align-items:flex-start;flex-direction:column;gap:6px}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif;
+  line-height:1.72;
+}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+.wrap{width:min(var(--max),calc(100% - 36px));margin:0 auto}
+
+/* 顶部 */
+.site-header{border-bottom:1px solid var(--line);background:#fff}
+.header-inner{height:72px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px}
+.site-name{font-size:26px;font-weight:760;letter-spacing:-.04em}
+.main-nav{display:flex;justify-content:center;gap:26px}
+.main-nav a{font-size:13px;color:var(--muted)}
+.main-nav a:hover,.main-nav a.active{color:var(--text);font-weight:600}
+.header-right{display:flex;align-items:center;gap:12px}
+.header-right>a:not(.avatar-link){font-size:12px;color:var(--muted)}
+.avatar{width:38px;height:38px;border-radius:50%;object-fit:cover;border:1px solid var(--line)}
+
+/* 首页 */
+.home-intro{padding:56px 0 28px}
+.home-intro .hello{font-size:13px;color:var(--muted);margin-bottom:10px}
+.home-intro h1{font-size:31px;line-height:1.42;letter-spacing:-.035em;margin:0;font-weight:700}
+.home-intro p{margin:14px 0 0;color:var(--muted);font-size:15px;max-width:660px}
+
+.social-area{margin-top:28px;padding-top:20px;border-top:1px solid var(--line)}
+.social-label{font-size:12px;color:var(--soft);margin-bottom:12px}
+.social-logos{display:flex;flex-wrap:wrap;gap:12px}
+.social-logo-link{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:9px 13px;border:1px solid var(--line);border-radius:999px;
+  background:#fff;font-size:13px;transition:.18s ease
+}
+.social-logo-link:hover{transform:translateY(-1px);background:#fafafa;border-color:#d8d8d8}
+.brand-icon{width:22px;height:22px;display:block;flex:0 0 22px}
+
+.post-stream{padding:4px 0 22px}
+.post{display:grid;grid-template-columns:112px 1fr;gap:30px;padding:30px 0;border-bottom:1px solid var(--line)}
+.post-meta{font-size:12px;color:var(--soft);line-height:1.7}
+.post-meta .cat{display:block;color:var(--blue);margin-top:5px}
+.post-body h2{font-size:24px;line-height:1.42;letter-spacing:-.02em;margin:0 0 8px;font-weight:650}
+.post-body p{font-size:14px;color:var(--muted);margin:0}
+.read{display:inline-block;margin-top:10px;font-size:13px;color:var(--blue)}
+
+.home-extra{padding:30px 0 8px}
+.home-extra h3{font-size:16px;margin:0 0 12px}
+.mini-links{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.mini-link{border-top:1px solid var(--line);padding-top:12px}
+.mini-link small{color:var(--soft);font-size:11px}
+.mini-link b{display:block;font-size:14px;margin-top:3px}
+.mini-link span{display:block;font-size:12px;color:var(--muted);margin-top:3px}
+
+/* 子页面统一样式 */
+.page-head{padding:46px 0 22px;border-bottom:1px solid var(--line)}
+.page-head h1{font-size:32px;margin:0 0 8px;letter-spacing:-.035em}
+.page-head p{margin:0;color:var(--muted);font-size:14px}
+.list{padding-bottom:26px}
+.list-item{padding:24px 0;border-bottom:1px solid var(--line)}
+.list-item .meta{font-size:12px;color:var(--soft)}
+.list-item h2{font-size:22px;line-height:1.4;margin:5px 0 6px}
+.list-item p{font-size:14px;color:var(--muted);margin:0}
+.list-item .read{margin-top:8px}
+
+.article{max-width:700px;margin:0 auto;padding:48px 0 70px}
+.article .meta{font-size:12px;color:var(--soft)}
+.article h1{font-size:38px;line-height:1.3;letter-spacing:-.04em;margin:8px 0 20px}
+.article .lead{font-size:17px;color:#4c4c4c}
+.article h2{font-size:22px;margin-top:34px}
+.article p,.article li{font-size:16px;color:#4f4f4f}
+.article blockquote{margin:26px 0;padding-left:16px;border-left:3px solid #111;color:#3f3f3f}
+.back{display:inline-block;margin-top:40px;color:var(--blue);font-size:13px}
+
+/* 关于 */
+.about-grid{display:grid;grid-template-columns:1fr 220px;gap:38px;padding:34px 0 52px}
+.about-main p{color:#4f4f4f}
+.profile-card{border-left:1px solid var(--line);padding-left:24px}
+.profile-card img.avatar-lg{width:96px;height:96px;border-radius:50%;object-fit:cover;margin-bottom:12px}
+.profile-card h3{margin:0 0 4px;font-size:18px}
+.profile-card p{margin:5px 0;font-size:13px;color:var(--muted)}
+.socials-section{padding:30px 0 56px;border-top:1px solid var(--line)}
+.socials-section h2{font-size:22px;margin:0 0 8px}
+.socials-section>p{font-size:13px;color:var(--muted);margin:0 0 18px}
+.social-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.social-card{border:1px solid var(--line);border-radius:12px;padding:16px}
+.social-card h3{font-size:15px;margin:0 0 5px}
+.social-card p{font-size:12px;color:var(--muted);margin:0}
+.social-card .social-open{display:inline-block;margin-top:10px;font-size:12px;color:var(--blue)}
+.qr-row{display:flex;align-items:center;gap:14px}
+.qr{width:96px;height:96px;border-radius:8px;border:1px solid var(--line);object-fit:contain;background:#fff}
+
+.footer{border-top:1px solid var(--line);padding:24px 0 34px;color:var(--soft);font-size:11px}
+.footer-inner{display:flex;justify-content:space-between;gap:20px}
+
+@media(max-width:680px){
+  .header-inner{grid-template-columns:auto 1fr}.main-nav{display:none}.header-right{justify-content:flex-end}
+  .header-right>a:not(.avatar-link){display:none}
+  .post{grid-template-columns:1fr;gap:7px;padding:24px 0}
+  .mini-links{grid-template-columns:1fr}
+  .about-grid{grid-template-columns:1fr}.profile-card{border-left:0;border-top:1px solid var(--line);padding-left:0;padding-top:22px}
+  .social-grid{grid-template-columns:1fr}
+  .footer-inner{flex-direction:column}
+}
 </style></head><body>
-<header class="nav"><div class="wrap nav-inner">
-<a class="brand" href="/#top">老侯 / AI × Growth</a>
-<nav class="nav-links">
-<a href="/#projects">Projects</a><a href="/cases/">Cases</a><a href="/articles/">Writing</a><a href="/workflows/">Workflows</a><a href="/tools/">Tools</a><a href="/#follow">Follow</a>
-</nav></div></header>
-<main><section class="page-hero"><div class="wrap"><h1>Growth Cases</h1><p>来自 Notion 增长案例库的 10 个真实业务案例，按当前整理状态公开呈现。</p></div></section><section class="section"><div class="wrap"><div class="grid-3">
-<article class="card item-card"><div class="item-kicker">CASE 01</div><h3>公众号加粉规模化增长</h3><p>在成本与 D0 回收约束下，管理 8—10 名投手，把月度 1200 万粉目标放大至 1700 万粉。</p><div class="tags"><span class="tag status">已整理</span><span class="tag">投放优化</span><span class="tag">公众号</span></div><a class="arrow-link" href="/cases/wechat-growth.html">查看详情 →</a></article>
-<article class="card item-card"><div class="item-kicker">CASE 02</div><h3>公众号加粉商业模型重构</h3><p>旧的低价买粉模式难以兼顾回本和规模，转向围绕用户价值与 LTV 重构变现链路。</p><div class="tags"><span class="tag status">可展示</span><span class="tag">商业模型</span><span class="tag">LTV</span></div><a class="arrow-link" href="/cases/wechat-ltv-model.html">查看详情 →</a></article>
-<article class="card item-card"><div class="item-kicker">CASE 03</div><h3>杭州存量房装修 90 天增长实验</h3><p>围绕二手房翻新、旧房局改和改善型需求，设计内容到回款的全链路增长闭环。</p><div class="tags"><span class="tag status">可展示</span><span class="tag">家装</span><span class="tag">增长诊断</span></div><a class="arrow-link" href="/cases/local-business-growth.html">查看详情 →</a></article>
-<article class="card item-card"><div class="item-kicker">CASE 04</div><h3>房地产获客转化复盘</h3><p>从低成本表单转向内容筛选、销售承接、私域培育与成交数据回传的完整链路。</p><div class="tags"><span class="tag status">可展示</span><span class="tag">房地产</span><span class="tag">全链路</span></div><a class="arrow-link" href="/cases/real-estate-growth.html">查看详情 →</a></article>
-<article class="card item-card"><div class="item-kicker">CASE 05</div><h3>快手潮玩拆卡直播诊断</h3><p>从“假流量”质疑出发，定位进场目标、素材筛选、智能探索与直播间承接问题。</p><div class="tags"><span class="tag status">可展示</span><span class="tag">快手</span><span class="tag">直播</span></div><a class="arrow-link" href="/cases/kuaishou-live-diagnosis.html">查看详情 →</a></article>
-<article class="card item-card"><div class="item-kicker">CASE 06</div><h3>微信修仙小游戏投放诊断</h3><p>消耗两三万元、付费仅数百元，最终定位为回传方向异常导致模型学习错误信号。</p><div class="tags"><span class="tag status">可展示</span><span class="tag">小游戏</span><span class="tag">数据回传</span></div><a class="arrow-link" href="/cases/wechat-game-diagnosis.html">查看详情 →</a></article>
-<article class="card item-card"><div class="item-kicker">CASE 07</div><h3>通信号卡投放突破量级</h3><p>通过素材拆解与批量二创，寻找更适合穿山甲流量场景的素材方向。</p><div class="tags"><span class="tag status">可展示</span><span class="tag">素材策略</span><span class="tag">投放优化</span></div><a class="arrow-link" href="/cases/telecom-card-ads.html">查看详情 →</a></article>
-<article class="card item-card"><div class="item-kicker">CASE 08</div><h3>15 天重建投放团队</h3><p>近 10 人集中离职、月度 KPI 不调整，在半个月内恢复招聘、培训与产能。</p><div class="tags"><span class="tag status">可展示</span><span class="tag">团队管理</span><span class="tag">投放</span></div><a class="arrow-link" href="/cases/team-rebuild.html">查看详情 →</a></article>
-<article class="card item-card"><div class="item-kicker">CASE 09</div><h3>投放团队 SOP＋AI 工作流</h3><p>把个人经验沉淀为 SOP，并用 AI 重构高频整理、答疑与协同流程。</p><div class="tags"><span class="tag status">已整理</span><span class="tag">AI 提效</span><span class="tag">SOP</span></div><a class="arrow-link" href="/cases/team-ai-workflow.html">查看详情 →</a></article>
-<article class="card item-card"><div class="item-kicker">CASE 10</div><h3>AI 电商售后客服工作流</h3><p>用 5 个结构化数据库重构售后知识查询、回复生成与复盘闭环。</p><div class="tags"><span class="tag status">持续验证</span><span class="tag">AI 提效</span><span class="tag">知识库</span></div><a class="arrow-link" href="/cases/ecommerce-ai-support.html">查看详情 →</a></article>
-</div></div></section><!-- WEIXIN_IMPORT_START --><section class="section weixin-library"><div class="wrap"><div class="grid-3"><article class="card item-card"><div class="item-kicker">真实案例</div><h3>一个小游戏项目转化很差，老板怀疑是假量，我是怎么分析的</h3><p>最近碰到一个老板，是通过公众号找到我的。 他们做的是微信平台上的修仙类小游戏投放，业务本身不算复杂，但账户问题比较典型。 先说一下他们的背景。 这个老板公司内部没有自己的投放团队…</p><div class="tags"><span class="tag">2 张配图</span></div><a class="arrow-link" href="/cases/game-ads-diagnosis-original.html">阅读全文 →</a></article>
-<article class="card item-card"><div class="item-kicker">真实案例</div><h3>直播间几千人，没人互动也没成交，老板怀疑是快手给了假流量，真的是这样吗？</h3><p>昨天有一个老板找到我，说他们在快手投一个潮玩类项目，就是拆卡直播间。 他们自己也做了一段时间投放，但是遇到了一个问题： 直播间人数看起来不少，可能几千人在线，但是里面几乎没有互动…</p><div class="tags"><span class="tag">4 张配图</span></div><a class="arrow-link" href="/cases/kuaishou-live-diagnosis-original.html">阅读全文 →</a></article></div></div></section><!-- WEIXIN_IMPORT_END --></main><footer class="footer">© 2026 老侯 · AI × Growth · Built on GitHub Pages</footer></body></html>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="site-name" href="/">老侯</a>
+    <nav class="main-nav"><a class="" href="/articles/">文章</a><a class="active" href="/cases/">案例</a><a class="" href="/tools/">工具</a><a class="" href="/about/">关于</a></nav>
+    <div class="header-right">
+      <a href="https://x.com/LaohouGrowth" target="_blank">X</a>
+      <a href="mailto:0@4.com">邮箱</a>
+      <a class="avatar-link" href="/about/"><img class="avatar" src="https://avatars.githubusercontent.com/u/267829894?v=4" alt="老侯头像"></a>
+    </div>
+  </div>
+</header>
+    <main><div class="wrap">
+      <section class="page-head"><h1>案例</h1><p>只放真实做过、接触过或正在推进的项目。</p></section>
+      <section class="list">
+    <article class="list-item">
+      <div class="meta">增长案例</div>
+      <h2><a href="/cases/wechat-growth.html">公众号增长项目复盘</a></h2>
+      <p>腾讯广告环境下，如何从账户、素材、人群、内容承接和变现一起看增长。</p>
+      <a class="read" href="/cases/wechat-growth.html">查看详情 →</a>
+    </article>
+    <article class="list-item">
+      <div class="meta">获客案例</div>
+      <h2><a href="/cases/publishing.html">图书出版行业获客</a></h2>
+      <p>面向高校教师、医生等人群的腾讯广告获客实践。</p>
+      <a class="read" href="/cases/publishing.html">查看详情 →</a>
+    </article>
+    <article class="list-item">
+      <div class="meta">本地业务</div>
+      <h2><a href="/cases/local-business.html">县城装修获客</a></h2>
+      <p>从获客成本、成交能力和承接能力判断投放是否值得做。</p>
+      <a class="read" href="/cases/local-business.html">查看详情 →</a>
+    </article>
+    <article class="list-item">
+      <div class="meta">团队管理</div>
+      <h2><a href="/cases/team-rebuild.html">15 天重建投放团队</a></h2>
+      <p>人员集中变动后，快速完成招聘、培训和业务衔接。</p>
+      <a class="read" href="/cases/team-rebuild.html">查看详情 →</a>
+    </article></section>
+    </div></main>
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div>© 2026 老侯</div>
+    <div>文章 · 案例 · 工具 · 关于</div>
+  </div>
+</footer></body></html>

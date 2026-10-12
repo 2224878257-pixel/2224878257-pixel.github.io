@@ -3,74 +3,57 @@
 <title>老侯｜个人网站</title><meta name="description" content="老侯｜企业获客、广告投放、AI 与长期思考">
 <style>
 :root{
-  --bg:#fff;
-  --text:#171717;
-  --muted:#6f6f6f;
-  --soft:#9a9a9a;
-  --line:#ececec;
-  --blue:#2563eb;
-  --max:760px;
+  --bg:#fff;--text:#161616;--muted:#6f6f6f;--soft:#9a9a9a;
+  --line:#ececec;--blue:#2563eb;--max:780px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
   margin:0;background:var(--bg);color:var(--text);
   font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif;
-  line-height:1.75;
+  line-height:1.72;
 }
-a{color:inherit;text-decoration:none}
-img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
 .wrap{width:min(var(--max),calc(100% - 36px));margin:0 auto}
 
-/* header */
+/* 顶部 */
 .site-header{border-bottom:1px solid var(--line);background:#fff}
 .header-inner{height:72px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px}
-.site-name{font-size:24px;font-weight:760;letter-spacing:-.04em}
-.main-nav{display:flex;justify-content:center;gap:24px}
+.site-name{font-size:26px;font-weight:760;letter-spacing:-.04em}
+.main-nav{display:flex;justify-content:center;gap:26px}
 .main-nav a{font-size:13px;color:var(--muted)}
-.main-nav a:hover,.main-nav a.active{color:var(--text)}
+.main-nav a:hover,.main-nav a.active{color:var(--text);font-weight:600}
 .header-right{display:flex;align-items:center;gap:12px}
-.header-right a{font-size:12px;color:var(--muted)}
+.header-right>a:not(.avatar-link){font-size:12px;color:var(--muted)}
 .avatar{width:38px;height:38px;border-radius:50%;object-fit:cover;border:1px solid var(--line)}
 
-/* home */
-.home-intro{padding:54px 0 26px}
+/* 首页 */
+.home-intro{padding:56px 0 28px}
 .home-intro .hello{font-size:13px;color:var(--muted);margin-bottom:10px}
-.home-intro h1{font-size:30px;line-height:1.45;letter-spacing:-.03em;margin:0;font-weight:650}
-.home-intro p{margin:14px 0 0;color:var(--muted);font-size:15px;max-width:650px}
-.elsewhere{
-  margin-top:26px;padding-top:18px;border-top:1px solid var(--line);
+.home-intro h1{font-size:31px;line-height:1.42;letter-spacing:-.035em;margin:0;font-weight:700}
+.home-intro p{margin:14px 0 0;color:var(--muted);font-size:15px;max-width:660px}
+
+.social-area{margin-top:28px;padding-top:20px;border-top:1px solid var(--line)}
+.social-label{font-size:12px;color:var(--soft);margin-bottom:12px}
+.social-logos{display:flex;flex-wrap:wrap;gap:12px}
+.social-logo-link{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:9px 13px;border:1px solid var(--line);border-radius:999px;
+  background:#fff;font-size:13px;transition:.18s ease
 }
-.elsewhere-label{font-size:12px;color:var(--soft);margin-bottom:12px}
-.social-icons{display:flex;flex-wrap:wrap;gap:12px}
-.social-icon{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:9px 14px;border:1px solid var(--line);border-radius:999px;
-  background:#fff;font-size:13px;color:var(--text);transition:.18s ease;
-}
-.social-icon:hover{transform:translateY(-1px);border-color:#d8d8d8;background:#fafafa}
-.icon-badge{
-  width:22px;height:22px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;
-  font-size:11px;font-weight:700;line-height:1;flex:0 0 22px;
-}
-.icon-wechat{background:#eaf8ef;color:#16a34a}
-.icon-xhs{background:#fff1f1;color:#ef4444}
-.icon-douyin{background:#f4f4f5;color:#111827}
-.icon-x{background:#f3f4f6;color:#111827}
-.icon-mail{background:#eff6ff;color:#2563eb}
+.social-logo-link:hover{transform:translateY(-1px);background:#fafafa;border-color:#d8d8d8}
+.brand-icon{width:22px;height:22px;display:block;flex:0 0 22px}
 
 .post-stream{padding:4px 0 22px}
-.post{
-  display:grid;grid-template-columns:110px 1fr;gap:30px;
-  padding:30px 0;border-bottom:1px solid var(--line)
-}
+.post{display:grid;grid-template-columns:112px 1fr;gap:30px;padding:30px 0;border-bottom:1px solid var(--line)}
 .post-meta{font-size:12px;color:var(--soft);line-height:1.7}
 .post-meta .cat{display:block;color:var(--blue);margin-top:5px}
 .post-body h2{font-size:24px;line-height:1.42;letter-spacing:-.02em;margin:0 0 8px;font-weight:650}
 .post-body p{font-size:14px;color:var(--muted);margin:0}
 .read{display:inline-block;margin-top:10px;font-size:13px;color:var(--blue)}
 
-.home-extra{padding:30px 0 10px}
+.home-extra{padding:30px 0 8px}
 .home-extra h3{font-size:16px;margin:0 0 12px}
 .mini-links{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .mini-link{border-top:1px solid var(--line);padding-top:12px}
@@ -78,18 +61,17 @@ img{max-width:100%;display:block}
 .mini-link b{display:block;font-size:14px;margin-top:3px}
 .mini-link span{display:block;font-size:12px;color:var(--muted);margin-top:3px}
 
-/* shared list */
-.page-head{padding:46px 0 20px;border-bottom:1px solid var(--line)}
+/* 子页面统一样式 */
+.page-head{padding:46px 0 22px;border-bottom:1px solid var(--line)}
 .page-head h1{font-size:32px;margin:0 0 8px;letter-spacing:-.035em}
 .page-head p{margin:0;color:var(--muted);font-size:14px}
-.list{padding-bottom:24px}
+.list{padding-bottom:26px}
 .list-item{padding:24px 0;border-bottom:1px solid var(--line)}
 .list-item .meta{font-size:12px;color:var(--soft)}
 .list-item h2{font-size:22px;line-height:1.4;margin:5px 0 6px}
 .list-item p{font-size:14px;color:var(--muted);margin:0}
 .list-item .read{margin-top:8px}
 
-/* article */
 .article{max-width:700px;margin:0 auto;padding:48px 0 70px}
 .article .meta{font-size:12px;color:var(--soft)}
 .article h1{font-size:38px;line-height:1.3;letter-spacing:-.04em;margin:8px 0 20px}
@@ -99,8 +81,8 @@ img{max-width:100%;display:block}
 .article blockquote{margin:26px 0;padding-left:16px;border-left:3px solid #111;color:#3f3f3f}
 .back{display:inline-block;margin-top:40px;color:var(--blue);font-size:13px}
 
-/* about + socials */
-.about-grid{display:grid;grid-template-columns:1fr 220px;gap:38px;padding:34px 0 56px}
+/* 关于 */
+.about-grid{display:grid;grid-template-columns:1fr 220px;gap:38px;padding:34px 0 52px}
 .about-main p{color:#4f4f4f}
 .profile-card{border-left:1px solid var(--line);padding-left:24px}
 .profile-card img.avatar-lg{width:96px;height:96px;border-radius:50%;object-fit:cover;margin-bottom:12px}
@@ -115,15 +97,14 @@ img{max-width:100%;display:block}
 .social-card p{font-size:12px;color:var(--muted);margin:0}
 .social-card .social-open{display:inline-block;margin-top:10px;font-size:12px;color:var(--blue)}
 .qr-row{display:flex;align-items:center;gap:14px}
-.qr{width:92px;height:92px;border-radius:8px;border:1px solid var(--line);object-fit:contain;background:#fff}
+.qr{width:96px;height:96px;border-radius:8px;border:1px solid var(--line);object-fit:contain;background:#fff}
 
-/* footer */
 .footer{border-top:1px solid var(--line);padding:24px 0 34px;color:var(--soft);font-size:11px}
 .footer-inner{display:flex;justify-content:space-between;gap:20px}
 
 @media(max-width:680px){
   .header-inner{grid-template-columns:auto 1fr}.main-nav{display:none}.header-right{justify-content:flex-end}
-  .header-right a{display:none}
+  .header-right>a:not(.avatar-link){display:none}
   .post{grid-template-columns:1fr;gap:7px;padding:24px 0}
   .mini-links{grid-template-columns:1fr}
   .about-grid{grid-template-columns:1fr}.profile-card{border-left:0;border-top:1px solid var(--line);padding-left:0;padding-top:22px}
@@ -138,29 +119,54 @@ img{max-width:100%;display:block}
     <div class="header-right">
       <a href="https://x.com/LaohouGrowth" target="_blank">X</a>
       <a href="mailto:0@4.com">邮箱</a>
-      <a href="/about/"><img class="avatar" src="https://avatars.githubusercontent.com/u/267829894?v=4" alt="老侯头像"></a>
+      <a class="avatar-link" href="/about/"><img class="avatar" src="https://avatars.githubusercontent.com/u/267829894?v=4" alt="老侯头像"></a>
     </div>
   </div>
 </header>
-
 <main>
   <div class="wrap">
     <section class="home-intro">
       <div class="hello">你好，我是老侯。</div>
       <h1>记录企业获客、广告投放、AI，以及一路上的真实判断。</h1>
       <p>这里更像我的长期博客和个人档案：文章是主角，案例和工具只是我真实工作的一部分。</p>
-      <div class="elsewhere">
-        <div class="elsewhere-label">也可以在这里找到我：</div>
-        <div class="social-icons">
-          <a class="social-icon" href="/about/#wechat"><span class="icon-badge icon-wechat">微</span><span>公众号</span></a>
-          <a class="social-icon" href="https://xhslink.cn/o/6GBc3jNCZAJ" target="_blank"><span class="icon-badge icon-xhs">红</span><span>小红书</span></a>
-          <a class="social-icon" href="https://v.douyin.com/vRrS_vDoSOk/" target="_blank"><span class="icon-badge icon-douyin">抖</span><span>抖音</span></a>
-          <a class="social-icon" href="https://x.com/LaohouGrowth" target="_blank"><span class="icon-badge icon-x">X</span><span>X</span></a>
-          <a class="social-icon" href="mailto:0@4.com"><span class="icon-badge icon-mail">@</span><span>邮箱</span></a>
-        </div>
-      </div>
+      
+<div class="social-area">
+  <div class="social-label">也可以在这些平台找到我：</div>
+  <div class="social-logos">
+    <a class="social-logo-link" href="/about/#wechat">
+<svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true">
+  <circle cx="10" cy="10" r="7.5" fill="#07C160"/>
+  <circle cx="15.7" cy="14.5" r="5.7" fill="#07C160"/>
+  <circle cx="7.6" cy="8.8" r="1" fill="#fff"/><circle cx="11.7" cy="8.8" r="1" fill="#fff"/>
+  <circle cx="13.8" cy="13.7" r=".8" fill="#fff"/><circle cx="17.1" cy="13.7" r=".8" fill="#fff"/>
+  <path d="M5.8 15.3 4.7 18l3.1-1.5" fill="#07C160"/>
+  <path d="M17.5 18.6 19 21l-3-.9" fill="#07C160"/>
+</svg><span>公众号</span></a>
+    <a class="social-logo-link" href="https://xhslink.cn/o/6GBc3jNCZAJ" target="_blank">
+<svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true">
+  <rect x="1.5" y="3" width="21" height="18" rx="5" fill="#FF2442"/>
+  <text x="12" y="15.1" text-anchor="middle" font-size="7.4" font-family="Arial,'PingFang SC',sans-serif" font-weight="700" fill="white">小红书</text>
+</svg><span>小红书</span></a>
+    <a class="social-logo-link" href="https://v.douyin.com/vRrS_vDoSOk/" target="_blank">
+<svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true">
+  <rect x="1.5" y="1.5" width="21" height="21" rx="6" fill="#111"/>
+  <path d="M13 6.3v7.1a3.4 3.4 0 1 1-2.2-3.2v2.2a1.55 1.55 0 1 0 .45 1.1V6.3h1.75c.32 1.7 1.4 2.9 3.05 3.45v1.85c-1.2-.23-2.2-.7-3.05-1.4" fill="#25F4EE"/>
+  <path d="M13.55 5.75v7.1a3.4 3.4 0 1 1-2.2-3.2v2.2a1.55 1.55 0 1 0 .45 1.1V5.75h1.75c.32 1.7 1.4 2.9 3.05 3.45v1.85c-1.2-.23-2.2-.7-3.05-1.4" fill="#FE2C55" opacity=".85"/>
+  <path d="M13.3 6v7.1a3.4 3.4 0 1 1-2.2-3.2v2.2a1.55 1.55 0 1 0 .45 1.1V6h1.75c.32 1.7 1.4 2.9 3.05 3.45v1.85c-1.2-.23-2.2-.7-3.05-1.4" fill="#fff"/>
+</svg><span>抖音</span></a>
+    <a class="social-logo-link" href="https://x.com/LaohouGrowth" target="_blank">
+<svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true">
+  <rect x="1.5" y="1.5" width="21" height="21" rx="6" fill="#111"/>
+  <path d="M7 6.5h2.6l2.9 3.85 3.2-3.85h1.7l-4.1 4.95 4.45 6.05h-2.6l-3.28-4.4-3.65 4.4H6.5l4.55-5.5z" fill="#fff"/>
+</svg><span>X</span></a>
+    <a class="social-logo-link" href="mailto:0@4.com">
+<svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true">
+  <rect x="1.5" y="3.5" width="21" height="17" rx="4" fill="#2563EB"/>
+  <path d="m4.8 7.2 7.2 5.2 7.2-5.2" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+</svg><span>邮箱</span></a>
+  </div>
+</div>
     </section>
-
     <section class="post-stream">
 <article class="post">
   <div class="post-meta">2026.10.12<span class="cat">增长</span></div>
@@ -202,7 +208,6 @@ img{max-width:100%;display:block}
     <a class="read" href="/articles/eight-years-ads.html">阅读全文 →</a>
   </div>
 </article></section>
-
     <section class="home-extra">
       <h3>不只写文章</h3>
       <div class="mini-links">
@@ -213,11 +218,9 @@ img{max-width:100%;display:block}
     </section>
   </div>
 </main>
-
 <footer class="footer">
   <div class="wrap footer-inner">
     <div>© 2026 老侯</div>
-    <div>公众号 · 小红书 · 抖音 · X · 邮箱</div>
+    <div>文章 · 案例 · 工具 · 关于</div>
   </div>
-</footer>
-</body></html>
+</footer></body></html>

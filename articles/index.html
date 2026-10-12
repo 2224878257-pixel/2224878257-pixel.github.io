@@ -1,80 +1,165 @@
 <!doctype html><html lang="zh-CN"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-<meta name="description" content="老侯｜AI × Growth"><title>Writing｜老侯</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>文章｜老侯</title><meta name="description" content="老侯｜企业获客、广告投放、AI 与长期思考">
 <style>
 :root{
-  --bg:#f7f8fb;--card:#fff;--soft:#fbfcfe;--text:#101828;--text2:#344054;
-  --muted:#667085;--line:#e7ebf2;--blue:#2563eb;--purple:#7c3aed;--green:#16a34a;
-  --shadow:0 16px 38px rgba(15,23,42,.06);--hover:0 20px 44px rgba(15,23,42,.10);
-  --r-xl:32px;--r-lg:22px;--r-md:16px;--max:1180px
+  --bg:#fff;--text:#161616;--muted:#6f6f6f;--soft:#9a9a9a;
+  --line:#ececec;--blue:#2563eb;--max:780px;
 }
-*{box-sizing:border-box} html{scroll-behavior:smooth}
-body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
-color:var(--text);line-height:1.72;background:linear-gradient(180deg,#fbfcfe 0%,#f7f9fc 48%,#f4f7fb 100%)}
-a{color:inherit;text-decoration:none}.wrap{width:min(var(--max),calc(100% - 40px));margin:0 auto}
-.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:0 6px 18px rgba(15,23,42,.035)}
-.nav{position:sticky;top:0;z-index:50;border-bottom:1px solid rgba(231,235,242,.88);background:rgba(248,250,252,.88);backdrop-filter:blur(16px)}
-.nav-inner{height:66px;display:flex;align-items:center;justify-content:space-between}.brand{font-weight:850;font-size:15px}
-.nav-links{display:flex;gap:24px;color:var(--muted);font-size:14px}.nav-links a:hover{color:var(--text)}
-.section{padding:38px 0}.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:20px}
-.section-head h2{margin:0;font-size:29px;line-height:1.2;letter-spacing:-.035em}.section-head p{margin:0;color:var(--muted);font-size:14px}
-.hero{padding:36px 0 20px}.hero-shell{position:relative;overflow:hidden;border:1px solid #e4e9f1;border-radius:var(--r-xl);padding:58px 50px;
-background:radial-gradient(circle at 92% 10%,rgba(37,99,235,.10),transparent 28%),radial-gradient(circle at 82% 85%,rgba(124,58,237,.065),transparent 30%),linear-gradient(180deg,#fff 0%,#fbfcff 100%);box-shadow:var(--shadow)}
-.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:34px}.hero-copy{display:flex;flex-direction:column;justify-content:center}
-.hero-label{width:fit-content;padding:7px 12px;margin-bottom:18px;border-radius:999px;background:#eef4ff;color:var(--blue);font-size:12px;font-weight:750}
-.hero-title{margin:0;font-size:64px;line-height:1;letter-spacing:-.06em}.hero-role{margin-top:14px;font-size:28px;font-weight:800}.accent-blue{color:var(--blue)}
-.hero-desc{max-width:680px;margin:20px 0 0;color:var(--text2);font-size:17px;line-height:1.9}
-.hero-note{margin-top:17px;padding-left:14px;border-left:3px solid var(--blue);color:#475467;font-size:15px;font-weight:650}
-.hero-tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:23px}.hero-tag{padding:8px 12px;border:1px solid #e6ebf2;border-radius:999px;background:#f8fafc;color:#344054;font-size:12px}
-.hero-actions{display:flex;flex-wrap:wrap;gap:11px;margin-top:25px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;border-radius:12px;font-size:14px;font-weight:800}
-.btn-dark{background:#101828;color:white}.btn-light{border:1px solid #d9e1ec;background:white}
-.hero-profile{padding:24px;border:1px solid #e5eaf2;border-radius:24px;background:linear-gradient(180deg,#f8fbff,#f4f7fc)}
-.hero-profile-top{display:flex;align-items:center;gap:14px;margin-bottom:20px}.hero-avatar{width:78px;height:78px;border-radius:50%;object-fit:cover;border:4px solid white}
-.hero-profile-name{font-size:19px;font-weight:850}.hero-profile-role{margin-top:4px;color:var(--muted);font-size:13px}
-.signal-title{margin-bottom:12px;color:var(--muted);font-size:12px;font-weight:750;letter-spacing:.08em;text-transform:uppercase}
-.signal-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px}.signal{padding:16px 14px;border:1px solid #e6ebf2;border-radius:15px;background:white}
-.signal b{display:block;font-size:27px;line-height:1.1}.signal span{display:block;margin-top:6px;color:var(--muted);font-size:12px}
-.hero-mini{display:grid;gap:9px;margin-top:18px;padding-top:16px;border-top:1px solid #e5eaf2;color:#475467;font-size:13px}
-.hero-mini-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}.hero-social{width:38px;height:38px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;border:1px solid #dce3ed;background:#fff;font-size:12px;font-weight:800}
-.hero-social.wechat{color:#16a34a}.hero-social.xhs{color:#ef4444}.hero-social.douyin{color:#111827}.hero-social.x{color:#000}
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.item-card{padding:22px;transition:.2s}.item-card:hover{transform:translateY(-4px);box-shadow:var(--hover)}
-.item-kicker{font-size:12px;color:var(--blue);font-weight:800;letter-spacing:.08em}.item-card h3{margin:8px 0 8px;font-size:20px}
-.item-card p{margin:0;color:var(--muted);font-size:13px}.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
-.tag{padding:6px 9px;border-radius:999px;background:#f2f4f7;color:#475467;font-size:12px}.arrow-link{display:inline-block;margin-top:16px;color:var(--blue);font-weight:750;font-size:13px}
-.social-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.social-card{padding:22px}.social-top{display:flex;justify-content:space-between;align-items:center}
-.social-name{font-size:19px;font-weight:850}.social-card p{color:var(--muted);font-size:13px}.qr-card{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center}
-.qr-box{width:118px;height:118px;padding:6px;border:1px solid #e2e7ef;border-radius:14px;background:#fff}.qr-box img{width:100%;height:100%;object-fit:cover;border-radius:9px}
-.footer{padding:34px 0 56px;text-align:center;color:var(--muted);font-size:13px}
-.page-hero{padding:54px 0 18px}.page-hero h1{font-size:48px;margin:0 0 10px;letter-spacing:-.05em}.page-hero p{color:var(--muted);max-width:720px}.page-hero+.section:not(.weixin-library){display:none}
-.detail{max-width:860px;margin:0 auto}.detail .card{padding:32px}.detail h2{margin-top:28px}.detail p,.detail li{color:#475467}
-@media(max-width:980px){.hero-grid{grid-template-columns:1fr}.grid-3,.social-grid{grid-template-columns:repeat(2,1fr)}.grid-4{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:720px){.nav-inner{height:auto;min-height:66px;flex-wrap:wrap;padding:12px 0 0}.nav-links{display:flex;width:100%;gap:18px;padding:2px 0 10px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}.nav-links::-webkit-scrollbar{display:none}.hero-shell{padding:42px 28px}.hero-title{font-size:48px}.hero-role{font-size:23px}}
-@media(max-width:560px){.wrap{width:min(var(--max),calc(100% - 24px))}.hero-shell{padding:30px 20px;border-radius:24px}.hero-title{font-size:40px}.hero-role{font-size:21px}.page-hero{padding-top:38px}.page-hero h1{font-size:36px;line-height:1.25}.detail .card{padding:24px}
-.signal-grid,.grid-3,.grid-4,.social-grid{grid-template-columns:1fr}.qr-card{grid-template-columns:1fr}.qr-box{width:140px;height:140px}.section-head{align-items:flex-start;flex-direction:column;gap:6px}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif;
+  line-height:1.72;
+}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+.wrap{width:min(var(--max),calc(100% - 36px));margin:0 auto}
+
+/* 顶部 */
+.site-header{border-bottom:1px solid var(--line);background:#fff}
+.header-inner{height:72px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px}
+.site-name{font-size:26px;font-weight:760;letter-spacing:-.04em}
+.main-nav{display:flex;justify-content:center;gap:26px}
+.main-nav a{font-size:13px;color:var(--muted)}
+.main-nav a:hover,.main-nav a.active{color:var(--text);font-weight:600}
+.header-right{display:flex;align-items:center;gap:12px}
+.header-right>a:not(.avatar-link){font-size:12px;color:var(--muted)}
+.avatar{width:38px;height:38px;border-radius:50%;object-fit:cover;border:1px solid var(--line)}
+
+/* 首页 */
+.home-intro{padding:56px 0 28px}
+.home-intro .hello{font-size:13px;color:var(--muted);margin-bottom:10px}
+.home-intro h1{font-size:31px;line-height:1.42;letter-spacing:-.035em;margin:0;font-weight:700}
+.home-intro p{margin:14px 0 0;color:var(--muted);font-size:15px;max-width:660px}
+
+.social-area{margin-top:28px;padding-top:20px;border-top:1px solid var(--line)}
+.social-label{font-size:12px;color:var(--soft);margin-bottom:12px}
+.social-logos{display:flex;flex-wrap:wrap;gap:12px}
+.social-logo-link{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:9px 13px;border:1px solid var(--line);border-radius:999px;
+  background:#fff;font-size:13px;transition:.18s ease
+}
+.social-logo-link:hover{transform:translateY(-1px);background:#fafafa;border-color:#d8d8d8}
+.brand-icon{width:22px;height:22px;display:block;flex:0 0 22px}
+
+.post-stream{padding:4px 0 22px}
+.post{display:grid;grid-template-columns:112px 1fr;gap:30px;padding:30px 0;border-bottom:1px solid var(--line)}
+.post-meta{font-size:12px;color:var(--soft);line-height:1.7}
+.post-meta .cat{display:block;color:var(--blue);margin-top:5px}
+.post-body h2{font-size:24px;line-height:1.42;letter-spacing:-.02em;margin:0 0 8px;font-weight:650}
+.post-body p{font-size:14px;color:var(--muted);margin:0}
+.read{display:inline-block;margin-top:10px;font-size:13px;color:var(--blue)}
+
+.home-extra{padding:30px 0 8px}
+.home-extra h3{font-size:16px;margin:0 0 12px}
+.mini-links{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.mini-link{border-top:1px solid var(--line);padding-top:12px}
+.mini-link small{color:var(--soft);font-size:11px}
+.mini-link b{display:block;font-size:14px;margin-top:3px}
+.mini-link span{display:block;font-size:12px;color:var(--muted);margin-top:3px}
+
+/* 子页面统一样式 */
+.page-head{padding:46px 0 22px;border-bottom:1px solid var(--line)}
+.page-head h1{font-size:32px;margin:0 0 8px;letter-spacing:-.035em}
+.page-head p{margin:0;color:var(--muted);font-size:14px}
+.list{padding-bottom:26px}
+.list-item{padding:24px 0;border-bottom:1px solid var(--line)}
+.list-item .meta{font-size:12px;color:var(--soft)}
+.list-item h2{font-size:22px;line-height:1.4;margin:5px 0 6px}
+.list-item p{font-size:14px;color:var(--muted);margin:0}
+.list-item .read{margin-top:8px}
+
+.article{max-width:700px;margin:0 auto;padding:48px 0 70px}
+.article .meta{font-size:12px;color:var(--soft)}
+.article h1{font-size:38px;line-height:1.3;letter-spacing:-.04em;margin:8px 0 20px}
+.article .lead{font-size:17px;color:#4c4c4c}
+.article h2{font-size:22px;margin-top:34px}
+.article p,.article li{font-size:16px;color:#4f4f4f}
+.article blockquote{margin:26px 0;padding-left:16px;border-left:3px solid #111;color:#3f3f3f}
+.back{display:inline-block;margin-top:40px;color:var(--blue);font-size:13px}
+
+/* 关于 */
+.about-grid{display:grid;grid-template-columns:1fr 220px;gap:38px;padding:34px 0 52px}
+.about-main p{color:#4f4f4f}
+.profile-card{border-left:1px solid var(--line);padding-left:24px}
+.profile-card img.avatar-lg{width:96px;height:96px;border-radius:50%;object-fit:cover;margin-bottom:12px}
+.profile-card h3{margin:0 0 4px;font-size:18px}
+.profile-card p{margin:5px 0;font-size:13px;color:var(--muted)}
+.socials-section{padding:30px 0 56px;border-top:1px solid var(--line)}
+.socials-section h2{font-size:22px;margin:0 0 8px}
+.socials-section>p{font-size:13px;color:var(--muted);margin:0 0 18px}
+.social-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.social-card{border:1px solid var(--line);border-radius:12px;padding:16px}
+.social-card h3{font-size:15px;margin:0 0 5px}
+.social-card p{font-size:12px;color:var(--muted);margin:0}
+.social-card .social-open{display:inline-block;margin-top:10px;font-size:12px;color:var(--blue)}
+.qr-row{display:flex;align-items:center;gap:14px}
+.qr{width:96px;height:96px;border-radius:8px;border:1px solid var(--line);object-fit:contain;background:#fff}
+
+.footer{border-top:1px solid var(--line);padding:24px 0 34px;color:var(--soft);font-size:11px}
+.footer-inner{display:flex;justify-content:space-between;gap:20px}
+
+@media(max-width:680px){
+  .header-inner{grid-template-columns:auto 1fr}.main-nav{display:none}.header-right{justify-content:flex-end}
+  .header-right>a:not(.avatar-link){display:none}
+  .post{grid-template-columns:1fr;gap:7px;padding:24px 0}
+  .mini-links{grid-template-columns:1fr}
+  .about-grid{grid-template-columns:1fr}.profile-card{border-left:0;border-top:1px solid var(--line);padding-left:0;padding-top:22px}
+  .social-grid{grid-template-columns:1fr}
+  .footer-inner{flex-direction:column}
+}
 </style></head><body>
-<header class="nav"><div class="wrap nav-inner">
-<a class="brand" href="/#top">老侯 / AI × Growth</a>
-<nav class="nav-links">
-<a href="/#projects">Projects</a><a href="/cases/">Cases</a><a href="/articles/">Writing</a><a href="/workflows/">Workflows</a><a href="/tools/">Tools</a><a href="/#follow">Follow</a>
-</nav></div></header>
-<main><section class="page-hero"><div class="wrap"><h1>Writing</h1><p>把公众号、小红书、X 和其他平台上的内容汇总到自己的内容中枢。</p></div></section><section class="section"><div class="wrap"><div class="grid-3"><article class="card item-card"><div class="item-kicker">GROWTH</div><h3>本地推突然不花钱，先别急着怪素材</h3><p>投放问题的全链路判断。</p><a class="arrow-link" href="/articles/local-ads-not-spending.html">查看详情 →</a></article>
-<article class="card item-card"><div class="item-kicker">AI × WORK</div><h3>我怎么用 AI 搭一套电商售后工作流</h3><p>AI 如何真正进入客服业务。</p><a class="arrow-link" href="/articles/ecommerce-ai-support.html">查看详情 →</a></article>
-<article class="card item-card"><div class="item-kicker">BUILDER</div><h3>从增长负责人到 Builder</h3><p>为什么开始把经验做成工具。</p><a class="arrow-link" href="/articles/from-growth-to-builder.html">查看详情 →</a></article></div></div></section><!-- WEIXIN_IMPORT_START --><section class="section weixin-library"><div class="wrap"><div class="grid-3"><article class="card item-card"><div class="item-kicker">投放增长</div><h3>100条线索，80个不到店：到底是广告不准，还是门店根本没接住？</h3><p>这段时间，有不少之前合作过的老板吐槽：现在的线索太差了，100多条线索，有80多个不到店。 抖音、快手、腾讯、小红书几个平台的都有。我们该想的办法也想了，还是没搞清楚问题出在哪里？…</p><div class="tags"><span class="tag">1 张配图</span></div><a class="arrow-link" href="/articles/leads-not-arriving.html">阅读全文 →</a></article>
-<article class="card item-card"><div class="item-kicker">本地获客</div><h3>2026家装建材到底怎么获客？8大主流渠道一次讲全，别再死磕一个平台</h3><p>如果你是做装修的、做全屋定制的、卖门窗瓷砖卫浴的，或者就是开个建材门店的老板， 这篇建议直接收藏 。 今天详细跟你分享一下，现在家装建材主流的获客渠道，看看有没有你不知道的。 我为…</p><div class="tags"><span class="tag">5 张配图</span></div><a class="arrow-link" href="/articles/home-improvement-acquisition-channels.html">阅读全文 →</a></article>
-<article class="card item-card"><div class="item-kicker">一人公司</div><h3>2026年，一人公司opc最好的变现方式，不是做产品，也不是做自媒体</h3><p>今天看到一个关于OPC变现的讨论，很有意思。 像我们很多人只要提到AI变现，第一反应就是：做AI产品、做工具站、做自媒体、卖课、搞知识付费。 听起来都不错，对吧。 搞得好像只要会用…</p><div class="tags"><span class="tag">1 张配图</span></div><a class="arrow-link" href="/articles/opc-monetization.html">阅读全文 →</a></article>
-<article class="card item-card"><div class="item-kicker">合规</div><h3>AI素材能不能投？2026年先过这4道授权检查</h3><p>昨天跟几个做投放的朋友聚了聚，其中有人跟我吐槽。 说现在用AI做素材是真的快，一天能搞几十条。 人物用的是数字人，配音用的是AI克隆的，文案也是让AI写的。 素材的制作效率是上去了…</p><div class="tags"><span class="tag">1 张配图</span></div><a class="arrow-link" href="/articles/ai-creative-licensing.html">阅读全文 →</a></article>
-<article class="card item-card"><div class="item-kicker">获客增长</div><h3>为什么你的同行天天有客户，你却没有人咨询？问题出在这3个地方</h3><p>做了这么久的投放，我越来越发现一个现象。 同样的一个行业。 有的商家每天都有客户咨询，有的商家天天发内容、投广告，可是咨询的人却寥寥无几。 面对这种情况，很多老板的第一反应就是…</p><a class="arrow-link" href="/articles/why-competitors-get-leads.html">阅读全文 →</a></article>
-<article class="card item-card"><div class="item-kicker">账户优化</div><h3>你的广告账户不是被平台搞废的，是你自己喂废的</h3><p>好多投本地广告的投手，都会遇到同一个问题：账户刚开始，数据还不错，有线索，有咨询，成本也能接受。 但是投着投着，就不对劲了。 表单越来越多，成交越来越少，客户质量越来越差。 客服说…</p><a class="arrow-link" href="/articles/how-accounts-learn.html">阅读全文 →</a></article>
-<article class="card item-card"><div class="item-kicker">线索质量</div><h3>信息流投放线索质量差，一定要先检查这5个环节，看完你就明白了</h3><p>做信息流投放的人，最容易吵起来的一句话就是： 这批线索的质量不行。 销售说客户不准，老板说平台流量差，投手觉得素材和成本都没问题。 到最后，大家各说各的，都认为自己没错。 我从业以…</p><a class="arrow-link" href="/articles/lead-quality-five-checks.html">阅读全文 →</a></article>
-<article class="card item-card"><div class="item-kicker">投放增长</div><h3>做了8年广告投放，我发现老板最容易犯的5个错误</h3><p>这些年投放做下来，我见过太多的老板，每年至少几百万投下去，有一半的钱，都打水漂了。 问题到底出在哪里？ 今天我就斗胆说点大实话。 老板们在投放中最容易犯这五个错误，看看你自己中了几…</p><a class="arrow-link" href="/articles/five-advertiser-mistakes.html">阅读全文 →</a></article>
-<article class="card item-card"><div class="item-kicker">客户判断</div><h3>做了几年广告代投，我发现：真正亏钱的客户，都有这5个特征</h3><p>做了这么多年的广告投放，也帮助过很多客户跑账户。 但是这些年下来，我发现一个很大的问题： 很多老板会认为，找到一个专业的投手，然后广告效果就一定会提升。 但是等真正合作下来以后才发…</p><a class="arrow-link" href="/articles/unprofitable-ad-clients.html">阅读全文 →</a></article>
-<article class="card item-card"><div class="item-kicker">本地获客</div><h3>县城做装修还值得投抖音吗？先算清这3笔账，再决定投不投</h3><p>前两天，一个在县城做装修生意的老板问我，县城就那么大，抖音线索现在也不便宜了，到底还有没有必要投？ 好多人碰到这种问题，先看一条线索多少钱，贵了就撤，便宜就上。这个思路不对。投不投…</p><div class="tags"><span class="tag">2 张配图</span></div><a class="arrow-link" href="/articles/county-decoration-douyin.html">阅读全文 →</a></article>
-<article class="card item-card"><div class="item-kicker">一人公司</div><h3>参加一个OPC交流会后，我发现很多人还没想清楚怎么落地</h3><p>周日去阿里园区那边参加了一个关于OPC、一人公司如何落地的分享交流会。 听完以后，我有一个很明显的感受： 现在大家都在讨论AI、OPC、一人公司，但真正想清楚自己要做什么、怎么做…</p><div class="tags"><span class="tag">1 张配图</span></div><a class="arrow-link" href="/articles/opc-implementation.html">阅读全文 →</a></article>
-<article class="card item-card"><div class="item-kicker">投放增长</div><h3>少投点试试？这话害了多少广告主</h3><p>想要投广告的老板，一定要先明白一件事： 广告投放不是你今天花100块，明天就一定能看到稳定转化。 我知道老板们很着急，钱花出去马上想看到效果，但广告投放真的不是你们想的那样。 广告…</p><a class="arrow-link" href="/articles/small-budget-testing-trap.html">阅读全文 →</a></article>
-<article class="card item-card"><div class="item-kicker">投放增长</div><h3>很多老板不知道，在正式开始投放之前，最应该先做好这两件事情</h3><p>有很多的老板，投广告之前就做错了，导致后期需要返工，浪费了大把的精力、人力、财力。 想要不出错，投放前，一定要提前做好这两件事。 第一个、就是一定要提前把整个投放链路搞清楚。 这里…</p><a class="arrow-link" href="/articles/before-running-ads.html">阅读全文 →</a></article>
-<article class="card item-card"><div class="item-kicker">投放增长</div><h3>很多老板都想自己投广告，认为很简单？直到撞了南墙才知道投放没那么简单</h3><p>我见过不少老板，都认为广告投放没那么复杂，挺简单的。 他们理解的广告投放，就是开个账户、做几条素材、充点钱，然后把广告发出去。 这样的想法，就导致他们会觉得，与其花不少钱找投手，找…</p><div class="tags"><span class="tag">2 张配图</span></div><a class="arrow-link" href="/articles/why-ad-buying-is-hard.html">阅读全文 →</a></article>
-<article class="card item-card"><div class="item-kicker">AI 提效</div><h3>我的AI工具使用技巧大公开，学会这4招工作效率直接飞起~</h3><p>我目前主要做广告投放和增长相关的工作，也在做自己的内容账号和一些副业产品。 今天我想跟大家分享一下：我到底是怎么用AI工具，提高我的工作、学习和副业效率的。 我先说一个我的核心观点…</p><div class="tags"><span class="tag">4 张配图</span></div><a class="arrow-link" href="/articles/ai-tool-productivity-tips.html">阅读全文 →</a></article>
-<article class="card item-card"><div class="item-kicker">全域获客</div><h3>抖音、小红书、视频号、美团、高德都投了，为什么还是没效果？解决方法来了</h3><p>我发现，很多中小老板都有一个共同的问题。 就是哪个平台都想投一下，抖音投一点，小红书投一点，视频号也试一下，美团、高德再开几个推广。 投的平台越来越多，钱也没少花。 但最后自己统计…</p><a class="arrow-link" href="/articles/multi-channel-no-results.html">阅读全文 →</a></article>
-<article class="card item-card"><div class="item-kicker">投放增长</div><h3>老板们看过来，投广告前不要急着定预算，先查这4个地方</h3><p>经常会碰到一些老板问我：我这个行业适不适合投广告？每天投多少合适？投500能带来多少客户？等等问题。 你们问的这些问题是很重要，但 都不是投广告前最该问的。 最应该先问的是： 客户…</p><a class="arrow-link" href="/articles/ad-budget-four-checks.html">阅读全文 →</a></article>
-<article class="card item-card"><div class="item-kicker">ROI</div><h3>钱花出去了，效果不知道在哪儿？教你3步算清你的广告ROI</h3><p>很多老板投广告，每天几千几万的广告费花出去了，后台看着挺热闹： 曝光涨了、线索多了、订单也有了。 但等到月底的时候，财务一算账，到底是赚了还是亏了，老板心里也没有底。 这就奇怪了…</p><a class="arrow-link" href="/articles/calculate-ad-roi.html">阅读全文 →</a></article></div></div></section><!-- WEIXIN_IMPORT_END --></main><footer class="footer">© 2026 老侯 · AI × Growth · Built on GitHub Pages</footer></body></html>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="site-name" href="/">老侯</a>
+    <nav class="main-nav"><a class="active" href="/articles/">文章</a><a class="" href="/cases/">案例</a><a class="" href="/tools/">工具</a><a class="" href="/about/">关于</a></nav>
+    <div class="header-right">
+      <a href="https://x.com/LaohouGrowth" target="_blank">X</a>
+      <a href="mailto:0@4.com">邮箱</a>
+      <a class="avatar-link" href="/about/"><img class="avatar" src="https://avatars.githubusercontent.com/u/267829894?v=4" alt="老侯头像"></a>
+    </div>
+  </div>
+</header>
+    <main><div class="wrap">
+      <section class="page-head"><h1>文章</h1><p>持续记录增长、获客、AI、商业和个人长期发展的思考。</p></section>
+      <section class="list">
+    <article class="list-item">
+      <div class="meta">2026.10.12 · 增长</div>
+      <h2><a href="/articles/next-three-months.html">接下来三个月，我只做这三件事</a></h2>
+      <p>工作、客户、内容，只聚焦真正重要的事。</p>
+      <a class="read" href="/articles/next-three-months.html">查看详情 →</a>
+    </article>
+    <article class="list-item">
+      <div class="meta">2026.10.10 · 获客</div>
+      <h2><a href="/articles/why-competitors-get-leads.html">为什么你的同行天天有客户，你却没人咨询？</a></h2>
+      <p>从账户、素材到承接，拆解企业获客为什么会失效。</p>
+      <a class="read" href="/articles/why-competitors-get-leads.html">查看详情 →</a>
+    </article>
+    <article class="list-item">
+      <div class="meta">2026.10.09 · 本地获客</div>
+      <h2><a href="/articles/county-decoration-douyin.html">县城做装修，还值得投抖音吗？</a></h2>
+      <p>先算清三笔账，再决定要不要投。</p>
+      <a class="read" href="/articles/county-decoration-douyin.html">查看详情 →</a>
+    </article>
+    <article class="list-item">
+      <div class="meta">2026.10.07 · AI</div>
+      <h2><a href="/articles/what-is-worth-building.html">AI 时代，什么才值得长期构建？</a></h2>
+      <p>能力越来越便宜以后，判断什么值得做反而更重要。</p>
+      <a class="read" href="/articles/what-is-worth-building.html">查看详情 →</a>
+    </article>
+    <article class="list-item">
+      <div class="meta">2026.10.05 · 思考</div>
+      <h2><a href="/articles/eight-years-ads.html">做了 8 年广告投放，我越来越相信一件事</a></h2>
+      <p>投放不是单纯买流量，而是理解需求和系统。</p>
+      <a class="read" href="/articles/eight-years-ads.html">查看详情 →</a>
+    </article></section>
+    </div></main>
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div>© 2026 老侯</div>
+    <div>文章 · 案例 · 工具 · 关于</div>
+  </div>
+</footer></body></html>

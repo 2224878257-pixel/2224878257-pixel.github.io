@@ -1,0 +1,22 @@
+请把当前目录作为网站唯一版本，完整部署到 GitHub 仓库：
+2224878257-pixel/2224878257-pixel.github.io
+
+非常重要：不要增量合并旧网站。
+
+请按这个顺序执行：
+1. 删除仓库中旧的 articles、cases、tools、workflows、about 目录。
+2. 删除旧 index.html。
+3. 将当前目录全部文件复制到仓库根目录，包括 assets。
+4. 确保以下页面全部来自当前新版：
+   /
+   /articles/
+   /cases/
+   /tools/
+   /about/
+5. 检查所有页面顶部菜单必须统一为：文章 / 案例 / 工具 / 关于。
+6. 页面里不能再出现 Projects、Cases、Writing、Workflows、Tools、Follow、AI × Growth 旧导航。
+7. assets/wechat-qr.jpg、assets/xiaohongshu-qr.jpg、assets/douyin-qr.jpg 必须存在。
+8. commit 并 push 到 main。
+9. 最后逐个访问上述 5 个页面检查没有旧样式残留。
+
+如果发现旧文件与新版冲突，以当前目录为唯一真相，删除旧文件。

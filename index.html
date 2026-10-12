@@ -40,11 +40,24 @@ img{max-width:100%;display:block}
 .home-intro p{margin:14px 0 0;color:var(--muted);font-size:15px;max-width:650px}
 .elsewhere{
   margin-top:26px;padding-top:18px;border-top:1px solid var(--line);
-  display:flex;flex-wrap:wrap;gap:16px;align-items:center
 }
-.elsewhere-label{font-size:12px;color:var(--soft)}
-.elsewhere a{font-size:13px;color:var(--text)}
-.elsewhere a:hover{color:var(--blue)}
+.elsewhere-label{font-size:12px;color:var(--soft);margin-bottom:12px}
+.social-icons{display:flex;flex-wrap:wrap;gap:12px}
+.social-icon{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:9px 14px;border:1px solid var(--line);border-radius:999px;
+  background:#fff;font-size:13px;color:var(--text);transition:.18s ease;
+}
+.social-icon:hover{transform:translateY(-1px);border-color:#d8d8d8;background:#fafafa}
+.icon-badge{
+  width:22px;height:22px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:700;line-height:1;flex:0 0 22px;
+}
+.icon-wechat{background:#eaf8ef;color:#16a34a}
+.icon-xhs{background:#fff1f1;color:#ef4444}
+.icon-douyin{background:#f4f4f5;color:#111827}
+.icon-x{background:#f3f4f6;color:#111827}
+.icon-mail{background:#eff6ff;color:#2563eb}
 
 .post-stream{padding:4px 0 22px}
 .post{
@@ -137,12 +150,14 @@ img{max-width:100%;display:block}
       <h1>记录企业获客、广告投放、AI，以及一路上的真实判断。</h1>
       <p>这里更像我的长期博客和个人档案：文章是主角，案例和工具只是我真实工作的一部分。</p>
       <div class="elsewhere">
-        <span class="elsewhere-label">也可以在这里找到我：</span>
-        <a href="/about/#wechat">公众号</a>
-        <a href="https://xhslink.cn/o/6GBc3jNCZAJ" target="_blank">小红书</a>
-        <a href="https://v.douyin.com/vRrS_vDoSOk/" target="_blank">抖音</a>
-        <a href="https://x.com/LaohouGrowth" target="_blank">X</a>
-        <a href="mailto:0@4.com">邮箱</a>
+        <div class="elsewhere-label">也可以在这里找到我：</div>
+        <div class="social-icons">
+          <a class="social-icon" href="/about/#wechat"><span class="icon-badge icon-wechat">微</span><span>公众号</span></a>
+          <a class="social-icon" href="https://xhslink.cn/o/6GBc3jNCZAJ" target="_blank"><span class="icon-badge icon-xhs">红</span><span>小红书</span></a>
+          <a class="social-icon" href="https://v.douyin.com/vRrS_vDoSOk/" target="_blank"><span class="icon-badge icon-douyin">抖</span><span>抖音</span></a>
+          <a class="social-icon" href="https://x.com/LaohouGrowth" target="_blank"><span class="icon-badge icon-x">X</span><span>X</span></a>
+          <a class="social-icon" href="mailto:0@4.com"><span class="icon-badge icon-mail">@</span><span>邮箱</span></a>
+        </div>
       </div>
     </section>
 

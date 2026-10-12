@@ -1,195 +1,241 @@
 <!doctype html><html lang="zh-CN"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>老侯｜增长 / 广告投放 / AI</title><meta name="description" content="老侯｜增长、广告投放、AI 与长期思考">
+<title>老侯｜个人网站</title><meta name="description" content="老侯｜企业获客、广告投放、AI 与长期思考">
 <style>
 :root{
-  --bg:#fff;--text:#111827;--muted:#667085;--soft:#98a2b3;
-  --line:#e8ebf0;--blue:#2f6df6;--max:980px;
+  --bg:#fff;
+  --text:#111827;
+  --muted:#6b7280;
+  --soft:#9ca3af;
+  --line:#eceff3;
+  --blue:#2f6df6;
+  --max:820px;
 }
-*{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.72}
-a{text-decoration:none;color:inherit}
-.wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
-.nav{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.nav-inner{height:68px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:28px}
-.brand{font-size:26px;font-weight:900;letter-spacing:-.04em;display:flex;align-items:center;gap:8px}
-.dot{width:8px;height:8px;border-radius:50%;background:var(--blue);display:inline-block}
-.nav-links{display:flex;justify-content:center;gap:28px}
-.nav-links a,.nav-actions a{font-size:13px;color:var(--muted)}
-.nav-links a:hover,.nav-actions a:hover{color:var(--text)}
-.nav-actions{display:flex;gap:14px}
-.hero{display:grid;grid-template-columns:.95fr 1.05fr;gap:42px;align-items:center;padding:48px 0 38px}
-.kicker{font-size:11px;letter-spacing:.16em;color:#7b8494}
-.hero h1{font-size:52px;line-height:1.14;letter-spacing:-.055em;margin:14px 0 18px}
-.hero h1 em{font-style:normal;color:var(--blue)}
-.hero p{font-size:16px;color:var(--muted);margin:0;max-width:460px}
-.cta{display:inline-flex;margin-top:24px;padding:11px 18px;border-radius:999px;background:#101828;color:#fff;font-size:14px;font-weight:700}
-.hero-art{aspect-ratio:1.42/1;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#f6f8fb}
-.hero-art svg{width:100%;height:100%;display:block}
-.section{padding:30px 0;border-top:1px solid var(--line)}
-.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:12px}
-.section-head h2{margin:0;font-size:24px;letter-spacing:-.03em}
-.section-head a{font-size:12px;color:var(--muted)}
-.update-list{display:grid}
-.update-row{display:grid;grid-template-columns:96px 1fr auto;gap:22px;align-items:center;padding:17px 0;border-bottom:1px solid var(--line)}
-.update-row:last-child{border-bottom:0}
-.date{font-size:11px;color:var(--soft)}
-.update-title{font-size:17px;font-weight:760}
-.update-desc{font-size:12px;color:var(--muted);margin-top:3px}
-.arrow{color:#98a2b3;font-size:18px}
-.selected-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.cover{aspect-ratio:16/9;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#f7f9fc}
-.cover svg{width:100%;height:100%;display:block}
-.selected-card h3{font-size:16px;margin:10px 0 4px}
-.selected-card p{font-size:12px;color:var(--muted);margin:0}
-.footer{border-top:1px solid var(--line);margin-top:24px;padding:28px 0 38px}
-.footer-inner{display:flex;justify-content:space-between;gap:20px;color:var(--muted);font-size:12px}
-.page-hero{padding:44px 0 18px}
-.page-hero h1{font-size:42px;letter-spacing:-.05em;margin:0 0 8px}
-.page-hero p{max-width:660px;color:var(--muted);margin:0}
-.list{padding:12px 0 32px}
-.list-item{display:grid;grid-template-columns:110px 1fr auto;gap:18px;padding:18px 0;border-bottom:1px solid var(--line)}
-.list-item .meta{font-size:11px;color:var(--soft)}
-.list-item h3{margin:0;font-size:18px}
-.list-item p{margin:5px 0 0;color:var(--muted);font-size:13px}
-.article{max-width:720px;margin:0 auto;padding:44px 0 64px}
-.article .meta{font-size:12px;color:var(--soft)}
-.article h1{font-size:40px;line-height:1.2;letter-spacing:-.04em;margin:8px 0 18px}
-.article .lead{font-size:17px;color:#475467}
-.article p,.article li{color:#475467}
-.article h2{margin-top:34px;font-size:24px}
-.article blockquote{margin:24px 0;padding-left:18px;border-left:3px solid var(--blue);color:#344054}
-.article .back{display:inline-block;margin-top:40px;color:var(--muted);font-size:13px}
-.about-grid{display:grid;grid-template-columns:1fr .75fr;gap:40px;padding:34px 0 60px}
-.about-card{padding:22px;border:1px solid var(--line);border-radius:14px;background:#fafbfc}
-.about-card h3{margin-top:0}
-.small-links{display:flex;gap:14px;flex-wrap:wrap;margin-top:18px}
-.small-links a{color:var(--blue);font-size:13px}
-@media(max-width:820px){
- .nav-inner{grid-template-columns:auto 1fr}.nav-links{display:none}.nav-actions{justify-content:flex-end}
- .hero{grid-template-columns:1fr}.hero h1{font-size:44px}
- .selected-grid{grid-template-columns:1fr}.about-grid{grid-template-columns:1fr}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family: Georgia, "Times New Roman", "Songti SC", "Noto Serif SC", serif;
+  line-height:1.75;
 }
-@media(max-width:520px){
- .wrap{width:min(var(--max),calc(100% - 24px))}
- .nav-actions a:not(:last-child){display:none}
- .hero{padding-top:32px}.hero h1{font-size:38px}
- .update-row{grid-template-columns:80px 1fr auto;gap:12px}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(var(--max),calc(100% - 36px));margin:0 auto}
+.nav{
+  position:sticky;top:0;z-index:20;
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  min-height:76px;
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;
+  gap:26px;
+}
+.brand{
+  font-size:26px;
+  font-weight:700;
+  letter-spacing:-.03em;
+}
+.nav-links{
+  display:flex;
+  justify-content:center;
+  gap:28px;
+}
+.nav-links a,.socials a{
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  font-size:13px;
+  color:var(--muted);
+}
+.nav-links a:hover,.socials a:hover{color:var(--text)}
+.avatar{
+  width:52px;height:52px;border-radius:50%;object-fit:cover;
+  border:1px solid var(--line);
+}
+.intro{
+  padding:58px 0 36px;
+  border-bottom:1px solid var(--line);
+}
+.intro p{
+  margin:0;
+  font-size:24px;
+  line-height:1.6;
+  color:#3b4250;
+}
+.posts{padding:4px 0 26px}
+.post{
+  display:grid;
+  grid-template-columns:150px 1fr;
+  gap:46px;
+  padding:34px 0;
+  border-bottom:1px solid var(--line);
+}
+.post-meta{
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  font-size:12px;color:var(--soft);
+}
+.category{
+  margin-top:9px;color:var(--blue);font-weight:600;
+}
+.post h2{
+  margin:0 0 8px;
+  font-size:28px;
+  line-height:1.35;
+  letter-spacing:-.025em;
+  font-weight:700;
+}
+.post p{
+  margin:0;
+  color:#626a78;
+  font-size:16px;
+}
+.readmore{
+  display:inline-block;
+  margin-top:10px;
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  font-size:13px;color:var(--blue);font-weight:600;
+}
+.footer{
+  padding:26px 0 38px;
+  color:var(--soft);
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  font-size:12px;
+}
+.footer-inner{display:flex;justify-content:space-between;gap:20px}
+.page-hero{padding:48px 0 24px;border-bottom:1px solid var(--line)}
+.page-hero h1{font-size:40px;margin:0 0 8px}
+.page-hero p{margin:0;color:var(--muted);font-size:16px}
+.list-item{
+  padding:28px 0;border-bottom:1px solid var(--line)
+}
+.list-item .meta{
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  font-size:12px;color:var(--soft)
+}
+.list-item h2{font-size:27px;margin:6px 0 8px}
+.list-item p{margin:0;color:#626a78}
+.article{max-width:720px;margin:0 auto;padding:50px 0 70px}
+.article .meta{
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  font-size:12px;color:var(--soft)
+}
+.article h1{font-size:42px;line-height:1.25;margin:10px 0 20px}
+.article .lead{font-size:18px;color:#505866}
+.article h2{font-size:25px;margin-top:36px}
+.article p,.article li{color:#4b5563;font-size:16px}
+.article blockquote{margin:26px 0;padding-left:18px;border-left:3px solid var(--blue);color:#374151}
+.back{display:inline-block;margin-top:40px;color:var(--blue);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;font-size:13px}
+.about{display:grid;grid-template-columns:1fr 220px;gap:46px;padding:46px 0 70px}
+.about img{width:150px;height:150px;border-radius:50%;object-fit:cover;margin:auto}
+.about p{color:#4b5563}
+.about-box{border-left:1px solid var(--line);padding-left:28px;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
+.about-box h3{margin-top:0}
+.about-box p{font-size:14px}
+@media(max-width:720px){
+  .nav-inner{grid-template-columns:auto 1fr}.nav-links{display:none}.socials{display:none}
+  .avatar{justify-self:end}
+  .post{grid-template-columns:1fr;gap:8px;padding:28px 0}
+  .intro p{font-size:21px}
+  .post h2{font-size:24px}
+  .footer-inner{flex-direction:column}
+  .about{grid-template-columns:1fr}.about-box{border-left:0;border-top:1px solid var(--line);padding-left:0;padding-top:20px}
 }
 </style></head><body>
 <header class="nav">
   <div class="wrap nav-inner">
-    <a class="brand" href="/">老侯<span class="dot"></span></a>
+    <a class="brand" href="/">老侯</a>
     <nav class="nav-links">
       <a href="/articles/">文章</a>
       <a href="/cases/">案例</a>
       <a href="/tools/">工具</a>
       <a href="/about/">关于</a>
     </nav>
-    <div class="nav-actions">
-      <a href="https://x.com/LaohouGrowth" target="_blank">X</a>
-      <a href="https://github.com/2224878257-pixel" target="_blank">GitHub</a>
-      <a href="mailto:0@4.com">邮箱</a>
-    </div>
+    <img class="avatar" src="https://avatars.githubusercontent.com/u/267829894?v=4" alt="老侯头像">
   </div>
 </header>
 
-<main><div class="wrap">
-<section class="hero">
-  <div>
-    <div class="kicker">增长 / 广告投放 / AI</div>
-    <h1>记录真实的业务、<br><em>增长实践</em>和长期思考。</h1>
-    <p>我专注企业获客、广告投放和 AI，把一线实战里的问题、判断、案例、方法和工具，记录成可以复用的内容。</p>
-    <a class="cta" href="/about/">了解我 →</a>
+<main>
+  <div class="wrap">
+    <section class="intro">
+      <p>记录企业获客、广告投放、AI 与长期主义。</p>
+    </section>
+    <section class="posts">
+      
+<article class="post">
+  <div class="post-meta">
+    <div>2026.10.12</div>
+    <div class="category">增长</div>
   </div>
-  <div class="hero-art">
-<svg viewBox="0 0 720 500" xmlns="http://www.w3.org/2000/svg">
-<defs>
- <linearGradient id="bg" x1="0" x2="1"><stop stop-color="#f8fbff"/><stop offset="1" stop-color="#e8f0fa"/></linearGradient>
- <linearGradient id="desk" x1="0" x2="1"><stop stop-color="#d5b18c"/><stop offset="1" stop-color="#b88e66"/></linearGradient>
-</defs>
-<rect width="720" height="500" fill="url(#bg)"/>
-<rect x="0" y="0" width="720" height="290" fill="#edf4fb"/>
-<g opacity=".58" fill="#9ab0c5">
- <rect x="55" y="120" width="42" height="170"/><rect x="115" y="92" width="55" height="198"/>
- <rect x="190" y="136" width="40" height="154"/><rect x="252" y="64" width="58" height="226"/>
- <rect x="338" y="112" width="45" height="178"/><rect x="410" y="84" width="70" height="206"/>
- <rect x="505" y="126" width="48" height="164"/><rect x="585" y="72" width="52" height="218"/>
-</g>
-<circle cx="570" cy="142" r="60" fill="#c5dbc0"/><circle cx="620" cy="175" r="44" fill="#b4d0ae"/>
-<rect y="320" width="720" height="180" fill="url(#desk)"/>
-<rect x="255" y="238" width="270" height="170" rx="15" fill="#1b2431"/>
-<rect x="272" y="254" width="236" height="128" rx="8" fill="#eef4f9"/>
-<polyline points="294,346 340,320 385,331 427,284 486,300" fill="none" stroke="#2f6df6" stroke-width="7"/>
-<rect x="182" y="392" width="410" height="18" rx="8" fill="#8793a0"/>
-<rect x="82" y="370" width="120" height="19" rx="3" fill="#f6f0e9"/>
-<rect x="94" y="348" width="110" height="18" rx="3" fill="#f0e7dc"/>
-<rect x="105" y="327" width="102" height="18" rx="3" fill="#f8f5f0"/>
-<rect x="600" y="358" width="48" height="60" rx="6" fill="#18202a"/>
-<path d="M649 373 C680 372,680 404,650 404" fill="none" stroke="#18202a" stroke-width="10"/>
-<text x="42" y="50" font-size="19" fill="#5b6b7f">真实业务 · 增长实践 · 长期思考</text>
-</svg>
-</div>
-</section>
+  <div>
+    <h2><a href="/articles/next-three-months.html">接下来三个月，我只做这三件事</a></h2>
+    <p>到了年末，我重新梳理了一遍自己的目标。接下来三个月，我会把精力集中在三件事：找一份更好的企业获客相关工作、主动开发并服务客户、持续做内容。</p>
+    <a class="readmore" href="/articles/next-three-months.html">阅读全文 →</a>
+  </div>
+</article>
 
-<section class="section">
-<div class="section-head"><h2>最近更新 <span class="dot"></span></h2><a href="/articles/">查看全部 →</a></div>
-<div class="update-list">
-<a class="update-row" href="/articles/why-people-make-money.html"><div class="date">2026.10.08</div><div><div class="update-title">为什么别人能赚到钱？</div><div class="update-desc">从能力、选择、商业结构和长期复利重新理解赚钱。</div></div><div class="arrow">→</div></a>
-<a class="update-row" href="/articles/what-to-do-2026.html"><div class="date">2026.10.07</div><div><div class="update-title">2026 年应该做什么？</div><div class="update-desc">AI、获客、内容、个人品牌和商业认知。</div></div><div class="arrow">→</div></a>
-<a class="update-row" href="/articles/what-is-worth-building.html"><div class="date">2026.10.06</div><div><div class="update-title">AI 时代，什么才值得构建？</div><div class="update-desc">工具越来越强，真正稀缺的是方向判断。</div></div><div class="arrow">→</div></a>
-<a class="update-row" href="/articles/rethink-future.html"><div class="date">2026.10.05</div><div><div class="update-title">我重新思考了一次未来</div><div class="update-desc">关于工作、收入、城市、家庭与选择权。</div></div><div class="arrow">→</div></a>
-</div></section>
+<article class="post">
+  <div class="post-meta">
+    <div>2026.10.10</div>
+    <div class="category">获客</div>
+  </div>
+  <div>
+    <h2><a href="/articles/why-competitors-get-leads.html">为什么你的同行天天有客户，你却没人咨询？</a></h2>
+    <p>同样一个行业，有的商家每天都有稳定咨询，有的商家天天发内容、投广告，却几乎没人问。问题通常不只在广告，而在整条获客链路。</p>
+    <a class="readmore" href="/articles/why-competitors-get-leads.html">阅读全文 →</a>
+  </div>
+</article>
 
-<section class="section">
-<div class="section-head"><h2>精选内容 <span class="dot"></span></h2><a href="/cases/">查看全部 →</a></div>
-<div class="selected-grid">
-<a class="selected-card" href="/cases/wechat-growth.html"><div class="cover">
-<svg viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg">
-<rect width="640" height="360" fill="#f6fbf7"/>
-<circle cx="170" cy="180" r="92" fill="#16a34a"/>
-<circle cx="142" cy="168" r="40" fill="white"/><circle cx="207" cy="201" r="32" fill="white"/>
-<circle cx="130" cy="160" r="5" fill="#16a34a"/><circle cx="153" cy="160" r="5" fill="#16a34a"/>
-<circle cx="197" cy="195" r="4" fill="#16a34a"/><circle cx="215" cy="195" r="4" fill="#16a34a"/>
-<rect x="335" y="83" width="210" height="194" rx="20" fill="white" stroke="#dfe8e2" stroke-width="3"/>
-<polyline points="365,230 405,205 443,218 482,170 520,145" fill="none" stroke="#2f6df6" stroke-width="8"/>
-<line x1="365" y1="244" x2="522" y2="244" stroke="#d7dee7" stroke-width="4"/>
-<text x="335" y="63" font-size="24" fill="#1f2937">公众号增长</text>
-</svg>
-</div><h3>公众号增长项目复盘</h3><p>从账户、素材、人群、内容承接到后端变现的完整思路。</p></a>
-<a class="selected-card" href="/tools/ai-workspace.html"><div class="cover">
-<svg viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg">
-<rect width="640" height="360" fill="#f5f7fb"/>
-<rect x="55" y="58" width="530" height="244" rx="20" fill="#111827"/>
-<rect x="76" y="82" width="120" height="196" rx="10" fill="#1f2937"/>
-<circle cx="98" cy="104" r="7" fill="#2f6df6"/><circle cx="121" cy="104" r="7" fill="#7dd3fc"/>
-<rect x="217" y="84" width="340" height="48" rx="10" fill="#f8fafc"/>
-<rect x="217" y="147" width="160" height="106" rx="12" fill="#e9f1ff"/>
-<rect x="397" y="147" width="160" height="106" rx="12" fill="#f8fafc"/>
-<line x1="242" y1="217" x2="351" y2="174" stroke="#2f6df6" stroke-width="7"/>
-<rect x="422" y="177" width="110" height="8" rx="4" fill="#cbd5e1"/>
-<rect x="422" y="198" width="87" height="8" rx="4" fill="#cbd5e1"/>
-<rect x="422" y="219" width="100" height="8" rx="4" fill="#cbd5e1"/>
-</svg>
-</div><h3>老侯 AI 工作台</h3><p>把客户、诊断、案例、内容和学习放进一个长期系统。</p></a>
-<a class="selected-card" href="/cases/publishing.html"><div class="cover">
-<svg viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg">
-<rect width="640" height="360" fill="#fbf8f4"/>
-<rect x="96" y="228" width="450" height="58" rx="10" fill="#d4b08b"/>
-<rect x="126" y="169" width="405" height="58" rx="10" fill="#f4efe8" stroke="#ddcfbf" stroke-width="3"/>
-<rect x="87" y="110" width="426" height="58" rx="10" fill="#dfe8f4"/>
-<rect x="146" y="50" width="352" height="58" rx="10" fill="#ffffff" stroke="#e3e7ed" stroke-width="3"/>
-<text x="190" y="88" font-size="26" fill="#1f2937">营销获客</text>
-<text x="125" y="148" font-size="24" fill="#1f2937">图书出版 · 行业方法</text>
-<text x="168" y="207" font-size="22" fill="#6b7280">高校教师 / 医生 / 职称需求</text>
-</svg>
-</div><h3>图书出版行业获客</h3><p>围绕高校教师、医生等人群，重新梳理腾讯广告获客链路。</p></a>
-</div></section>
-</div>
+<article class="post">
+  <div class="post-meta">
+    <div>2026.10.09</div>
+    <div class="category">本地获客</div>
+  </div>
+  <div>
+    <h2><a href="/articles/county-decoration-douyin.html">县城做装修，还值得投抖音吗？</a></h2>
+    <p>很多县城装修老板最先问的是一条线索多少钱。真正该先算的，是你能承受多少获客成本、销售能不能成交、团队能不能承接。</p>
+    <a class="readmore" href="/articles/county-decoration-douyin.html">阅读全文 →</a>
+  </div>
+</article>
 
-<footer class="footer"><div class="wrap footer-inner">
-<div><strong style="color:#111827">老侯</strong> · 记录真实的业务、增长实践和长期思考。</div>
-<div>X · GitHub · 小红书 · 邮箱</div>
-</div></footer>
+<article class="post">
+  <div class="post-meta">
+    <div>2026.10.07</div>
+    <div class="category">AI</div>
+  </div>
+  <div>
+    <h2><a href="/articles/what-is-worth-building.html">AI 时代，什么才值得长期构建？</a></h2>
+    <p>工具越来越强，执行越来越便宜。真正稀缺的，开始变成判断：什么问题值得解决，什么东西值得长期做。</p>
+    <a class="readmore" href="/articles/what-is-worth-building.html">阅读全文 →</a>
+  </div>
+</article>
+
+<article class="post">
+  <div class="post-meta">
+    <div>2026.10.05</div>
+    <div class="category">思考</div>
+  </div>
+  <div>
+    <h2><a href="/articles/eight-years-ads.html">做了 8 年广告投放，我越来越相信一件事</a></h2>
+    <p>投放的本质不是单纯买流量，而是理解人、理解需求，再通过内容、产品和承接把价值放大。</p>
+    <a class="readmore" href="/articles/eight-years-ads.html">阅读全文 →</a>
+  </div>
+</article>
+
+    </section>
+  </div>
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div>© 2026 老侯 · 保持思考，长期做正确的事。</div>
+      <div class="socials">
+        <a href="https://x.com/LaohouGrowth" target="_blank">X</a> ·
+        <a href="https://github.com/2224878257-pixel" target="_blank">GitHub</a> ·
+        <a href="https://xhslink.cn/o/6GBc3jNCZAJ" target="_blank">小红书</a> ·
+        <a href="mailto:0@4.com">邮箱</a>
+      </div>
+    </div>
+  </footer>
 </main>
 </body></html>

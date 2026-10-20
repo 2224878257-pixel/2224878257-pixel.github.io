@@ -1,226 +1,94 @@
 <!doctype html><html lang="zh-CN"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>老侯｜个人网站</title><meta name="description" content="老侯｜企业获客、广告投放、AI 与长期思考">
-<style>
-:root{
-  --bg:#fff;--text:#161616;--muted:#6f6f6f;--soft:#9a9a9a;
-  --line:#ececec;--blue:#2563eb;--max:780px;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;background:var(--bg);color:var(--text);
-  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif;
-  line-height:1.72;
-}
-a{text-decoration:none;color:inherit}
-img{display:block;max-width:100%}
-.wrap{width:min(var(--max),calc(100% - 36px));margin:0 auto}
-
-/* 顶部 */
-.site-header{border-bottom:1px solid var(--line);background:#fff}
-.header-inner{height:72px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px}
-.site-name{font-size:26px;font-weight:760;letter-spacing:-.04em}
-.main-nav{display:flex;justify-content:center;gap:26px}
-.main-nav a{font-size:13px;color:var(--muted)}
-.main-nav a:hover,.main-nav a.active{color:var(--text);font-weight:600}
-.header-right{display:flex;align-items:center;gap:12px}
-.header-right>a:not(.avatar-link){font-size:12px;color:var(--muted)}
-.avatar{width:38px;height:38px;border-radius:50%;object-fit:cover;border:1px solid var(--line)}
-
-/* 首页 */
-.home-intro{padding:56px 0 28px}
-.home-intro .hello{font-size:13px;color:var(--muted);margin-bottom:10px}
-.home-intro h1{font-size:31px;line-height:1.42;letter-spacing:-.035em;margin:0;font-weight:700}
-.home-intro p{margin:14px 0 0;color:var(--muted);font-size:15px;max-width:660px}
-
-.social-area{margin-top:28px;padding-top:20px;border-top:1px solid var(--line)}
-.social-label{font-size:12px;color:var(--soft);margin-bottom:12px}
-.social-logos{display:flex;flex-wrap:wrap;gap:12px}
-.social-logo-link{
-  display:inline-flex;align-items:center;gap:9px;
-  padding:9px 13px;border:1px solid var(--line);border-radius:999px;
-  background:#fff;font-size:13px;transition:.18s ease
-}
-.social-logo-link:hover{transform:translateY(-1px);background:#fafafa;border-color:#d8d8d8}
-.brand-icon{width:22px;height:22px;display:block;flex:0 0 22px}
-
-.post-stream{padding:4px 0 22px}
-.post{display:grid;grid-template-columns:112px 1fr;gap:30px;padding:30px 0;border-bottom:1px solid var(--line)}
-.post-meta{font-size:12px;color:var(--soft);line-height:1.7}
-.post-meta .cat{display:block;color:var(--blue);margin-top:5px}
-.post-body h2{font-size:24px;line-height:1.42;letter-spacing:-.02em;margin:0 0 8px;font-weight:650}
-.post-body p{font-size:14px;color:var(--muted);margin:0}
-.read{display:inline-block;margin-top:10px;font-size:13px;color:var(--blue)}
-
-.home-extra{padding:30px 0 8px}
-.home-extra h3{font-size:16px;margin:0 0 12px}
-.mini-links{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.mini-link{border-top:1px solid var(--line);padding-top:12px}
-.mini-link small{color:var(--soft);font-size:11px}
-.mini-link b{display:block;font-size:14px;margin-top:3px}
-.mini-link span{display:block;font-size:12px;color:var(--muted);margin-top:3px}
-
-/* 子页面统一样式 */
-.page-head{padding:46px 0 22px;border-bottom:1px solid var(--line)}
-.page-head h1{font-size:32px;margin:0 0 8px;letter-spacing:-.035em}
-.page-head p{margin:0;color:var(--muted);font-size:14px}
-.list{padding-bottom:26px}
-.list-item{padding:24px 0;border-bottom:1px solid var(--line)}
-.list-item .meta{font-size:12px;color:var(--soft)}
-.list-item h2{font-size:22px;line-height:1.4;margin:5px 0 6px}
-.list-item p{font-size:14px;color:var(--muted);margin:0}
-.list-item .read{margin-top:8px}
-
-.article{max-width:700px;margin:0 auto;padding:48px 0 70px}
-.article .meta{font-size:12px;color:var(--soft)}
-.article h1{font-size:38px;line-height:1.3;letter-spacing:-.04em;margin:8px 0 20px}
-.article .lead{font-size:17px;color:#4c4c4c}
-.article h2{font-size:22px;margin-top:34px}
-.article p,.article li{font-size:16px;color:#4f4f4f}
-.article blockquote{margin:26px 0;padding-left:16px;border-left:3px solid #111;color:#3f3f3f}
-.back{display:inline-block;margin-top:40px;color:var(--blue);font-size:13px}
-
-/* 关于 */
-.about-grid{display:grid;grid-template-columns:1fr 220px;gap:38px;padding:34px 0 52px}
-.about-main p{color:#4f4f4f}
-.profile-card{border-left:1px solid var(--line);padding-left:24px}
-.profile-card img.avatar-lg{width:96px;height:96px;border-radius:50%;object-fit:cover;margin-bottom:12px}
-.profile-card h3{margin:0 0 4px;font-size:18px}
-.profile-card p{margin:5px 0;font-size:13px;color:var(--muted)}
-.socials-section{padding:30px 0 56px;border-top:1px solid var(--line)}
-.socials-section h2{font-size:22px;margin:0 0 8px}
-.socials-section>p{font-size:13px;color:var(--muted);margin:0 0 18px}
-.social-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-.social-card{border:1px solid var(--line);border-radius:12px;padding:16px}
-.social-card h3{font-size:15px;margin:0 0 5px}
-.social-card p{font-size:12px;color:var(--muted);margin:0}
-.social-card .social-open{display:inline-block;margin-top:10px;font-size:12px;color:var(--blue)}
-.qr-row{display:flex;align-items:center;gap:14px}
-.qr{width:96px;height:96px;border-radius:8px;border:1px solid var(--line);object-fit:contain;background:#fff}
-
-.footer{border-top:1px solid var(--line);padding:24px 0 34px;color:var(--soft);font-size:11px}
-.footer-inner{display:flex;justify-content:space-between;gap:20px}
-
-@media(max-width:680px){
-  .header-inner{grid-template-columns:auto 1fr}.main-nav{display:none}.header-right{justify-content:flex-end}
-  .header-right>a:not(.avatar-link){display:none}
-  .post{grid-template-columns:1fr;gap:7px;padding:24px 0}
-  .mini-links{grid-template-columns:1fr}
-  .about-grid{grid-template-columns:1fr}.profile-card{border-left:0;border-top:1px solid var(--line);padding-left:0;padding-top:22px}
-  .social-grid{grid-template-columns:1fr}
-  .footer-inner{flex-direction:column}
-}
-</style></head><body>
+<title>老侯｜企业获客 × 广告投放 × AI</title><meta name="description" content="老侯｜企业获客、广告投放、AI、产品与增长服务">
+<link rel="stylesheet" href="/assets/style.css">
+</head><body>
 <header class="site-header">
   <div class="wrap header-inner">
-    <a class="site-name" href="/">老侯</a>
-    <nav class="main-nav"><a class="" href="/articles/">文章</a><a class="" href="/cases/">案例</a><a class="" href="/tools/">工具</a><a class="" href="/about/">关于</a></nav>
-    <div class="header-right">
-      <a href="https://x.com/LaohouGrowth" target="_blank">X</a>
-      <a href="mailto:0@4.com">邮箱</a>
-      <a class="avatar-link" href="/about/"><img class="avatar" src="https://avatars.githubusercontent.com/u/267829894?v=4" alt="老侯头像"></a>
+    <a class="logo" href="/">老侯</a>
+    <nav class="nav"><a class="active" href="/">首页</a><a class="" href="/articles/">文章</a><a class="" href="/cases/">案例</a><a class="" href="/products/">产品</a><a class="" href="/services/">服务</a><a class="" href="/about/">关于</a></nav>
+    <div class="head-actions">
+      <a class="icon-link" href="/articles/" aria-label="文章搜索">⌕</a>
+      <a href="/about/"><img class="avatar" src="https://avatars.githubusercontent.com/u/267829894?v=4" alt="老侯头像"></a>
     </div>
   </div>
 </header>
 <main>
-  <div class="wrap">
-    <section class="home-intro">
+<div class="wrap">
+  <section class="profile">
+    <img class="profile-avatar" src="https://avatars.githubusercontent.com/u/267829894?v=4" alt="老侯头像">
+    <div>
       <div class="hello">你好，我是老侯。</div>
-      <h1>记录企业获客、广告投放、AI，以及一路上的真实判断。</h1>
-      <p>这里更像我的长期博客和个人档案：文章是主角，案例和工具只是我真实工作的一部分。</p>
+      <h1><span class="green">记录企业获客、广告投放、AI，</span><br>以及一路上的真实判断。</h1>
+      <p class="profile-desc">8 年+ 广告投放与用户增长经验，长期关注企业获客、商业增长和 AI 应用。这里会持续更新我的文章、真实案例、工具产品和服务。</p>
       
-<div class="social-area">
-  <div class="social-label">也可以在这些平台找到我：</div>
-  <div class="social-logos">
-    <a class="social-logo-link" href="/about/#wechat">
-<svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true">
-  <circle cx="10" cy="10" r="7.5" fill="#07C160"/>
-  <circle cx="15.7" cy="14.5" r="5.7" fill="#07C160"/>
-  <circle cx="7.6" cy="8.8" r="1" fill="#fff"/><circle cx="11.7" cy="8.8" r="1" fill="#fff"/>
-  <circle cx="13.8" cy="13.7" r=".8" fill="#fff"/><circle cx="17.1" cy="13.7" r=".8" fill="#fff"/>
-  <path d="M5.8 15.3 4.7 18l3.1-1.5" fill="#07C160"/>
-  <path d="M17.5 18.6 19 21l-3-.9" fill="#07C160"/>
-</svg><span>公众号</span></a>
-    <a class="social-logo-link" href="https://xhslink.cn/o/6GBc3jNCZAJ" target="_blank">
-<svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true">
-  <rect x="1.5" y="3" width="21" height="18" rx="5" fill="#FF2442"/>
-  <text x="12" y="15.1" text-anchor="middle" font-size="7.4" font-family="Arial,'PingFang SC',sans-serif" font-weight="700" fill="white">小红书</text>
-</svg><span>小红书</span></a>
-    <a class="social-logo-link" href="https://v.douyin.com/vRrS_vDoSOk/" target="_blank">
-<svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true">
-  <rect x="1.5" y="1.5" width="21" height="21" rx="6" fill="#111"/>
-  <path d="M13 6.3v7.1a3.4 3.4 0 1 1-2.2-3.2v2.2a1.55 1.55 0 1 0 .45 1.1V6.3h1.75c.32 1.7 1.4 2.9 3.05 3.45v1.85c-1.2-.23-2.2-.7-3.05-1.4" fill="#25F4EE"/>
-  <path d="M13.55 5.75v7.1a3.4 3.4 0 1 1-2.2-3.2v2.2a1.55 1.55 0 1 0 .45 1.1V5.75h1.75c.32 1.7 1.4 2.9 3.05 3.45v1.85c-1.2-.23-2.2-.7-3.05-1.4" fill="#FE2C55" opacity=".85"/>
-  <path d="M13.3 6v7.1a3.4 3.4 0 1 1-2.2-3.2v2.2a1.55 1.55 0 1 0 .45 1.1V6h1.75c.32 1.7 1.4 2.9 3.05 3.45v1.85c-1.2-.23-2.2-.7-3.05-1.4" fill="#fff"/>
-</svg><span>抖音</span></a>
-    <a class="social-logo-link" href="https://x.com/LaohouGrowth" target="_blank">
-<svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true">
-  <rect x="1.5" y="1.5" width="21" height="21" rx="6" fill="#111"/>
-  <path d="M7 6.5h2.6l2.9 3.85 3.2-3.85h1.7l-4.1 4.95 4.45 6.05h-2.6l-3.28-4.4-3.65 4.4H6.5l4.55-5.5z" fill="#fff"/>
-</svg><span>X</span></a>
-    <a class="social-logo-link" href="mailto:0@4.com">
-<svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true">
-  <rect x="1.5" y="3.5" width="21" height="17" rx="4" fill="#2563EB"/>
-  <path d="m4.8 7.2 7.2 5.2 7.2-5.2" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-</svg><span>邮箱</span></a>
-  </div>
+<div class="social-row">
+  <a class="social-link" href="/about/#wechat"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="7.4" fill="#07C160"/><circle cx="15.6" cy="14.5" r="5.7" fill="#07C160"/><circle cx="7.8" cy="8.7" r=".9" fill="#fff"/><circle cx="11.5" cy="8.7" r=".9" fill="#fff"/><circle cx="13.8" cy="13.7" r=".75" fill="#fff"/><circle cx="17" cy="13.7" r=".75" fill="#fff"/><path d="M5.3 15.2 4.2 18l3-1.3M17.6 18.8 19.2 21l-3-.8" fill="#07C160"/></svg><span>公众号</span></a>
+  <a class="social-link" href="https://xhslink.cn/o/6GBc3jNCZAJ" target="_blank"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="20" height="18" rx="5" fill="#FF2442"/><text x="12" y="15.1" text-anchor="middle" font-size="7.2" font-family="Arial,'PingFang SC'" font-weight="700" fill="#fff">小红书</text></svg><span>小红书</span></a>
+  <a class="social-link" href="https://v.douyin.com/vRrS_vDoSOk/" target="_blank"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5.5" fill="#111"/><path d="M13.2 6.1v7a3.35 3.35 0 1 1-2.18-3.15v2.13a1.55 1.55 0 1 0 .45 1.1V6.1h1.68c.34 1.62 1.37 2.8 2.97 3.32v1.8a6.2 6.2 0 0 1-2.92-1.34" fill="#fff"/></svg><span>抖音</span></a>
+  <a class="social-link" href="https://x.com/LaohouGrowth" target="_blank"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5.5" fill="#111"/><path d="M7 6.6h2.45l2.78 3.7 3.1-3.7h1.7l-3.98 4.75 4.3 5.95h-2.45l-3.16-4.28-3.55 4.28H6.5l4.42-5.35z" fill="#fff"/></svg><span>X</span></a>
+  <a class="social-link" href="mailto:0@4.com"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="4" fill="#1F2937"/><path d="m5 7.5 7 5 7-5" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>邮箱</span></a>
 </div>
-    </section>
-    <section class="post-stream">
-<article class="post">
-  <div class="post-meta">2026.10.12<span class="cat">增长</span></div>
-  <div class="post-body">
-    <h2><a href="/articles/next-three-months.html">接下来三个月，我只做这三件事</a></h2>
-    <p>工作、客户、内容。接下来三个月，我不再同时研究太多方向，只验证这三件真正重要的事情。</p>
-    <a class="read" href="/articles/next-three-months.html">阅读全文 →</a>
-  </div>
-</article>
-<article class="post">
-  <div class="post-meta">2026.10.10<span class="cat">获客</span></div>
-  <div class="post-body">
-    <h2><a href="/articles/why-competitors-get-leads.html">为什么你的同行天天有客户，你却没人咨询？</a></h2>
-    <p>同样一个行业，有人每天都有稳定咨询，有人投了不少钱却没人问。问题通常出在整条获客链路。</p>
-    <a class="read" href="/articles/why-competitors-get-leads.html">阅读全文 →</a>
-  </div>
-</article>
-<article class="post">
-  <div class="post-meta">2026.10.09<span class="cat">本地获客</span></div>
-  <div class="post-body">
-    <h2><a href="/articles/county-decoration-douyin.html">县城做装修，还值得投抖音吗？</a></h2>
-    <p>别先问一条线索多少钱。先算清获客成本、成交能力和承接能力三笔账。</p>
-    <a class="read" href="/articles/county-decoration-douyin.html">阅读全文 →</a>
-  </div>
-</article>
-<article class="post">
-  <div class="post-meta">2026.10.07<span class="cat">AI</span></div>
-  <div class="post-body">
-    <h2><a href="/articles/what-is-worth-building.html">AI 时代，什么才值得长期构建？</a></h2>
-    <p>工具越来越强，执行越来越便宜。真正稀缺的，开始变成判断什么值得长期做。</p>
-    <a class="read" href="/articles/what-is-worth-building.html">阅读全文 →</a>
-  </div>
-</article>
-<article class="post">
-  <div class="post-meta">2026.10.05<span class="cat">思考</span></div>
-  <div class="post-body">
-    <h2><a href="/articles/eight-years-ads.html">做了 8 年广告投放，我越来越相信一件事</a></h2>
-    <p>投放不是单纯买流量，而是理解人、理解需求，再通过内容、产品和承接把价值放大。</p>
-    <a class="read" href="/articles/eight-years-ads.html">阅读全文 →</a>
-  </div>
-</article></section>
-    <section class="home-extra">
-      <h3>不只写文章</h3>
-      <div class="mini-links">
-        <a class="mini-link" href="/cases/"><small>CASE</small><b>真实案例</b><span>把业务里的问题和复盘留下来。</span></a>
-        <a class="mini-link" href="/tools/"><small>TOOL</small><b>我做的工具</b><span>把经验做成能真正使用的东西。</span></a>
-        <a class="mini-link" href="/about/"><small>ABOUT</small><b>关于我</b><span>经历、关注方向和联系方式。</span></a>
-      </div>
-    </section>
-  </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><div><h2>最新文章</h2><p class="section-sub">真实问题、真实判断、持续更新。</p></div><a href="/articles/">全部文章 →</a></div>
+    <div class="grid-3">
+<a class="card" href="/articles/next-three-months.html"><div class="card-body">
+  <div class="card-meta">2026.10.12</div><h3>接下来三个月，我只做这三件事</h3><p>工作、客户、内容。接下来只验证真正重要的事情。</p><span class="chip">增长</span>
+</div></a>
+<a class="card" href="/articles/why-competitors-get-leads.html"><div class="card-body">
+  <div class="card-meta">2026.10.10</div><h3>为什么你的同行天天有客户，你却没人咨询？</h3><p>问题通常不只在广告，而在整条获客链路。</p><span class="chip">获客</span>
+</div></a>
+<a class="card" href="/articles/county-decoration-douyin.html"><div class="card-body">
+  <div class="card-meta">2026.10.09</div><h3>县城做装修，还值得投抖音吗？</h3><p>先算清获客成本、成交能力和承接能力三笔账。</p><span class="chip">本地获客</span>
+</div></a></div>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><div><h2>精选案例</h2><p class="section-sub">用真实业务验证增长方法。</p></div><a href="/cases/">全部案例 →</a></div>
+    <div class="grid-3">
+<a class="card" href="/cases/wechat-growth.html"><div class="card-body"><div class="kicker">公众号增长</div><h3>公众号加粉项目复盘</h3><p>从账户、素材、人群、内容承接到后端变现的完整思路。</p><span class="card-link">查看案例 →</span></div></a>
+<a class="card" href="/cases/local-business.html"><div class="card-body"><div class="kicker">本地获客</div><h3>县城装修公司获客诊断</h3><p>从投放现状、线索质量、销售承接和成交转化重新梳理增长链路。</p><span class="card-link">查看案例 →</span></div></a>
+<a class="card" href="/cases/interest-account.html"><div class="card-body"><div class="kicker">兴趣号增长</div><h3>50–70 岁兴趣号增长</h3><p>围绕中老年人群兴趣内容，优化广告、内容承接与变现效率。</p><span class="card-link">查看案例 →</span></div></a>
+</div>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><div><h2>工具 / 产品</h2><p class="section-sub">把重复工作变成可以复用的系统。</p></div><a href="/products/">全部产品 →</a></div>
+    <div class="grid-3">
+<a class="card" href="/products/quiz.html"><div class="card-body"><div class="product-icon">⌂</div><h3>公务员 / 事业单位在线题库</h3><p>行测、申论、常识、管理、时政等在线刷题与复习系统。</p><div class="price">持续迭代</div><span class="btn">查看工具 →</span></div></a>
+<a class="card" href="/products/ai-workspace.html"><div class="card-body"><div class="product-icon">AI</div><h3>老侯 AI 工作台</h3><p>提示词、客户诊断、案例沉淀、内容研究和日常工作流。</p><div class="price">自用工具 / 持续完善</div><span class="btn">查看详情 →</span></div></a>
+<a class="card" href="/products/ad-template.html"><div class="card-body"><div class="product-icon">▤</div><h3>投放复盘模板包</h3><p>计划表、复盘框架、数据分析表格和常用诊断清单。</p><div class="price">¥99 起</div><span class="btn">产品详情 →</span></div></a>
+</div>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><div><h2>付费服务</h2><p class="section-sub">先解决真实问题，再决定需要投放、内容还是系统优化。</p></div><a href="/services/">服务详情 →</a></div>
+    <div class="grid-4">
+<a class="card" href="/services/#quick"><div class="card-body"><div class="product-icon">✉</div><h3>投放快速诊断</h3><div class="price">¥199 – 499</div><p>基于账户和投放现状快速定位主要问题，给出优先优化建议。</p><span class="btn">立即咨询 →</span></div></a>
+<a class="card" href="/services/#deep"><div class="card-body"><div class="product-icon">▥</div><h3>企业获客深度诊断</h3><div class="price">¥999 – 2999</div><p>从市场、投放、内容、承接、销售等维度进行完整诊断。</p><span class="btn">查看详情 →</span></div></a>
+<a class="card" href="/services/#pilot"><div class="card-body"><div class="product-icon">↗</div><h3>30 天增长试点</h3><div class="price">¥4999 – 9999</div><p>针对单一业务或渠道，制定增长方案并陪跑落地。</p><span class="btn">查看详情 →</span></div></a>
+<a class="card" href="/services/#advisor"><div class="card-body"><div class="product-icon">◎</div><h3>长期增长顾问 / 代运营</h3><div class="price">按项目报价</div><p>适合有持续增长需求的企业，提供长期顾问或代运营支持。</p><span class="btn">联系我 →</span></div></a>
+</div>
+  </section>
+</div>
 </main>
+
 <footer class="footer">
   <div class="wrap footer-inner">
-    <div>© 2026 老侯</div>
-    <div>文章 · 案例 · 工具 · 关于</div>
+    <div><strong style="color:#253028">老侯</strong> · 记录真实业务、增长实践和长期思考。</div>
+    <nav class="footer-nav">
+      <a href="/">首页</a><a href="/articles/">文章</a><a href="/cases/">案例</a>
+      <a href="/products/">产品</a><a href="/services/">服务</a><a href="/about/">关于</a>
+    </nav>
+    <div class="footer-social">
+      <a href="/about/#wechat"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="7.4" fill="#07C160"/><circle cx="15.6" cy="14.5" r="5.7" fill="#07C160"/><circle cx="7.8" cy="8.7" r=".9" fill="#fff"/><circle cx="11.5" cy="8.7" r=".9" fill="#fff"/><circle cx="13.8" cy="13.7" r=".75" fill="#fff"/><circle cx="17" cy="13.7" r=".75" fill="#fff"/><path d="M5.3 15.2 4.2 18l3-1.3M17.6 18.8 19.2 21l-3-.8" fill="#07C160"/></svg></a>
+      <a href="https://xhslink.cn/o/6GBc3jNCZAJ" target="_blank"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="20" height="18" rx="5" fill="#FF2442"/><text x="12" y="15.1" text-anchor="middle" font-size="7.2" font-family="Arial,'PingFang SC'" font-weight="700" fill="#fff">小红书</text></svg></a>
+      <a href="https://v.douyin.com/vRrS_vDoSOk/" target="_blank"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5.5" fill="#111"/><path d="M13.2 6.1v7a3.35 3.35 0 1 1-2.18-3.15v2.13a1.55 1.55 0 1 0 .45 1.1V6.1h1.68c.34 1.62 1.37 2.8 2.97 3.32v1.8a6.2 6.2 0 0 1-2.92-1.34" fill="#fff"/></svg></a>
+      <a href="https://x.com/LaohouGrowth" target="_blank"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5.5" fill="#111"/><path d="M7 6.6h2.45l2.78 3.7 3.1-3.7h1.7l-3.98 4.75 4.3 5.95h-2.45l-3.16-4.28-3.55 4.28H6.5l4.42-5.35z" fill="#fff"/></svg></a>
+      <a href="mailto:0@4.com"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="4" fill="#1F2937"/><path d="m5 7.5 7 5 7-5" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
   </div>
 </footer></body></html>

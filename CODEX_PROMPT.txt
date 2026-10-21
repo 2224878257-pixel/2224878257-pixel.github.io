@@ -1,57 +1,68 @@
-这是“增量升级补丁”，不是新网站。
+请把当前目录作为我的个人网站“唯一正式版本”，完整部署到 GitHub Pages 仓库：
 
-目标仓库：2224878257-pixel/2224878257-pixel.github.io
+2224878257-pixel/2224878257-pixel.github.io
 
-请先：
-1. git status
-2. git checkout -b v8-incremental-upgrade（若已存在则切换到该分支）
-3. 备份当前工作区，不要删除现有文章详情和案例详情正文。
+这次的目标不是在旧网站上增量修改，而是彻底统一为当前新版。
 
-然后把本补丁中的文件复制到现有仓库，对同名文件进行替换/合并：
-- index.html
-- assets/style.css
-- assets/config.js
-- assets/site.js
-- assets/calculators.js
-- assets/tools.js
-- articles/index.html
-- cases/index.html
-- tools/index.html
-- tools/acquisition-diagnosis.html
-- tools/ad-budget.html
-- tools/funnel.html
-- about/index.html
-- services/index.html
-- contact/index.html
-- resources/acquisition-checklist.md
-- robots.txt
-- sitemap.xml
-- 404.html
+请严格执行：
 
-非常重要：
-- 不删除原有 articles/*.html 详情正文。
-- 不删除原有 cases/*.html 详情正文。
-- 对原有文章/案例详情页，仅做视觉层重构：删除旧大段内联 style，引用 /assets/style.css；导航统一为：首页 / 关于老侯 / 实战案例 / 文章 / 工具 / 专业服务；正文内容保留。
-- 不迁移技术栈。
-- 不删除未在补丁中出现但仍有价值的原有文件。
-- tools/ 不要重定向到 products/，工具页必须真实存在。
-- workflows/ 可以保留现状，不需要删除。
+1. 先备份或确认当前仓库状态。
+2. 删除旧版页面和旧版样式文件，尤其是：
+   - index.html
+   - articles/
+   - cases/
+   - products/
+   - services/
+   - tools/
+   - workflows/
+   - about/
+   - 旧 CSS / 旧 HTML 页面
+3. 保留 GitHub Pages 正常运行必须的仓库配置文件（如果存在）。
+4. 将当前目录中的全部文件完整复制到仓库根目录，包括：
+   - index.html
+   - assets/
+   - articles/
+   - cases/
+   - products/
+   - services/
+   - tools/
+   - workflows/
+   - about/
+   - 404.html
+5. 全站必须使用同一个 /assets/style.css，不允许子页面保留旧版内联 CSS。
+6. 所有页面顶部导航统一为：
+   首页 / 文章 / 案例 / 产品 / 服务 / 关于
+7. 不允许再出现旧版英文菜单：
+   Projects / Cases / Writing / Workflows / Tools / Follow / AI × Growth / Growth Cases
+8. 首页视觉要求：
+   - 浅灰白背景
+   - 深绿色强调色
+   - 现代中文无衬线字体
+   - 头像区域明显
+   - 依次展示：最新文章 / 精选案例 / 工具产品 / 付费服务
+   - 社交平台显示 logo + 平台名
+9. 关于页必须正常展示：
+   assets/wechat-qr.jpg
+   assets/xiaohongshu-qr.jpg
+   assets/douyin-qr.jpg
+10. 旧 /tools/ 和 /workflows/ 地址跳转到 /products/。
+11. 检查以下页面：
+   /
+   /articles/
+   /cases/
+   /products/
+   /services/
+   /about/
+   /articles/next-three-months.html
+   /cases/wechat-growth.html
+   /products/ai-workspace.html
+12. 确保桌面端和移动端都没有横向滚动、图片溢出、旧菜单或旧 CSS。
+13. 完成后 git add / commit / push 到 main。
+14. 最后告诉我：
+   - 删除了哪些旧文件/目录
+   - 新增了哪些页面
+   - commit SHA
+   - GitHub Pages 部署结果
+   - 实际检查过的 URL
 
-检查所有页面品牌名统一为“老侯聊获客”，Slogan 为“聊获客、聊投放、聊增长。”
-
-完成后测试：
-- /
-- /about/
-- /cases/
-- /articles/
-- /tools/
-- /services/
-- /contact/
-- /tools/acquisition-diagnosis.html
-- /tools/ad-budget.html
-- /tools/funnel.html
-
-企业获客诊断测试数据：消耗10000、线索200、有效100、到店40、成交10、成交金额50000。
-预期：CPL 50、有效线索成本100、有效率50%、到店40%、成交25%、CAC1000、ROAS 5。
-
-最后 git diff 检查没有误删内容，再 commit 到 v8-incremental-upgrade 分支，不要直接 merge main。
+如果新旧文件冲突，以当前目录为唯一正确版本。不要把旧页面重新合并回来。

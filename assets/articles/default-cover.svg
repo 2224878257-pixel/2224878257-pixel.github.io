@@ -3,7 +3,7 @@
   <desc id="desc">浅灰背景、黑色文字和陶土色线条的极简文章默认封面</desc>
   <rect width="1200" height="675" fill="#F8F6F3"/>
   <rect x="96" y="98" width="78" height="8" rx="4" fill="#A64B2A"/>
-  <text x="96" y="260" fill="#241C18" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="76" font-weight="700">老侯聊获客</text>
+  <text x="96" y="260" fill="#241C18" font-family="Songti SC, STSong, SimSun, serif" font-size="76" font-weight="400">老侯聊获客</text>
   <text x="96" y="350" fill="#6F625B" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="34">获客 · 投放 · 增长</text>
   <path d="M96 520h1008" stroke="#E0D7D0" stroke-width="2"/>
   <circle cx="1076" cy="98" r="18" fill="#A64B2A"/>

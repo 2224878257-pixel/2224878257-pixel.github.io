@@ -1,0 +1,12 @@
+(function(){
+ const $=s=>document.querySelector(s), all=s=>[...document.querySelectorAll(s)];
+ const val=id=>$(id)?.value ?? '';
+ const showError=msg=>{const e=$('#error'); if(e)e.textContent=msg||'';};
+ const set=(id,v)=>{const el=$(id); if(el)el.textContent=v;};
+ const dash=v=>v==null?'—':v;
+ const C=window.LaohouCalc;
+ function acquisition(){const r=C.acquisition({spend:val('#spend'),leads:val('#leads'),valid:val('#valid'),visit:val('#visit'),deals:val('#deals'),revenue:val('#revenue')});showError(r.error);if(r.error)return;const m=r.metrics;set('#cpl',m.cpl==null?'—':C.fmt.money(m.cpl));set('#cpValid',m.cpValid==null?'—':C.fmt.money(m.cpValid));set('#validRate',m.validRate==null?'—':C.fmt.pct(m.validRate));set('#visitRate',m.visitRate==null?'—':C.fmt.pct(m.visitRate));set('#dealRate',m.dealRate==null?'—':C.fmt.pct(m.dealRate));set('#cac',m.cac==null?'—':C.fmt.money(m.cac));set('#roas',m.roas==null?'—':m.roas.toFixed(2));let notes=[];if(m.validRate!=null&&m.validRate<.4)notes.push('可能需要进一步检查定向、素材承诺、表单设计与有效口径。');if(m.visitRate!=null&&m.visitRate<.3)notes.push('可能需要进一步检查响应速度、邀约方式、价格预期与跟进节奏。');if(m.dealRate!=null&&m.dealRate<.15)notes.push('可能需要进一步检查产品竞争力、销售沟通、报价和信任材料。');if(!notes.length)notes.push('主要漏斗指标暂未显示明显异常，可能需要进一步检查行业基准、利润、复购和销售过程。');set('#advice',notes.join(' '));}
+ function budget(){const r=C.budget({targetLeads:val('#targetLeads'),cpl:val('#budgetCpl'),validRate:val('#budgetValidRate'),dealRate:val('#budgetDealRate')});showError(r.error);if(r.error)return;const m=r.metrics;set('#budget',C.fmt.money(m.budget));set('#budgetValid',m.valid.toFixed(1));set('#budgetDeals',m.deals.toFixed(1));set('#budgetCac',m.cac==null?'—':C.fmt.money(m.cac));}
+ function funnel(){const r=C.funnel({leads:val('#fLeads'),valid:val('#fValid'),booked:val('#fBooked'),visit:val('#fVisit'),deals:val('#fDeals')});showError(r.error);if(r.error)return;const box=$('#funnelBox');if(!box)return;const max=r.stages[0].value||1;box.innerHTML=r.stages.map((s,i)=>`<div class="funnel-row" style="width:${Math.max(30,s.value/max*100)}%"><b>${s.name}：${s.value}</b><small>${i===0?'起始阶段':`阶段转化率 ${s.rate==null?'—':C.fmt.pct(s.rate)} · 流失率 ${s.loss==null?'—':C.fmt.pct(s.loss)}`}</small></div>`).join('');}
+ const type=document.body.dataset.tool; if(type==='acquisition')all('input').forEach(x=>x.addEventListener('input',acquisition)),acquisition();if(type==='budget')all('input').forEach(x=>x.addEventListener('input',budget)),budget();if(type==='funnel')all('input').forEach(x=>x.addEventListener('input',funnel)),funnel();
+})();

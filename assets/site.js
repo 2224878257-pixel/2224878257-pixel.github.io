@@ -6,29 +6,14 @@
   document.querySelectorAll('[data-config-text]').forEach(el => { const value = cfg[el.dataset.configText]; if (value) el.textContent = value; });
   document.querySelectorAll('.nav a').forEach(link => { if (!isEnglish && link.textContent.trim() === '关于老侯') link.textContent = '关于我'; });
 
-  const localizedPath = () => {
-    const path = location.pathname;
-    if (isEnglish) return path.replace(/^\/en(?=\/|$)/, '') || '/';
-    const map = {'/':'/en/','/about/':'/en/about/','/articles/':'/en/articles/','/cases/':'/en/cases/','/tools/':'/en/tools/','/services/':'/en/services/','/contact/':'/en/contact/'};
-    if (map[path]) return map[path];
-    if (path.startsWith('/tools/') || path.startsWith('/resources/')) return '/en/tools/';
-    if (path.startsWith('/cases/')) return '/en/cases/';
-    return '/en/articles/';
-  };
-  const actions = document.querySelector('.head-actions');
-  if (actions) {
-    const language = document.createElement('a');
-    language.className = 'header-icon language-switch'; language.href = localizedPath(); language.textContent = '中 / EN';
-    language.setAttribute('aria-label', isEnglish ? '切换到中文' : 'Switch to English');
-    const theme = document.createElement('button');
-    theme.className = 'header-icon theme-toggle'; theme.type = 'button';
-    theme.innerHTML = '<svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15.2A8.5 8.5 0 0 1 8.8 4 8.5 8.5 0 1 0 20 15.2Z"/></svg>';
+  const theme = document.querySelector('.theme-toggle');
+  if (theme) {
     const updateThemeLabel = () => { const dark = document.documentElement.dataset.theme === 'dark'; theme.setAttribute('aria-label', isEnglish ? (dark ? 'Toggle light mode' : 'Toggle dark mode') : (dark ? '切换浅色模式' : '切换深色模式')); theme.title = theme.getAttribute('aria-label'); };
     theme.addEventListener('click', () => { const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'; document.documentElement.dataset.theme = next; try { localStorage.setItem('laohou-theme', next); } catch (_) {} updateThemeLabel(); });
-    updateThemeLabel(); actions.prepend(language, theme);
+    updateThemeLabel();
   }
 
-  const card = article => `<a class="article-card" href="${esc(article.url)}" data-search="${esc([article.title, article.excerpt, article.category, ...(article.tags || [])].join(' '))}" data-category="${esc(article.category)}"><img class="article-cover" src="${esc(article.cover)}" alt="${esc(article.title)}封面" loading="lazy"><div class="article-card-body"><div class="article-card-meta"><span>${esc(article.category)}</span><time datetime="${esc(article.date)}">${esc(article.date)}</time></div><h2>${esc(article.title)}</h2><p>${esc(article.excerpt)}</p><div class="article-card-author">${isEnglish ? 'By ' : '作者：'}${esc(article.author)}</div></div></a>`;
+  const card = article => `<a class="article-card" href="${esc(article.url)}" data-search="${esc([article.title, article.excerpt, article.category, ...(article.tags || [])].join(' '))}" data-category="${esc(article.category)}"><img class="article-cover" src="${esc(article.cover)}" alt="${esc(article.title)}封面" loading="lazy"><div class="article-card-body"><div class="article-card-category">${esc(article.category)}</div><h2>${esc(article.title)}</h2><p>${esc(article.excerpt)}</p><div class="article-card-footer"><time datetime="${esc(article.date)}">${esc(article.date)}</time><span>${esc(article.author)}</span></div></div></a>`;
   function bindFilters(scope) {
     const q = document.querySelector('#search'); const filters = [...document.querySelectorAll('[data-filter]')]; const selected = {category:'all',industry:'all',platform:'all'};
     const run = () => { const term = (q?.value || '').trim().toLowerCase(); let visible = 0; [...scope.querySelectorAll('[data-search]')].forEach(el => { const cats = (el.dataset.category || '').split(','); const ok = (!term || (el.dataset.search || '').toLowerCase().includes(term)) && (selected.category === 'all' || cats.includes(selected.category)) && (selected.industry === 'all' || el.dataset.industry === selected.industry) && (selected.platform === 'all' || el.dataset.platform === selected.platform); el.hidden = !ok; if (ok) visible++; }); const empty = document.querySelector('[data-article-empty]'); if (empty) empty.hidden = visible !== 0; };

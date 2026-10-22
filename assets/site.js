@@ -13,7 +13,48 @@
     updateThemeLabel();
   }
 
+  const wechatDialog = document.querySelector('[data-wechat-dialog]');
+  const wechatOpen = [...document.querySelectorAll('[data-wechat-open]')];
+  const wechatClose = document.querySelector('[data-wechat-close]');
+  if (wechatDialog && wechatOpen.length) {
+    wechatOpen.forEach(trigger => trigger.addEventListener('click', () => { if (!wechatDialog.open) wechatDialog.showModal(); }));
+    wechatClose?.addEventListener('click', () => wechatDialog.close());
+    wechatDialog.addEventListener('click', event => { if (event.target === wechatDialog) wechatDialog.close(); });
+  }
+
+  const emailDialog = document.querySelector('[data-email-dialog]');
+  const emailOpen = [...document.querySelectorAll('[data-email-open]')];
+  const emailClose = document.querySelector('[data-email-close]');
+  const emailCopy = document.querySelector('[data-email-copy]');
+  const emailFeedback = document.querySelector('[data-email-feedback]');
+  if (emailDialog && emailOpen.length) {
+    emailOpen.forEach(trigger => trigger.addEventListener('click', () => { if (!emailDialog.open) emailDialog.showModal(); }));
+    emailClose?.addEventListener('click', () => emailDialog.close());
+    emailDialog.addEventListener('click', event => { if (event.target === emailDialog) emailDialog.close(); });
+  }
+  if (emailCopy) {
+    emailCopy.addEventListener('click', async () => {
+      const address = cfg.email || '2224878257@qq.com';
+      let copied = false;
+      try { await navigator.clipboard.writeText(address); copied = true; } catch (_) {
+        const input = document.createElement('textarea'); input.value = address; input.setAttribute('readonly', ''); input.style.position = 'fixed'; input.style.opacity = '0'; document.body.append(input); input.select(); copied = document.execCommand('copy'); input.remove();
+      }
+      emailCopy.textContent = copied ? (isEnglish ? 'Copied' : '已复制') : (isEnglish ? 'Copy failed' : '复制失败');
+      if (emailFeedback) emailFeedback.textContent = copied ? (isEnglish ? 'Email address copied to clipboard.' : '邮箱地址已复制到剪贴板。') : (isEnglish ? 'Please select and copy the address manually.' : '请手动选择上方邮箱地址复制。');
+      setTimeout(() => { emailCopy.textContent = isEnglish ? 'Copy email address' : '一键复制邮箱'; }, 1800);
+    });
+  }
+
   const card = article => `<a class="article-card" href="${esc(article.url)}" data-search="${esc([article.title, article.excerpt, article.category, ...(article.tags || [])].join(' '))}" data-category="${esc(article.category)}"><img class="article-cover" src="${esc(article.cover)}" alt="${esc(article.title)}封面" loading="lazy"><div class="article-card-body"><div class="article-card-category">${esc(article.category)}</div><h2>${esc(article.title)}</h2><p>${esc(article.excerpt)}</p><div class="article-card-footer"><time datetime="${esc(article.date)}">${esc(article.date)}</time><span>${esc(article.author)}</span></div></div></a>`;
+  const latestEditorial = articles => {
+    const [featured, ...rest] = articles;
+    if (!featured) return '';
+    const arrow = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 7l5 5-5 5"/></svg>';
+    const lead = `<a class="latest-feature" href="${esc(featured.url)}"><span class="latest-feature-media"><img src="${esc(featured.cover)}" alt="${esc(featured.title)}封面" loading="lazy"></span><span class="latest-feature-copy"><span class="latest-meta"><b>${esc(featured.category)}</b><time datetime="${esc(featured.date)}">${esc(featured.date)}</time></span><strong>${esc(featured.title)}</strong><span class="latest-excerpt">${esc(featured.excerpt)}</span><span class="latest-read">阅读文章${arrow}</span></span></a>`;
+    const list = rest.map((article, index) => `<a class="latest-row" href="${esc(article.url)}"><span class="latest-row-number">0${index + 2}</span><span class="latest-row-copy"><span class="latest-meta"><b>${esc(article.category)}</b><time datetime="${esc(article.date)}">${esc(article.date)}</time></span><strong>${esc(article.title)}</strong><span class="latest-row-excerpt">${esc(article.excerpt)}</span></span><span class="latest-row-arrow">${arrow}</span></a>`).join('');
+    return `${lead}<div class="latest-list">${list}</div>`;
+  };
+  const gardenWriting = articles => articles.map(article => `<a class="garden-writing-item" href="${esc(article.url)}"><span class="garden-writing-copy"><b>${esc(article.title)}</b><small>${esc(article.excerpt)}</small></span><span class="garden-writing-meta"><b>${esc(article.category)}</b><time datetime="${esc(article.date)}">${esc(article.date)}</time></span></a>`).join('');
   function bindFilters(scope) {
     const q = document.querySelector('#search'); const filters = [...document.querySelectorAll('[data-filter]')]; const selected = {category:'all',industry:'all',platform:'all'};
     const run = () => { const term = (q?.value || '').trim().toLowerCase(); let visible = 0; [...scope.querySelectorAll('[data-search]')].forEach(el => { const cats = (el.dataset.category || '').split(','); const ok = (!term || (el.dataset.search || '').toLowerCase().includes(term)) && (selected.category === 'all' || cats.includes(selected.category)) && (selected.industry === 'all' || el.dataset.industry === selected.industry) && (selected.platform === 'all' || el.dataset.platform === selected.platform); el.hidden = !ok; if (ok) visible++; }); const empty = document.querySelector('[data-article-empty]'); if (empty) empty.hidden = visible !== 0; };
@@ -30,7 +71,7 @@
       const response = await fetch('/assets/articles.json', {cache:'no-cache'}); if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const all = await response.json(); const published = all.filter(item => item.status === 'published' && item.lang === (isEnglish ? 'en' : 'zh')).sort((a, b) => b.date.localeCompare(a.date));
       const list = document.querySelector('[data-article-list]'); if (list) { list.innerHTML = published.map(card).join(''); bindFilters(list); }
-      const latest = document.querySelector('[data-latest-articles]'); if (latest) latest.innerHTML = published.slice(0, 3).map(card).join('');
+      const latest = document.querySelector('[data-latest-articles]'); if (latest) latest.innerHTML = latest.classList.contains('garden-writing-list') ? gardenWriting(published.slice(0, 3)) : latest.classList.contains('latest-editorial-layout') ? latestEditorial(published.slice(0, 4)) : published.slice(0, 3).map(card).join('');
       const detail = document.querySelector('[data-article-slug]');
       if (detail) {
         const current = published.find(item => item.slug === detail.dataset.articleSlug); if (!current) return;

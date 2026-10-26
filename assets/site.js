@@ -85,5 +85,41 @@
     } catch (error) { console.error('文章数据加载失败：', error); document.querySelectorAll('[data-article-loading]').forEach(el => { el.textContent = isEnglish ? 'Articles could not be loaded.' : '文章暂时无法加载，请稍后重试。'; }); }
   }
   loadArticles();
+
+  const interactiveAvatar = document.querySelector('[data-avatar-smile]');
+  if (interactiveAvatar) {
+    const sticker = interactiveAvatar.querySelector('.creator-sticker');
+    const originalSticker = sticker?.textContent || '';
+    const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let smileTimer;
+    const resetTilt = () => {
+      interactiveAvatar.style.setProperty('--tilt-x', '0deg');
+      interactiveAvatar.style.setProperty('--tilt-y', '0deg');
+    };
+    if (!reduceMotion) {
+      interactiveAvatar.addEventListener('pointermove', event => {
+        if (event.pointerType && event.pointerType !== 'mouse') return;
+        const rect = interactiveAvatar.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width - .5;
+        const y = (event.clientY - rect.top) / rect.height - .5;
+        interactiveAvatar.style.setProperty('--tilt-x', `${(-y * 8).toFixed(2)}deg`);
+        interactiveAvatar.style.setProperty('--tilt-y', `${(x * 10).toFixed(2)}deg`);
+      });
+      interactiveAvatar.addEventListener('pointerleave', resetTilt);
+    }
+    interactiveAvatar.addEventListener('click', () => {
+      clearTimeout(smileTimer);
+      interactiveAvatar.classList.remove('is-smiling');
+      void interactiveAvatar.offsetWidth;
+      interactiveAvatar.classList.add('is-smiling');
+      interactiveAvatar.setAttribute('aria-pressed', 'true');
+      if (sticker) sticker.textContent = isEnglish ? 'NICE TO SEE YOU' : '见到你真好';
+      smileTimer = setTimeout(() => {
+        interactiveAvatar.classList.remove('is-smiling');
+        interactiveAvatar.setAttribute('aria-pressed', 'false');
+        if (sticker) sticker.textContent = originalSticker;
+      }, 1800);
+    });
+  }
   const top = document.createElement('button'); top.className = 'backtop'; top.setAttribute('aria-label', isEnglish ? 'Back to top' : '返回顶部'); top.textContent = '↑'; document.body.append(top); top.addEventListener('click', () => scrollTo({top:0,behavior:'smooth'})); addEventListener('scroll', () => top.classList.toggle('show', scrollY > 500));
 })();

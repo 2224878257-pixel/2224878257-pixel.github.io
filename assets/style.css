@@ -145,6 +145,19 @@ html[data-theme="dark"]{--bg:#111111;--panel:#1A1A18;--text:#F7F7F2;--muted:#B7B
 html[data-theme="dark"] .creator-portrait img{border-color:var(--text)}
 @media(max-width:900px){.creator-hero{grid-template-columns:minmax(0,1.2fr) minmax(240px,.8fr);gap:46px}.creator-hero h1{font-size:52px}}
 @media(max-width:720px){.header-inner,.home-garden,.footer-grid{width:calc(100% - 28px)}.creator-hero{grid-template-columns:1fr;padding-top:52px;gap:34px}.creator-hero-copy{order:1}.creator-portrait{order:0;width:min(230px,70vw)}.creator-sticker{right:-28px;width:68px;height:68px;font-size:9px}.creator-hero h1{font-size:43px}.creator-intro{margin-top:22px}.creator-intro p{font-size:13px}.creator-hero .garden-socials{grid-column:1;order:2;margin-top:0}.creator-hero .creator-topics{grid-column:1;order:3;grid-template-columns:1fr 1fr;margin-top:24px}.creator-topics span:nth-child(3){border-left:0;border-top:1px solid var(--line)}.creator-topics span:nth-child(4){border-top:1px solid var(--line)}.garden-section{padding-top:66px}.garden-section-head{grid-template-columns:1fr;gap:8px}.garden-section-head h2{font-size:29px}.garden-section-head p{justify-self:start}.creator-services{display:none}.garden-contact{margin-top:72px}}
+
+/* Interactive portrait: light 3D tilt plus a click-to-smile state */
+.creator-portrait{--tilt-x:0deg;--tilt-y:0deg;appearance:none;width:100%;padding:0;border:0;background:transparent;color:inherit;cursor:pointer;transform:perspective(900px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));transform-style:preserve-3d;transition:transform .22s cubic-bezier(.2,.8,.2,1);will-change:transform}
+.creator-portrait:focus-visible{outline:3px solid var(--accent);outline-offset:10px;border-radius:30px}
+.creator-avatar-stage{position:relative;display:block;width:100%;aspect-ratio:1;border:1px solid var(--text);border-radius:30px;background:var(--accent);box-shadow:18px 18px 0 var(--accent);overflow:hidden;transform:translateZ(18px)}
+.creator-portrait img{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;border:0;border-radius:inherit;object-fit:cover;box-shadow:none;transition:opacity .24s ease,transform .5s cubic-bezier(.2,.8,.2,1)}
+.creator-avatar-idle{opacity:1}.creator-avatar-smile{opacity:0;transform:scale(1.025)}
+.creator-portrait.is-smiling .creator-avatar-idle{opacity:0;transform:scale(.985)}.creator-portrait.is-smiling .creator-avatar-smile{opacity:1;transform:scale(1)}
+.creator-portrait.is-smiling{animation:creator-smile-pop .58s cubic-bezier(.2,.9,.25,1)}
+.creator-portrait .creator-sticker{transform:translateZ(42px) rotate(9deg);transition:background .22s ease,transform .22s ease}.creator-portrait:hover .creator-sticker,.creator-portrait.is-smiling .creator-sticker{background:var(--accent);transform:translateZ(48px) rotate(3deg) scale(1.04)}
+@keyframes creator-smile-pop{0%,100%{scale:1}42%{scale:1.035}68%{scale:.995}}
+@media(max-width:720px){.creator-portrait{width:min(230px,70vw)}.creator-avatar-stage{box-shadow:10px 12px 0 var(--accent)}}
+@media(prefers-reduced-motion:reduce){.creator-portrait,.creator-portrait img,.creator-portrait .creator-sticker{transition:none}.creator-portrait.is-smiling{animation:none}}
 .site-header{background:color-mix(in srgb,var(--bg) 94%,transparent)}
 .btn,.filter-btn,.wechat-trigger{border-radius:999px}
 .btn,.filter-btn,.header-icon,.nav a{font-weight:500}
@@ -166,3 +179,22 @@ html[data-theme="dark"] .garden-tool-featured,html[data-theme="dark"] .garden-co
 html[data-theme="dark"] .garden-socials .platform-x{color:#f2f2f2}html[data-theme="dark"] .garden-socials .platform-github{color:#f0f0f0}
 .email-dialog{width:min(430px,calc(100% - 32px));max-height:calc(100dvh - 32px);padding:0;border:0;border-radius:24px;background:transparent;color:var(--text);overflow:visible}.email-dialog::backdrop{background:rgba(10,10,10,.7);backdrop-filter:blur(3px)}.email-dialog-card{position:relative;display:flex;flex-direction:column;align-items:center;padding:36px;border:1px solid var(--line);border-radius:24px;background:var(--panel);box-shadow:0 26px 80px rgba(0,0,0,.24);text-align:center}.email-dialog-close{position:absolute;top:15px;right:15px;display:grid;place-items:center;width:34px;height:34px;padding:0;border:0;border-radius:50%;background:transparent;color:var(--muted);cursor:pointer}.email-dialog-close:hover{background:var(--accent-soft);color:var(--text)}.email-dialog-close svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round}.email-dialog-mark{display:grid;width:54px;height:54px;place-items:center;border-radius:15px;background:#12b7f5;color:#fff}.email-dialog-mark svg{width:30px;height:30px;fill:currentColor}.email-dialog-card h2{margin:18px 0 10px;font-size:20px;font-weight:500}.email-dialog-card code{display:block;width:100%;padding:13px 16px;border:1px solid var(--line);border-radius:12px;background:var(--bg);color:var(--text);font-family:var(--font-sans);font-size:17px}.email-copy-button{min-height:44px;margin-top:16px;padding:0 22px;border:0;border-radius:999px;background:var(--text);color:var(--bg);font-size:13px;font-weight:500;cursor:pointer}.email-copy-button:hover{transform:translateY(-1px)}.email-dialog-card p{min-height:20px;margin:12px 0 0;color:var(--muted);font-size:11px}.email-dialog[open]{animation:wechat-dialog-in .22s ease-out}.email-dialog[open]::backdrop{animation:wechat-backdrop-in .2s ease-out}
 @media(max-width:720px){.email-dialog-card{padding:32px 22px 26px}.email-dialog-card code{font-size:15px}}
+
+/* Cut-out 3D character: transparent silhouette, depth, float and click reaction */
+.creator-portrait{isolation:isolate;min-height:390px;display:grid;place-items:end center;transform-origin:50% 72%}
+.creator-portrait:before{content:"";position:absolute;left:12%;right:5%;bottom:8%;z-index:-2;height:70%;border-radius:50%;background:radial-gradient(circle at 52% 48%,rgba(255,210,26,.26),rgba(255,210,26,.09) 45%,transparent 70%);filter:blur(8px);transform:translateZ(-30px) scale(.9);transition:opacity .35s ease,transform .5s ease}
+.creator-portrait:after{content:"";position:absolute;left:19%;right:8%;bottom:2%;z-index:-1;height:10%;border-radius:50%;background:rgba(17,17,17,.24);filter:blur(15px);transform:translateZ(-20px) scaleX(.88);opacity:.55;animation:creator-shadow-float 4.8s ease-in-out infinite}
+.creator-avatar-stage{position:relative;width:118%;margin-left:-9%;aspect-ratio:1;border:0;border-radius:0;background:transparent;box-shadow:none;overflow:visible;transform:translateZ(34px);animation:creator-float 4.8s ease-in-out infinite;filter:drop-shadow(0 24px 22px rgba(17,17,17,.18))}
+.creator-portrait img{inset:auto 0 0;width:100%;height:100%;border:0;border-radius:0;object-fit:contain;object-position:center bottom;filter:none;mask-image:linear-gradient(to bottom,#000 0,#000 93%,transparent 100%);will-change:opacity,transform}
+.creator-avatar-idle{transform:translateZ(20px) scale(1)}
+.creator-avatar-smile{transform:translateZ(22px) translateY(5px) scale(.995)}
+.creator-portrait.is-smiling .creator-avatar-idle{transform:translateZ(20px) translateY(-5px) scale(1.025)}
+.creator-portrait.is-smiling .creator-avatar-smile{transform:translateZ(28px) translateY(-5px) scale(1.025)}
+.creator-portrait.is-smiling:before{opacity:.95;transform:translateZ(-30px) scale(1.02)}
+.creator-portrait .creator-sticker{right:-6px;top:6px;z-index:4;width:76px;height:76px;border:1px solid var(--text);background:var(--bg);box-shadow:0 12px 30px rgba(17,17,17,.12);line-height:1.25;text-align:center}
+.creator-portrait:hover .creator-avatar-stage{filter:drop-shadow(0 30px 25px rgba(17,17,17,.23))}
+@keyframes creator-float{0%,100%{translate:0 0}50%{translate:0 -10px}}
+@keyframes creator-shadow-float{0%,100%{opacity:.54;scale:1}50%{opacity:.36;scale:.88}}
+@media(max-width:900px){.creator-portrait{min-height:310px}.creator-avatar-stage{width:114%;margin-left:-7%}}
+@media(max-width:720px){.creator-portrait{width:min(280px,82vw);min-height:285px;margin-inline:auto}.creator-avatar-stage{width:112%;margin-left:-6%}.creator-portrait .creator-sticker{right:-4px;top:2px;width:62px;height:62px}.creator-portrait:after{bottom:0}}
+@media(prefers-reduced-motion:reduce){.creator-avatar-stage,.creator-portrait:after{animation:none}}

@@ -4,7 +4,7 @@
   const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
   document.querySelectorAll('[data-config-link]').forEach(el => { const key = el.dataset.configLink; const value = cfg[key]; if (value) el.href = key === 'email' ? `mailto:${value}` : value; });
   document.querySelectorAll('[data-config-text]').forEach(el => { const value = cfg[el.dataset.configText]; if (value) el.textContent = value; });
-  document.querySelectorAll('.nav a').forEach(link => { if (!isEnglish && link.textContent.trim() === '关于老侯') link.textContent = '关于我'; });
+  document.querySelectorAll('.nav a').forEach(link => { if (!isEnglish && link.textContent.trim() === '关于二两神仙') link.textContent = '关于我'; });
 
   const theme = document.querySelector('.theme-toggle');
   if (theme) {

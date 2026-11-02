@@ -1,0 +1,212 @@
+.brand{font-weight:650}.brand i{font-weight:600}
+.hero .kicker{font-weight:570}.hero h1{font-weight:690;letter-spacing:-1px}.hero p{font-weight:400}
+.intro-statement{font-weight:520;line-height:1.75;letter-spacing:-.5px;font-size:clamp(23px,3vw,31px)}
+.blockhead{margin-bottom:12px}.blockhead h2{font-size:24px;font-weight:630;letter-spacing:-.4px}.blockhead p{font-size:12px;font-weight:400;letter-spacing:.1px}
+.smallmore{color:var(--muted);font-weight:450}.rows{border-top:0}
+.entry{padding:25px 2px 27px;border-bottom:1px solid var(--line)}.entry .date{font-size:11px;color:#858585;letter-spacing:1.1px;text-transform:uppercase;font-weight:470;margin-bottom:10px}
+.entry .entry-title{font-size:20px;line-height:1.55;font-weight:590;letter-spacing:-.25px}.entry .entry-sub{font-size:14px;line-height:1.8;margin-top:8px}
+.toolgrid{gap:0;border-top:1px solid var(--line)}.toolcard{border:none;border-bottom:1px solid var(--line);border-radius:0;min-height:120px;padding:23px 12px 25px 0}.toolcard:nth-child(even){padding-left:18px}.toolcard h3{font-size:17px;font-weight:560}.toolcard p{font-size:13px}
+.pill{border:0;background:var(--soft);border-radius:3px;color:var(--muted);font-size:10px}
+.footer{display:grid;grid-template-columns:1fr 1fr;gap:48px;padding-top:45px}.footer h2{font-size:25px;font-weight:620}.footer .socials{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 12px;align-content:start;font-size:13px}
+.pagehead h1{font-weight:530;font-size:43px;letter-spacing:-1px}.pagehead .kicker{font-weight:500}.reading h1{font-weight:540}.service h3{font-weight:520}
+.entry .entry-title{font-weight:520}.blockhead h2{font-weight:560}.hero h1{font-weight:620}.hero .kicker{font-weight:500}.brand{font-weight:560}
+@media(max-width:720px){.nav button{font-size:12px}.intro-statement{font-size:23px}.entry .entry-title{font-size:18px}.footer{display:block}.footer .socials{display:grid;grid-template-columns:repeat(2,1fr);margin-top:24px}}
+
+/* V3: deliberately lighter Chinese typography; remove the illustration-like hero. */
+.hero:before,.hero:after{display:none!important}
+.hero{min-height:555px;padding-top:188px;margin-top:-65px}
+.brand,.brand i{font-weight:500!important}
+.hero .kicker{font-weight:400!important;font-size:19px;color:var(--muted)}
+.hero h1{font-weight:500!important;font-size:35px;letter-spacing:-.8px;margin:8px 0 10px}
+.hero p{font-weight:400!important;font-size:15px}
+.hero .link{font-weight:400!important;font-size:14px}
+.intro-statement{font-weight:400!important;font-size:clamp(20px,2.6vw,27px);line-height:1.9;letter-spacing:0;padding-bottom:72px}
+.intro-statement span{font-weight:400!important}
+.blockhead h2,.footer h2{font-weight:500!important}
+.entry .entry-title,.toolcard h3{font-weight:400!important}
+.pagehead h1,.reading h1{font-weight:500!important}
+@media(max-width:720px){.hero{min-height:475px;padding-top:166px}.hero h1{font-size:31px}.intro-statement{font-size:19px;line-height:1.85;padding-bottom:48px}}
+
+/* V4: restore the spacious orbital stage, retaining restrained typography. */
+.hero{min-height:900px;padding-top:385px;overflow:hidden}
+.hero:before,.hero:after{display:block!important}
+.hero:before{opacity:.34;animation:orbit-drift 23s ease-in-out infinite alternate}
+.hero:after{opacity:.82;animation:arc-breathe 18s ease-in-out infinite alternate}
+.hero .kicker,.hero h1,.hero p,.hero .actions{position:relative;z-index:1}
+@keyframes orbit-drift{from{background-position:10px 12px}to{background-position:40px 28px}}
+@keyframes arc-breathe{from{opacity:.82;transform:translateX(-50%) translateY(0)}to{opacity:.95;transform:translateX(-50%) translateY(15px)}}
+.intro-statement{font-size:clamp(19px,2.1vw,22px);line-height:1.85;padding-bottom:55px}
+.intro-statement span{color:var(--muted)}
+.project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.project-card{display:block;text-align:left;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:10px;padding:25px 22px;min-height:168px;cursor:pointer;transition:border-color .2s,transform .2s}
+.project-card:hover{border-color:#b7b7b7;transform:translateY(-2px)}
+.project-card .date{display:block;margin-bottom:18px;font-size:12px;color:var(--muted)}
+.project-card .entry-title{display:block;font-size:18px;font-weight:450;line-height:1.5}
+.project-card .entry-sub{display:block;margin-top:9px;font-size:13px;line-height:1.7;color:var(--muted)}
+.socials a{color:var(--muted);text-decoration:none}.socials a:hover{color:var(--ink);text-decoration:underline}
+@media(max-width:720px){.hero{min-height:760px;padding-top:325px}.hero:after{top:215px;width:190vw;height:210px}.intro-statement{font-size:18px;padding-bottom:45px}.project-grid{grid-template-columns:1fr}.project-card{min-height:138px;padding:20px}}
+@media(prefers-reduced-motion:reduce){.hero:before,.hero:after{animation:none}.project-card{transition:none}}
+.nav [data-page="services"]{display:none}
+.nav [data-page="writing"]{order:1}.nav [data-page="cases"]{order:2}.nav [data-page="tools"]{order:3}.nav [data-page="about"]{order:4}.nav .theme{order:5}
+.nav [data-page="home"]{order:0}
+
+/* V5: full-bleed, visibly moving orbital background. The hero stays spacious. */
+.hero{overflow:visible;isolation:auto}
+.hero:before{left:50%;top:22px;width:100vw;height:680px;max-width:none;z-index:0;opacity:1;
+  background-image:
+    radial-gradient(circle at 14% 39%,#9ea3a0 0 5px,transparent 6px),
+    radial-gradient(circle at 83% 25%,#a5aaa6 0 7px,transparent 8px),
+    radial-gradient(circle at 27% 79%,#adb2ae 0 4px,transparent 5px),
+    radial-gradient(circle at 74% 71%,#b3b8b4 0 6px,transparent 7px),
+    radial-gradient(circle at 49% 12%,#a5aaa6 0 3px,transparent 4px),
+    radial-gradient(circle at 91% 54%,#9fa5a0 0 3px,transparent 4px),
+    radial-gradient(#aeb1ae .8px,transparent 1px);
+  background-size:100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,57px 45px;
+  animation:visible-orbit 14s ease-in-out infinite alternate;
+}
+.hero:after{z-index:0;top:230px;width:100vw;max-width:none;height:270px;opacity:1;border-top-color:#bfc2bf;background:linear-gradient(180deg,#dedfdf 0%,#f5f5f5 52%,#fff 90%)}
+.hero .kicker,.hero h1,.hero p,.hero .actions{position:relative;z-index:2}
+@keyframes visible-orbit{0%{transform:translateX(-50%) translateY(-11px);filter:opacity(.72)}100%{transform:translateX(-50%) translateY(21px);filter:opacity(1)}}
+@media(max-width:720px){.hero:before{height:600px}.hero:after{width:150vw;top:215px}}
+@media(prefers-reduced-motion:reduce){.hero:before{animation:none}}
+.hero:after{height:340px;background:linear-gradient(180deg,#e1e2e1 0%,#f7f7f7 46%,#fff 80%);-webkit-mask-image:linear-gradient(#000 0%,#000 60%,transparent 100%);mask-image:linear-gradient(#000 0%,#000 60%,transparent 100%)}
+
+/* V6: tighter scroll rhythm while preserving the full-bleed floating hero. */
+.hero{min-height:740px;padding-top:310px}
+.hero:after{top:195px}
+.hero:before{top:0;height:610px}
+.intro-statement{padding-top:0;padding-bottom:38px}
+.connect-block{margin-top:68px;border-top:1px solid var(--line);padding:38px 0 20px}
+.connect-block h2{font-size:24px;font-weight:500;letter-spacing:-.3px;margin:0 0 10px}
+.connect-block>p{font-size:14px;color:var(--muted);margin:0 0 25px;line-height:1.8}
+.connect-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.connect-card{display:flex;flex-direction:column;gap:13px;align-items:flex-start;justify-content:center;min-height:108px;border:1px solid var(--line);border-radius:10px;padding:17px;background:transparent;color:var(--ink);font-size:13px;text-align:left}
+a.connect-card:hover{border-color:#989898;transform:translateY(-1px)}
+.connect-card svg{width:27px;height:27px;display:block}
+.connect-card .sub{font-size:11px;color:var(--muted)}
+.wechat-contact{display:flex;align-items:center;gap:18px;margin-top:16px;border:1px solid var(--line);border-radius:10px;padding:20px}
+.wechat-mark{width:45px;height:45px;display:grid;place-items:center;background:#f0faf2;border-radius:12px;color:#11a84a;flex-shrink:0}
+.wechat-mark svg{width:30px;height:30px}
+.wechat-contact strong{font-size:15px;font-weight:500}.wechat-contact p{font-size:12px;line-height:1.7;color:var(--muted);margin:5px 0 0}
+.wechat-contact a{margin-left:auto;font-size:12px;border:1px solid var(--line);padding:10px 14px;border-radius:6px;white-space:nowrap}
+@media(max-width:720px){.hero{min-height:660px;padding-top:285px}.hero:after{top:195px}.hero:before{height:570px}.connect-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.wechat-contact{align-items:flex-start;flex-wrap:wrap}.wechat-contact a{margin-left:0}}
+
+/* V7: social links belong to the hero, not a second page section. */
+.hero{min-height:740px}
+.hero .connect-block{position:relative;z-index:3;width:min(550px,100%);margin:20px auto 0;padding:0;border:0}
+.hero .connect-block h2,.hero .connect-block>p{display:none}
+.hero .connect-grid{display:flex;align-items:center;justify-content:center;gap:13px}
+.hero .connect-card{min-height:0;min-width:0;width:auto;padding:8px 11px;border:0;border-radius:7px;display:flex;flex-direction:row;gap:7px;align-items:center;font-size:12px;color:var(--muted);background:rgba(255,255,255,.68)}
+.hero .connect-card svg{width:19px;height:19px;flex-shrink:0}
+.hero .connect-card .sub{display:none}
+.hero .connect-card:hover{background:rgba(240,240,240,.85);transform:none}
+.hero .wechat-contact{border:0;padding:0;gap:6px;justify-content:center;margin-top:7px;background:transparent}
+.hero .wechat-mark{width:19px;height:19px;border-radius:0;background:transparent}
+.hero .wechat-mark svg{width:18px;height:18px}
+.hero .wechat-contact strong{font-weight:400;font-size:12px;color:var(--muted)}
+.hero .wechat-contact p{font-size:11px;margin:0}
+.hero .wechat-contact a{font-size:11px;padding:4px 7px;border:0;color:var(--muted);margin-left:0}
+body:has(#home.active) .footer .socials{display:none}
+.hero:before{background-image:radial-gradient(#a8ada8 .8px,transparent 1px);background-size:57px 45px;opacity:.55}
+.orbit-dot{position:absolute;z-index:1;display:block;width:9px;height:9px;border-radius:50%;background:#969e98;opacity:.55;pointer-events:none;animation:float-independent var(--duration,8s) ease-in-out infinite alternate}
+.dot-1{left:-43%;top:20%;--duration:6.5s;--dx:26px;--dy:52px}.dot-2{left:4%;top:40%;width:7px;height:7px;--duration:9s;--dx:-21px;--dy:-42px}
+.dot-3{left:27%;top:11%;width:5px;height:5px;--duration:7.3s;--dx:19px;--dy:32px}.dot-4{left:83%;top:25%;width:14px;height:14px;--duration:10s;--dx:-27px;--dy:51px}
+.dot-5{left:111%;top:38%;--duration:6.8s;--dx:18px;--dy:-40px}.dot-6{left:12%;top:62%;width:6px;height:6px;--duration:8.7s;--dx:32px;--dy:-56px}
+.dot-7{left:130%;top:58%;width:10px;height:10px;--duration:7.8s;--dx:-31px;--dy:44px}
+@keyframes float-independent{0%{transform:translate3d(0,0,0);opacity:.33}100%{transform:translate3d(var(--dx),var(--dy),0);opacity:.85}}
+@media(max-width:720px){.hero{min-height:690px}.hero .connect-grid{flex-wrap:wrap;gap:4px}.hero .connect-card{padding:5px 7px;font-size:11px}.hero .connect-card svg{width:17px;height:17px}.hero .wechat-contact{margin-top:3px}.hero .wechat-contact p{max-width:220px}.dot-1{left:-12%}.dot-7{left:90%}}
+@media(prefers-reduced-motion:reduce){.orbit-dot{animation:none}}
+.hero .wechat-contact{margin:0;padding:8px 11px;flex-wrap:nowrap;gap:7px;background:rgba(255,255,255,.68);border-radius:7px}
+.hero .wechat-contact p,.hero .wechat-contact a{display:none}
+.hero .wechat-mark{width:19px;height:19px;flex-shrink:0}
+.hero .wechat-contact strong{white-space:nowrap}
+body:has(#home.active) .footer{display:none}
+.hero .connect-grid{gap:17px}
+.hero .connect-card{padding:7px;justify-content:center}
+.hero .connect-card span{display:none}
+.hero .connect-card svg{width:22px;height:22px}
+.hero .wechat-contact{padding:7px 9px}
+.hero .connect-card svg,.hero .wechat-mark svg{filter:grayscale(1);opacity:.68;transition:filter .2s,opacity .2s}
+.hero .wechat-mark{color:#777;background:transparent}
+.hero .connect-card:hover svg,.hero .connect-card:focus-visible svg,.hero .wechat-contact:hover svg,.hero .wechat-contact:focus-visible svg{filter:grayscale(1) brightness(.45);opacity:1}
+.hero .wechat-contact{cursor:pointer;color:#777}
+.hero .wechat-contact:hover,.hero .wechat-contact:focus-visible{color:#222;background:rgba(235,235,235,.85)}
+.wechat-dialog{border:1px solid #ddd;border-radius:14px;padding:35px 30px 30px;max-width:min(390px,calc(100vw - 40px));box-shadow:0 20px 90px #0002;background:#fff;color:#222}
+.wechat-dialog::backdrop{background:#0006;backdrop-filter:blur(3px)}
+.wechat-dialog .dialog-close{position:absolute;right:13px;top:10px;background:none;border:0;color:#777;font-size:25px}
+.wechat-dialog .dialog-icon{font-size:20px;font-weight:500}.wechat-dialog p{font-size:14px;line-height:1.9;color:#777;margin:17px 0 23px}
+.wechat-dialog a{display:inline-block;border-radius:6px;padding:12px 16px;background:#171717;color:#fff;font-size:13px}
+.hero .wechat-contact strong{display:none}
+
+/* V9: calm day sky / starry night, sharing the same readable orbital stage. */
+body{transition:background-color .72s ease,color .5s ease}
+.hero:before{background-image:
+  radial-gradient(circle at 29% 24%,rgba(255,255,255,.9) 0,rgba(255,255,255,0) 23%),
+  radial-gradient(circle at 79% 18%,rgba(255,255,255,.8) 0,rgba(255,255,255,0) 19%),
+  radial-gradient(#afc4d2 .72px,transparent 1px),
+  linear-gradient(180deg,#eaf5fc 0%,#f3f9fd 41%,#fff 94%);
+  background-size:100% 100%,100% 100%,57px 45px,100% 100%;
+  opacity:1;animation:day-sky-drift 27s ease-in-out infinite alternate;
+}
+.hero:after{border-top-color:rgba(147,184,203,.35);background:linear-gradient(180deg,rgba(219,238,248,.68),rgba(248,252,254,.67) 46%,#fff 86%);opacity:.82;animation:none}
+@keyframes day-sky-drift{from{background-position:0 0,0 0,10px 12px,0 0}to{background-position:0 0,0 0,30px 26px,0 0}}
+.orbit-dot{background:#9bafbd;opacity:.4;transition:background-color .7s}
+.night-sky{position:absolute;z-index:1;left:50%;top:0;width:100vw;height:665px;transform:translateX(-50%);pointer-events:none;opacity:0;
+  background:linear-gradient(180deg,#18283e 0%,#1c2e45 38%,#1c2839 69%,#171918 100%);
+  transition:opacity .85s ease;overflow:hidden;
+  -webkit-mask-image:linear-gradient(#000 0%,#000 72%,transparent 100%);
+  mask-image:linear-gradient(#000 0%,#000 72%,transparent 100%);
+}
+.night-sky:before{content:'';position:absolute;inset:0;opacity:.57;
+  background-image:
+    radial-gradient(circle at 13% 20%,#d9e5ff 0 1.1px,transparent 1.8px),
+    radial-gradient(circle at 74% 35%,#dce9ff 0 1.4px,transparent 2px),
+    radial-gradient(circle at 57% 13%,#c7daf4 0 1px,transparent 1.7px),
+    radial-gradient(circle at 87% 58%,#e5edff 0 1.1px,transparent 1.8px),
+    radial-gradient(#d6e4ff .65px,transparent 1px);
+  background-size:100% 100%,100% 100%,100% 100%,100% 100%,77px 69px;
+  animation:night-sky-breathe 19s ease-in-out infinite alternate;
+}
+.night-sky:after{content:'';position:absolute;left:-20%;width:140%;height:380px;top:200px;border-radius:50% 50% 0 0/100% 100% 0 0;border-top:1px solid rgba(174,200,234,.14);
+  background:linear-gradient(180deg,rgba(87,114,151,.13),transparent 75%)}
+@keyframes night-sky-breathe{from{opacity:.36;transform:translateY(-3px)}to{opacity:.66;transform:translateY(9px)}}
+body.dark .night-sky{opacity:1}
+body.dark .hero:after{opacity:0}
+body.dark .hero:before{opacity:0;filter:none}
+body.dark .orbit-dot{background:#d4e2f6;opacity:.43}
+body.dark .hero .kicker{color:#c1ccdb}
+body.dark .hero h1{color:#f5f8ff}
+body.dark .hero p{color:#c4cede}
+body.dark .hero .link:not(.secondary){background:#eef3fa;color:#172337}
+body.dark .hero .link.secondary{background:rgba(24,37,56,.45);color:#e3ebf7;border-color:rgba(207,220,240,.48)}
+body.dark .hero .connect-card,body.dark .hero .wechat-contact{background:rgba(25,39,59,.25);color:#d9e3f2}
+body.dark .hero .connect-card svg,body.dark .hero .wechat-mark svg{filter:grayscale(1) brightness(1.9);opacity:.8}
+body.dark .hero .connect-card:hover,body.dark .hero .wechat-contact:hover{background:rgba(226,236,250,.13)}
+body.dark .nav button{color:#bec6d0}
+body.dark .nav button.active{background:#eef3fa;color:#162236}
+body.dark .nav button:hover:not(.active){background:rgba(209,222,241,.1)}
+body.dark .brand i{background:#edf3fa;color:#172337}
+body.dark .theme{border-color:#576272!important}
+body.dark .intro-statement span{color:#a6b3c3}
+@media(max-width:720px){.night-sky{height:595px}.night-sky:after{top:188px}}
+@media(prefers-reduced-motion:reduce){body,.night-sky,.orbit-dot{transition:none}.night-sky:before,.hero:before{animation:none}}
+
+/* Keep the sky artwork while bringing the first content section closer. */
+.hero{min-height:600px;padding-top:270px}
+.hero:after{top:155px}
+.night-sky:after{top:160px}
+@media(max-width:720px){.hero{min-height:590px;padding-top:255px}.hero:after{top:165px}.night-sky:after{top:158px}}
+
+/* A quiet welcome illustration beside the introduction. */
+.hero .hero-welcome{position:absolute;z-index:2;width:125px;height:125px;object-fit:contain;top:255px;left:calc(50% + 250px);pointer-events:none;transform-origin:50% 85%;animation:welcome-wave 3.8s ease-in-out infinite}
+@keyframes welcome-wave{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-6px) rotate(3deg)}}
+@media(max-width:720px){.hero .hero-welcome{width:70px;height:70px;top:190px;left:calc(50% + 100px)}}
+@media(prefers-reduced-motion:reduce){.hero .hero-welcome{animation:none}}
+
+/* Let the welcome illustration sit naturally above the introduction. */
+.hero .hero-welcome{width:160px;height:160px;top:88px;left:50%;margin-left:-80px;filter:drop-shadow(0 9px 16px rgba(44,66,84,.10));animation:welcome-float 4.6s ease-in-out infinite}
+@keyframes welcome-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@media(max-width:720px){.hero .hero-welcome{width:140px;height:140px;top:94px;left:50%;margin-left:-70px}}
+@media(prefers-reduced-motion:reduce){.hero .hero-welcome{animation:none}}
+.hero .hero-welcome{width:190px;height:190px;top:66px;margin-left:-95px}
+@media(max-width:720px){.hero .hero-welcome{width:165px;height:165px;top:75px;margin-left:-82.5px}}
